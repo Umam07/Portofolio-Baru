@@ -15,25 +15,37 @@
     <span class="hidden sm:inline-block">Frontend & UI/UX · syafiul.id</span>
   </div>
 
-  <!-- Center Focal Icon & Label -->
+  <!-- Center Focal Multilingual Greetings -->
   <div class="preloader-elem flex flex-col items-center justify-center my-auto">
-    <!-- Geometric LogoMark with Warm Ambient Glow -->
-    <div class="relative flex items-center justify-center">
-      <div class="absolute -inset-4 rounded-full bg-[#cc785c]/15 dark:bg-[#cc785c]/20 blur-xl animate-pulse"></div>
-      
-      <svg
-        viewBox="0 0 141 141"
-        class="w-12 h-12 sm:w-14 sm:h-14 text-[#141413] dark:text-[#faf9f5] relative z-10 transition-transform duration-700 ease-out hover:scale-105"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M 79.1753 140.756 L 15.1742 140.756 L 79.1753 76.7549 L 79.1753 140.756 Z M 140.756 114.089 L 109.966 140.756 L 109.966 30.7904 L 0 30.7904 L 26.3918 0 L 140.756 0 L 140.756 114.089 Z M 0 112.386 L 0 61.5808 L 50.8052 61.5808 L 0 112.386 Z" />
-      </svg>
+    
+    <!-- Small Geometric Logo Mark Indicator -->
+    <div class="mb-5 flex items-center justify-center">
+      <div class="w-7 h-7 flex items-center justify-center text-[#cc785c]">
+        <svg
+          viewBox="0 0 141 141"
+          class="w-6 h-6 text-[#cc785c]"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M 79.1753 140.756 L 15.1742 140.756 L 79.1753 76.7549 L 79.1753 140.756 Z M 140.756 114.089 L 109.966 140.756 L 109.966 30.7904 L 0 30.7904 L 26.3918 0 L 140.756 0 L 140.756 114.089 Z M 0 112.386 L 0 61.5808 L 50.8052 61.5808 L 0 112.386 Z" />
+        </svg>
+      </div>
     </div>
 
-    <!-- Editorial Subtitle -->
-    <div class="mt-5 flex items-center gap-2 text-xs font-mono text-[#6c6a64] dark:text-[#a09d96] tracking-wider uppercase">
-      <span>Crafting Interfaces</span>
+    <!-- Dynamic Serif Multilingual Word Carousel Container -->
+    <div class="flex items-center justify-center gap-3 sm:gap-4 h-16 sm:h-20">
+      <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#cc785c] shrink-0"></span>
+      <h2
+        id="preloader-greeting-text"
+        class="font-display font-light text-3xl sm:text-5xl md:text-6xl text-[#141413] dark:text-[#faf9f5] tracking-tight leading-none min-w-[200px] sm:min-w-[340px]"
+      >
+        Hello
+      </h2>
+    </div>
+
+    <!-- Country / Language Micro Label -->
+    <div class="mt-4 flex items-center gap-2 text-xs font-mono text-[#6c6a64] dark:text-[#a09d96] tracking-wider uppercase">
+      <span id="preloader-lang-label">English</span>
       <span class="inline-block w-1.5 h-3 bg-[#cc785c] animate-pulse"></span>
     </div>
   </div>
@@ -69,22 +81,60 @@
   import { gsap } from 'gsap';
 
   const preloader = document.getElementById('preloader');
+  const greetingEl = document.getElementById('preloader-greeting-text');
+  const langLabelEl = document.getElementById('preloader-lang-label');
   const progressBar = document.getElementById('preloader-progress-bar');
   const counterEl = document.getElementById('preloader-counter');
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const greetings = [
+    { text: 'Hello', lang: 'English' },
+    { text: 'Bonjour', lang: 'Français' },
+    { text: 'Ciao', lang: 'Italiano' },
+    { text: 'Hola', lang: 'Español' },
+    { text: 'こんにちは', lang: 'Japanese' },
+    { text: 'Guten Tag', lang: 'Deutsch' },
+    { text: 'Olá', lang: 'Português' },
+    { text: 'Selamat Datang', lang: 'Bahasa Indonesia' },
+  ];
 
   if (preloader) {
     if (prefersReduced) {
       preloader.style.display = 'none';
     } else {
       let progress = { value: 0 };
+      let currentIndex = 0;
+
+      // Cycle greetings synchronized with duration
+      const totalDuration = 1.6; // seconds
+      const intervalMs = (totalDuration * 1000) / greetings.length;
+
+      const cycleInterval = setInterval(() => {
+        if (currentIndex < greetings.length - 1) {
+          currentIndex++;
+          const current = greetings[currentIndex];
+          if (greetingEl) {
+            gsap.fromTo(
+              greetingEl,
+              { opacity: 0, y: 6 },
+              { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' }
+            );
+            greetingEl.textContent = current.text;
+          }
+          if (langLabelEl) {
+            langLabelEl.textContent = current.lang;
+          }
+        } else {
+          clearInterval(cycleInterval);
+        }
+      }, intervalMs);
 
       // Fluid non-linear counter animation
       gsap.to(progress, {
         value: 100,
-        duration: 1.1,
-        ease: 'power3.inOut',
+        duration: totalDuration,
+        ease: 'power2.inOut',
         onUpdate: () => {
           const rounded = Math.round(progress.value);
           const formatted = rounded < 10 ? `0${rounded}%` : `${rounded}%`;
@@ -92,32 +142,39 @@
           if (progressBar) progressBar.style.width = `${rounded}%`;
         },
         onComplete: () => {
-          // Graceful exit timeline
-          const tl = gsap.timeline({
-            onComplete: () => {
-              preloader.style.display = 'none';
-              document.body.style.overflow = '';
-            },
-          });
+          clearInterval(cycleInterval);
+          // Ensure final greeting is displayed
+          if (greetingEl) greetingEl.textContent = 'Selamat Datang';
+          if (langLabelEl) langLabelEl.textContent = 'Bahasa Indonesia';
 
-          // 1. Fade out inner elements with a soft upward drift
-          tl.to('.preloader-elem', {
-            opacity: 0,
-            y: -18,
-            duration: 0.45,
-            stagger: 0.05,
-            ease: 'power2.in',
-          })
-          // 2. Slide the entire preloader overlay upwards smoothly
-          .to(
-            preloader,
-            {
-              yPercent: -100,
-              duration: 0.75,
-              ease: 'power4.inOut',
-            },
-            '-=0.15'
-          );
+          // Brief pause on "Selamat Datang" then smooth slide up
+          gsap.delayedCall(0.35, () => {
+            const tl = gsap.timeline({
+              onComplete: () => {
+                preloader.style.display = 'none';
+                document.body.style.overflow = '';
+              },
+            });
+
+            // 1. Fade out elements with an upward drift
+            tl.to('.preloader-elem', {
+              opacity: 0,
+              y: -20,
+              duration: 0.4,
+              stagger: 0.04,
+              ease: 'power2.in',
+            })
+            // 2. Slide the preloader screen upwards smoothly
+            .to(
+              preloader,
+              {
+                yPercent: -100,
+                duration: 0.8,
+                ease: 'power4.inOut',
+              },
+              '-=0.15'
+            );
+          });
         },
       });
     }
