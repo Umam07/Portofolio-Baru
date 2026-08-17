@@ -53,7 +53,7 @@ export const portfolioData = {
     subtext: 'Translating Figma design tokens into fluid, accessible, and ultra-performant web experiences.',
     location: 'Jakarta, Indonesia (UTC+7)',
     timezone: 'Asia/Jakarta',
-    status: 'Available for Q3/Q4 2026 Projects',
+    status: 'Open for Projects',
     isAvailable: true,
     email: 'muhammadumamsyafiul@gmail.com',
     resumeUrl: '#',
