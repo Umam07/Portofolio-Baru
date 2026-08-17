@@ -123,7 +123,7 @@ export const portfolioData = {
       role: 'Frontend Developer & UI Implementation',
       year: '2025',
       featured: true,
-      image: '/images/projects/pentadosen.jpg',
+      image: '/images/projects/pentadosen.png',
       tags: ['React', 'Vite', 'Tailwind CSS', 'TypeScript', 'REST API', 'Figma UI'],
       summary: 'Centralized portal empowering university lecturers to monitor research grants, publication milestones, intellectual property (HKI), and academic activity calendars.',
       description: 'PentaDosen was built to solve fragmented academic documentation for lecturers. Developed a modular, responsive dashboard featuring research grant tracking, publication status overviews, HKI intellectual property approval workflows, and an academic calendar schedule.',
@@ -218,7 +218,7 @@ export const portfolioData = {
     title: "Muhammad Syafi'ul Umam — Frontend Developer & UI/UX Designer",
     description: "Portfolio of Muhammad Syafi'ul Umam (Umam), an Information Technology student at Universitas YARSI specializing in Frontend Development & UI/UX Design. Building responsive, accessible, and production-ready web applications.",
     url: 'https://syafiul.id',
-    ogImage: '/images/projects/pentadosen.jpg',
+    ogImage: '/images/projects/pentadosen.png',
     keywords: [
       "Muhammad Syafi'ul Umam",
       "Syafi'ul Umam",
