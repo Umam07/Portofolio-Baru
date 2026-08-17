@@ -12,18 +12,17 @@ const navLinks = [
 <header class="fixed top-0 left-0 right-0 z-50 bg-[#faf9f5]/90 backdrop-blur-md border-b border-[#e6dfd8] h-16 flex items-center px-4 sm:px-6 lg:px-8 transition-all">
   <div class="w-full max-w-6xl mx-auto flex items-center justify-between">
     
-    <!-- Brand Wordmark with Anthropic-inspired Spike Mark -->
-    <a href="#" class="group flex items-center gap-2.5 text-[#141413] hover:opacity-85 transition-opacity">
-      <!-- 4-Spoke Radial Spike Mark -->
-      <svg class="w-4 h-4 text-[#141413]" viewBox="0 0 16 16" fill="currentColor">
-        <path d="M7 0h2v6.586l4.657-4.657 1.414 1.414L10.414 8l4.657 4.657-1.414 1.414L9 9.414V16H7V9.414l-4.657 4.657-1.414-1.414L5.586 8 .929 3.343 2.343 1.93 7 6.586V0z"/>
+    <!-- Brand Logo Mark Only -->
+    <a href="#" aria-label="Home" class="group flex items-center text-[#141413] hover:opacity-85 transition-opacity">
+      <svg
+        viewBox="0 0 141 141"
+        class="w-7 h-7 sm:w-8 sm:h-8 transition-all duration-300 group-hover:scale-110 text-[#141413]"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path d="M 79.1753 140.756 L 15.1742 140.756 L 79.1753 76.7549 L 79.1753 140.756 Z M 140.756 114.089 L 109.966 140.756 L 109.966 30.7904 L 0 30.7904 L 26.3918 0 L 140.756 0 L 140.756 114.089 Z M 0 112.386 L 0 61.5808 L 50.8052 61.5808 L 0 112.386 Z" />
       </svg>
-      <span class="font-medium text-sm sm:text-base tracking-tight text-[#141413] font-sans font-semibold">
-        {portfolioData.personal.name}
-      </span>
-      <span class="hidden md:inline-block text-xs font-mono text-[#8e8b82] border-l border-[#e6dfd8] pl-2.5">
-        {portfolioData.personal.designation}
-      </span>
     </a>
 
     <!-- Desktop Navigation Links -->
