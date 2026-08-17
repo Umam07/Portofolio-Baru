@@ -4,58 +4,66 @@ import { portfolioData } from '../data/portfolioData';
 const { personal } = portfolioData;
 ---
 
-<section id="contact" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+<section id="contact" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
   
-  <!-- Master CTA & Collaboration Showcase Container -->
-  <div class="relative rounded-2xl md:rounded-3xl bg-[#181715] text-[#faf9f5] border border-[#252320] shadow-2xl overflow-hidden">
+  <!-- Master CTA Container (Compact & Refined Scale) -->
+  <div class="relative rounded-2xl bg-[#181715] text-[#faf9f5] border border-[#252320] shadow-xl overflow-hidden">
     
-    <!-- Subtle Background Ambient Warm Glow -->
-    <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#cc785c]/10 blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#cc785c]/15 blur-3xl pointer-events-none"></div>
+    <!-- Subtle Ambient Warm Radial Glow -->
+    <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#cc785c]/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-[#cc785c]/15 blur-3xl pointer-events-none"></div>
 
-    <!-- Background Anthropic 4-Spoke Radial Watermark -->
-    <div class="absolute right-6 -bottom-10 opacity-[0.03] pointer-events-none select-none">
-      <svg class="w-96 h-96 text-white" viewBox="0 0 16 16" fill="currentColor">
-        <path d="M7 0h2v6.586l4.657-4.657 1.414 1.414L10.414 8l4.657 4.657-1.414 1.414L9 9.414V16H7V9.414l-4.657 4.657-1.414-1.414L5.586 8 .929 3.343 2.343 1.93 7 6.586V0z"/>
-      </svg>
-    </div>
-
-    <!-- Top Highlight Coral Banner (Claude Voltage Header) -->
-    <div class="bg-[#cc785c] px-6 sm:px-10 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-[#a9583e]">
-      <div class="flex items-center gap-2.5 text-white text-xs sm:text-sm font-medium tracking-wide">
+    <!-- Top Highlight Coral Banner (Compact Claude Voltage Header) -->
+    <div class="bg-[#cc785c] px-5 sm:px-8 py-3 flex flex-wrap items-center justify-between gap-3 border-b border-[#a9583e]">
+      <div class="flex items-center gap-2 text-white text-xs font-medium tracking-wide">
         <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-        <span class="font-sans font-semibold uppercase tracking-wider text-[11px] sm:text-xs">Direct Collaboration</span>
+        <span class="font-sans font-semibold uppercase tracking-wider text-[11px]">Direct Collaboration</span>
         <span class="text-white/60">·</span>
         <span class="text-white/95">{personal.status}</span>
       </div>
 
-      <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-white/90">
-        <span>Response Time:</span>
-        <span class="text-white font-semibold">&lt;24 hours</span>
+      <!-- Live Jakarta Time Clock moved here from footer -->
+      <div class="flex items-center gap-2 text-xs font-mono text-white/90 bg-[#a9583e]/50 px-2.5 py-0.5 rounded border border-white/15">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#5db872]"></span>
+        <span>JAKARTA:</span>
+        <span id="contact-time-clock" class="text-white font-semibold">--:--:-- WIB</span>
       </div>
     </div>
 
     <!-- Main Grid Content -->
-    <div class="p-6 sm:p-10 lg:p-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
+    <div class="p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start relative z-10">
       
-      <!-- Left Column: Editorial Value Proposition & Instant Channels (col-span-6) -->
-      <div class="lg:col-span-6 flex flex-col justify-between h-full">
+      <!-- Left Column: Value Proposition, Location & Channels (col-span-6) -->
+      <div class="lg:col-span-6 flex flex-col justify-between h-full space-y-6">
         <div>
-          <!-- Serif Display Headline (Newsreader / Copernicus style 400) -->
-          <h2 class="font-display text-3xl sm:text-4xl lg:text-[44px] text-[#faf9f5] leading-[1.12] tracking-tight">
+          <!-- Scaled-down Serif Headline -->
+          <h2 class="font-display text-2xl sm:text-3xl text-[#faf9f5] leading-tight tracking-tight">
             Let's build something remarkable together.
           </h2>
 
           <!-- Body Copy -->
-          <p class="mt-5 text-sm sm:text-base text-[#a09d96] leading-relaxed max-w-[46ch]">
+          <p class="mt-3 text-xs sm:text-sm text-[#a09d96] leading-relaxed max-w-[44ch]">
             Have an ambitious design token architecture, web application, or interaction-heavy interface to build? I bring Figma craft and frontend engineering into one seamless workflow.
           </p>
 
-          <!-- Interactive 1-Click Copy Email Card -->
-          <div class="mt-8 p-4 sm:p-5 rounded-xl bg-[#252320] border border-[#3d3d3a] flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+          <!-- Jakarta Location & Live Status Pill -->
+          <div class="mt-5 p-3 rounded-lg bg-[#252320] border border-[#3d3d3a] flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-2 text-[#e6dfd8]">
+              <!-- Location Pin Icon -->
+              <svg class="w-3.5 h-3.5 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>Jakarta, Indonesia</span>
+            </div>
+            <span class="text-[#8e8b82] text-[11px]">UTC+7 · Remote & On-site</span>
+          </div>
+
+          <!-- Compact 1-Click Copy Email Card -->
+          <div class="mt-3.5 p-3.5 rounded-lg bg-[#252320] border border-[#3d3d3a] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
             <div class="flex flex-col min-w-0">
-              <span class="text-[11px] font-mono text-[#8e8b82] uppercase tracking-wider">Direct Inbox</span>
-              <span id="email-text" class="text-xs sm:text-sm md:text-base font-semibold text-[#faf9f5] font-mono mt-0.5 select-all truncate">
+              <span class="text-[10px] font-mono text-[#8e8b82] uppercase tracking-wider">Direct Inbox</span>
+              <span id="email-text" class="text-xs sm:text-sm font-semibold text-[#faf9f5] font-mono mt-0.5 select-all truncate">
                 {personal.email}
               </span>
             </div>
@@ -65,58 +73,47 @@ const { personal } = portfolioData;
                 id="copy-email-btn"
                 type="button"
                 aria-label="Copy email address to clipboard"
-                class="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white font-medium text-xs tracking-tight transition-all cursor-pointer shadow-xs"
+                class="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white font-medium text-xs tracking-tight transition-all cursor-pointer shadow-xs"
               >
-                <svg id="copy-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg id="copy-icon" class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                 </svg>
-                <span id="copy-text">Copy Email</span>
+                <span id="copy-text">Copy</span>
               </button>
 
               <a
                 href={`mailto:${personal.email}`}
-                class="inline-flex items-center justify-center p-2 rounded-md bg-[#1f1e1b] hover:bg-[#3d3d3a] text-[#faf9f5] border border-[#3d3d3a] transition-colors"
+                class="inline-flex items-center justify-center p-1.5 rounded bg-[#1f1e1b] hover:bg-[#3d3d3a] text-[#faf9f5] border border-[#3d3d3a] transition-colors"
                 title="Open in Mail Client"
               >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
               </a>
             </div>
           </div>
-
-          <!-- Location & Working Mode Indicator -->
-          <div class="mt-6 flex flex-wrap items-center gap-4 text-xs font-mono text-[#a09d96]">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-[#5db872]"></span>
-              <span>{personal.location}</span>
-            </div>
-            <span>·</span>
-            <span>Remote & Hybrid Available</span>
-          </div>
         </div>
 
-        <!-- Social Profiles Network Strip with Sleek Icons -->
-        <div class="mt-10 pt-6 border-t border-[#252320]">
-          <span class="text-xs font-mono text-[#8e8b82] uppercase tracking-wider block mb-3.5">Professional Profiles</span>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <!-- Social Profiles Network Strip (GitHub, LinkedIn, Instagram) -->
+        <div class="pt-4 border-t border-[#252320]">
+          <span class="text-[11px] font-mono text-[#8e8b82] uppercase tracking-wider block mb-2.5">Profiles</span>
+          <div class="grid grid-cols-3 gap-2">
             
             <!-- GitHub -->
             <a
               href="https://github.com/Umam07"
               target="_blank"
               rel="noopener noreferrer"
-              class="group/social p-3 rounded-lg bg-[#252320] hover:bg-[#2d2a27] border border-[#3d3d3a] hover:border-[#cc785c] transition-all flex items-center gap-3 active:scale-95"
+              class="group/social p-2.5 rounded-lg bg-[#252320] hover:bg-[#2d2a27] border border-[#3d3d3a] hover:border-[#cc785c] transition-all flex items-center gap-2.5 active:scale-95"
             >
-              <div class="w-8 h-8 rounded-md bg-[#181715] flex items-center justify-center text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors">
-                <!-- GitHub Icon -->
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <div class="w-7 h-7 rounded bg-[#181715] flex items-center justify-center text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors shrink-0">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                 </svg>
               </div>
               <div class="flex flex-col min-w-0">
-                <span class="text-xs font-semibold text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors">GitHub</span>
-                <span class="text-[11px] text-[#8e8b82] font-mono truncate">@Umam07</span>
+                <span class="text-xs font-semibold text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors leading-none">GitHub</span>
+                <span class="text-[10px] text-[#8e8b82] font-mono truncate mt-1">@Umam07</span>
               </div>
             </a>
 
@@ -125,17 +122,16 @@ const { personal } = portfolioData;
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="group/social p-3 rounded-lg bg-[#252320] hover:bg-[#2d2a27] border border-[#3d3d3a] hover:border-[#cc785c] transition-all flex items-center gap-3 active:scale-95"
+              class="group/social p-2.5 rounded-lg bg-[#252320] hover:bg-[#2d2a27] border border-[#3d3d3a] hover:border-[#cc785c] transition-all flex items-center gap-2.5 active:scale-95"
             >
-              <div class="w-8 h-8 rounded-md bg-[#181715] flex items-center justify-center text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors">
-                <!-- LinkedIn Icon -->
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <div class="w-7 h-7 rounded bg-[#181715] flex items-center justify-center text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors shrink-0">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                 </svg>
               </div>
               <div class="flex flex-col min-w-0">
-                <span class="text-xs font-semibold text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors">LinkedIn</span>
-                <span class="text-[11px] text-[#8e8b82] font-mono truncate">Connect</span>
+                <span class="text-xs font-semibold text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors leading-none">LinkedIn</span>
+                <span class="text-[10px] text-[#8e8b82] font-mono truncate mt-1">Profile</span>
               </div>
             </a>
 
@@ -144,19 +140,18 @@ const { personal } = portfolioData;
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="group/social p-3 rounded-lg bg-[#252320] hover:bg-[#2d2a27] border border-[#3d3d3a] hover:border-[#cc785c] transition-all flex items-center gap-3 active:scale-95"
+              class="group/social p-2.5 rounded-lg bg-[#252320] hover:bg-[#2d2a27] border border-[#3d3d3a] hover:border-[#cc785c] transition-all flex items-center gap-2.5 active:scale-95"
             >
-              <div class="w-8 h-8 rounded-md bg-[#181715] flex items-center justify-center text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors">
-                <!-- Instagram Icon -->
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <div class="w-7 h-7 rounded bg-[#181715] flex items-center justify-center text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors shrink-0">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </div>
               <div class="flex flex-col min-w-0">
-                <span class="text-xs font-semibold text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors">Instagram</span>
-                <span class="text-[11px] text-[#8e8b82] font-mono truncate">Follow</span>
+                <span class="text-xs font-semibold text-[#faf9f5] group-hover/social:text-[#cc785c] transition-colors leading-none">Instagram</span>
+                <span class="text-[10px] text-[#8e8b82] font-mono truncate mt-1">Social</span>
               </div>
             </a>
 
@@ -164,22 +159,22 @@ const { personal } = portfolioData;
         </div>
       </div>
 
-      <!-- Right Column: High-Craft Interactive Project Inquiry Form (col-span-6) -->
-      <div class="lg:col-span-6 p-6 sm:p-8 rounded-xl bg-[#1f1e1b] border border-[#252320] shadow-xl relative">
-        <div class="flex items-center justify-between pb-4 mb-5 border-b border-[#252320]">
+      <!-- Right Column: Compact Project Inquiry Form (col-span-6) -->
+      <div class="lg:col-span-6 p-5 sm:p-6 rounded-xl bg-[#1f1e1b] border border-[#252320] shadow-md relative">
+        <div class="flex items-center justify-between pb-3.5 mb-4 border-b border-[#252320]">
           <div>
-            <h3 class="font-display text-2xl text-[#faf9f5] tracking-tight">Initiate Inquiry</h3>
-            <p class="text-xs text-[#a09d96] font-mono mt-0.5">Project scopes, proposals & consultations</p>
+            <h3 class="font-display text-xl sm:text-2xl text-[#faf9f5] tracking-tight">Initiate Inquiry</h3>
+            <p class="text-[11px] text-[#a09d96] font-mono mt-0.5">Project scopes, proposals & consultations</p>
           </div>
-          <span class="text-xs font-mono text-[#cc785c] px-2.5 py-1 rounded bg-[#252320] border border-[#3d3d3a]">
+          <span class="text-[11px] font-mono text-[#cc785c] px-2 py-0.5 rounded bg-[#252320] border border-[#3d3d3a]">
             Fast-Track
           </span>
         </div>
 
-        <form id="contact-form" class="space-y-4">
+        <form id="contact-form" class="space-y-3.5">
           <!-- Name Field -->
           <div>
-            <label for="name" class="block text-xs font-mono text-[#a09d96] mb-1.5">
+            <label for="name" class="block text-[11px] font-mono text-[#a09d96] mb-1">
               YOUR NAME <span class="text-[#cc785c]">*</span>
             </label>
             <input
@@ -188,13 +183,13 @@ const { personal } = portfolioData;
               name="name"
               required
               placeholder="e.g. Alex Rivera"
-              class="w-full px-3.5 py-2.5 rounded-md bg-[#252320] border border-[#3d3d3a] text-sm text-[#faf9f5] placeholder-[#6c6a64] focus:outline-none focus:border-[#cc785c] focus:ring-1 focus:ring-[#cc785c] transition-colors"
+              class="w-full px-3 py-2 rounded-md bg-[#252320] border border-[#3d3d3a] text-xs sm:text-sm text-[#faf9f5] placeholder-[#6c6a64] focus:outline-none focus:border-[#cc785c] focus:ring-1 focus:ring-[#cc785c] transition-colors"
             />
           </div>
 
           <!-- Email Field -->
           <div>
-            <label for="email" class="block text-xs font-mono text-[#a09d96] mb-1.5">
+            <label for="email" class="block text-[11px] font-mono text-[#a09d96] mb-1">
               EMAIL ADDRESS <span class="text-[#cc785c]">*</span>
             </label>
             <input
@@ -203,19 +198,19 @@ const { personal } = portfolioData;
               name="email"
               required
               placeholder="e.g. alex@company.com"
-              class="w-full px-3.5 py-2.5 rounded-md bg-[#252320] border border-[#3d3d3a] text-sm text-[#faf9f5] placeholder-[#6c6a64] focus:outline-none focus:border-[#cc785c] focus:ring-1 focus:ring-[#cc785c] transition-colors"
+              class="w-full px-3 py-2 rounded-md bg-[#252320] border border-[#3d3d3a] text-xs sm:text-sm text-[#faf9f5] placeholder-[#6c6a64] focus:outline-none focus:border-[#cc785c] focus:ring-1 focus:ring-[#cc785c] transition-colors"
             />
           </div>
 
           <!-- Project Focus -->
           <div>
-            <label for="project-type" class="block text-xs font-mono text-[#a09d96] mb-1.5">
+            <label for="project-type" class="block text-[11px] font-mono text-[#a09d96] mb-1">
               PRIMARY FOCUS
             </label>
             <select
               id="project-type"
               name="projectType"
-              class="w-full px-3.5 py-2.5 rounded-md bg-[#252320] border border-[#3d3d3a] text-sm text-[#faf9f5] focus:outline-none focus:border-[#cc785c] focus:ring-1 focus:ring-[#cc785c] transition-colors"
+              class="w-full px-3 py-2 rounded-md bg-[#252320] border border-[#3d3d3a] text-xs sm:text-sm text-[#faf9f5] focus:outline-none focus:border-[#cc785c] focus:ring-1 focus:ring-[#cc785c] transition-colors"
             >
               <option value="Design System">Design System & Token Architecture</option>
               <option value="Web Application">Full Web Application (UI/UX + Frontend)</option>
@@ -226,16 +221,16 @@ const { personal } = portfolioData;
 
           <!-- Message Field -->
           <div>
-            <label for="message" class="block text-xs font-mono text-[#a09d96] mb-1.5">
+            <label for="message" class="block text-[11px] font-mono text-[#a09d96] mb-1">
               PROJECT OVERVIEW <span class="text-[#cc785c]">*</span>
             </label>
             <textarea
               id="message"
               name="message"
               required
-              rows="4"
-              placeholder="Describe goals, scope, timeline, and deliverables..."
-              class="w-full px-3.5 py-2.5 rounded-md bg-[#252320] border border-[#3d3d3a] text-sm text-[#faf9f5] placeholder-[#6c6a64] focus:outline-none focus:border-[#cc785c] focus:ring-1 focus:ring-[#cc785c] transition-colors resize-none"
+              rows="3"
+              placeholder="Describe goals, scope, timeline..."
+              class="w-full px-3 py-2 rounded-md bg-[#252320] border border-[#3d3d3a] text-xs sm:text-sm text-[#faf9f5] placeholder-[#6c6a64] focus:outline-none focus:border-[#cc785c] focus:ring-1 focus:ring-[#cc785c] transition-colors resize-none"
             ></textarea>
           </div>
 
@@ -243,17 +238,17 @@ const { personal } = portfolioData;
           <button
             type="submit"
             id="submit-btn"
-            class="w-full py-3 px-5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white font-medium text-sm active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md font-sans tracking-tight"
+            class="w-full py-2.5 px-4 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white font-medium text-xs sm:text-sm active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm font-sans tracking-tight"
           >
             <span>Send Project Inquiry</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
           </button>
         </form>
 
         <!-- Dynamic Success Toast / Confirmation -->
-        <div id="form-feedback" class="hidden mt-4 p-3.5 rounded-md bg-[#252320] border border-[#5db872] text-xs text-[#5db872] text-center font-mono">
+        <div id="form-feedback" class="hidden mt-3 p-2.5 rounded-md bg-[#252320] border border-[#5db872] text-xs text-[#5db872] text-center font-mono animate-fade-in">
           ✓ Inquiry transmitted successfully. I will review and reply within 24 hours.
         </div>
       </div>
@@ -263,6 +258,24 @@ const { personal } = portfolioData;
 </section>
 
 <script>
+  // Live Clock Script in Contact Section
+  const updateContactClock = () => {
+    const clockEl = document.getElementById('contact-time-clock');
+    if (!clockEl) return;
+    const now = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: 'Asia/Jakarta',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    };
+    clockEl.textContent = `${now.toLocaleTimeString('en-GB', options)} WIB`;
+  };
+
+  updateContactClock();
+  setInterval(updateContactClock, 1000);
+
   // 1-Click Copy Email Logic
   const copyBtn = document.getElementById('copy-email-btn');
   const emailText = document.getElementById('email-text')?.textContent?.trim() || '';
@@ -274,7 +287,7 @@ const { personal } = portfolioData;
       if (copyText) {
         copyText.textContent = 'Copied!';
         setTimeout(() => {
-          copyText.textContent = 'Copy Email';
+          copyText.textContent = 'Copy';
         }, 2500);
       }
     } catch (err) {
@@ -299,7 +312,7 @@ const { personal } = portfolioData;
         contactForm.reset();
         submitBtn.innerHTML = '<span>Message Transmitted!</span>';
         setTimeout(() => {
-          submitBtn.innerHTML = `<span>Send Project Inquiry</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>`;
+          submitBtn.innerHTML = `<span>Send Project Inquiry</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>`;
         }, 4000);
       }
     }, 600);
