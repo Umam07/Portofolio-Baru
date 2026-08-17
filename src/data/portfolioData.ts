@@ -121,7 +121,7 @@ export const portfolioData = {
       subtitle: 'A dedicated research, publication, and academic performance tracking platform for university lecturers.',
       category: 'Web Application',
       role: 'Frontend Developer & UI Implementation',
-      year: '2025',
+      year: '2025 – 2026',
       featured: true,
       image: '/images/projects/pentadosen.png',
       tags: ['React', 'Vite', 'Tailwind CSS', 'TypeScript', 'REST API', 'Figma UI'],
