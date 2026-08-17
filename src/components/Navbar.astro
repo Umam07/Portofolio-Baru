@@ -9,8 +9,15 @@ const navLinks = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-[#faf9f5]/90 backdrop-blur-md border-b border-[#e6dfd8] h-16 flex items-center px-4 sm:px-6 lg:px-8 transition-all">
-  <div class="w-full max-w-6xl mx-auto flex items-center justify-between">
+<!-- Fixed Floating Header Wrapper -->
+<header
+  id="main-navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out flex justify-center px-4 sm:px-6 lg:px-8 pointer-events-none"
+>
+  <div
+    id="nav-inner"
+    class="w-full max-w-6xl mx-auto h-16 bg-[#faf9f5]/90 backdrop-blur-md border-b border-[#e6dfd8] px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ease-out pointer-events-auto"
+  >
     
     <!-- Brand Logo Mark Only -->
     <a href="#" aria-label="Home" class="group flex items-center text-[#141413] hover:opacity-85 transition-opacity">
@@ -82,7 +89,7 @@ const navLinks = [
       <span class="text-xs text-[#8e8b82] font-mono">{portfolioData.personal.status}</span>
       <a
         href={`mailto:${portfolioData.personal.email}`}
-        class="text-sm font-medium text-[#cc785c] underline"
+        class="text-sm font-medium text-[#cc785c] underline font-mono text-xs"
       >
         {portfolioData.personal.email}
       </a>
@@ -91,12 +98,32 @@ const navLinks = [
 </div>
 
 <script>
+  const header = document.getElementById('main-navbar');
+  const navInner = document.getElementById('nav-inner');
   const menuBtn = document.getElementById('mobile-menu-btn');
   const drawer = document.getElementById('mobile-drawer');
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
   const navItems = document.querySelectorAll('.mobile-nav-item');
 
+  // Floating on scroll transition
+  const handleScroll = () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY > 30) {
+      header?.classList.add('pt-3', 'sm:pt-4');
+      navInner?.classList.remove('max-w-6xl', 'border-b', 'rounded-none', 'h-16', 'px-4', 'lg:px-8');
+      navInner?.classList.add('max-w-4xl', 'border', 'rounded-full', 'shadow-md', 'h-14', 'px-5', 'sm:px-6', 'bg-[#faf9f5]/85');
+    } else {
+      header?.classList.remove('pt-3', 'sm:pt-4');
+      navInner?.classList.remove('max-w-4xl', 'border', 'rounded-full', 'shadow-md', 'h-14', 'px-5', 'sm:px-6', 'bg-[#faf9f5]/85');
+      navInner?.classList.add('max-w-6xl', 'border-b', 'rounded-none', 'h-16', 'px-4', 'lg:px-8');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  // Mobile Drawer toggle
   let isOpen = false;
 
   const toggleMenu = () => {
