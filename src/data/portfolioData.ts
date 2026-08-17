@@ -66,16 +66,21 @@ export const portfolioData = {
 
   about: {
     title: 'About Me',
-    bio1: "I am an Information Technology student at Universitas YARSI in Jakarta with a strong focus on frontend development and UI/UX design.",
-    bio2: "I specialize in transforming Figma wireframes, design tokens, and user requirements into clean, accessible, and responsive web applications with React, TypeScript, and Tailwind CSS.",
-    bio3: "My internship as a Functional ERP Intern at C-Tech ERP Indonesia equipped me with a deep appreciation for business requirements, User Acceptance Testing (UAT), system blueprints, and structured technical documentation—enabling me to understand how software serves real business operations.",
+    bio1: "I am Muhammad Syafi'ul Umam (known as Umam), an Information Technology student at Universitas YARSI in Jakarta focused on frontend development and UI/UX design.",
+    bio2: "I bridge design and implementation by turning Figma wireframes and design systems into responsive, accessible web applications with React, TypeScript, and Tailwind CSS. My background as a Functional ERP Intern at C-Tech ERP Indonesia adds a strong foundation in business workflows, UAT, and structured documentation.",
     values: [
-      { title: 'Clarity', description: 'Intuitive layouts and crisp typography that help users accomplish tasks without friction.' },
-      { title: 'Consistency', description: 'Modular components and token-driven design bridging Figma to production code.' },
-      { title: 'Accessibility', description: 'Semantic HTML, responsive viewports, and readable contrast for all users.' },
-      { title: 'Responsiveness', description: 'Fluid adaptations from mobile screens to high-density desktop monitors.' },
-      { title: 'Performance', description: 'Fast loading, clean markup, and zero-bloat modern web architectures.' },
-      { title: 'Simplicity', description: 'Functional aesthetics focused on what matters most to the user.' },
+      {
+        title: 'Design-Driven Engineering',
+        description: 'Translating Figma systems, tokens, and micro-interactions into clean, modular, and maintainable code.',
+      },
+      {
+        title: 'Purposeful Accessibility',
+        description: 'Building semantic, keyboard-friendly interfaces that adapt effortlessly across all screen viewports.',
+      },
+      {
+        title: 'Structured Architecture',
+        description: 'Writing type-safe components with TypeScript, clear state boundaries, and reliable REST API integration.',
+      },
     ],
   },
 
