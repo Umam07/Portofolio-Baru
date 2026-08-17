@@ -1,5 +1,6 @@
 ---
 import { portfolioData } from '../data/portfolioData';
+import MascotHero from './MascotHero.astro';
 
 const { personal } = portfolioData;
 ---
@@ -65,102 +66,10 @@ const { personal } = portfolioData;
       </div>
     </div>
 
-    <!-- Right Column: Claude-style Interactive Code Window Card (col-span-5) -->
-    <div class="hero-reveal lg:col-span-5 w-full">
-      <div class="rounded-xl bg-[#181715] text-[#faf9f5] p-5 sm:p-6 border border-[#252320] shadow-xl relative overflow-hidden">
-        <!-- Terminal Header with Tabs -->
-        <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#252320]">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-[#3d3d3a]"></span>
-            <span class="w-3 h-3 rounded-full bg-[#3d3d3a]"></span>
-            <span class="w-3 h-3 rounded-full bg-[#3d3d3a]"></span>
-          </div>
-          
-          <div class="flex items-center gap-1 bg-[#1f1e1b] p-1 rounded-md border border-[#252320]" id="hero-code-tabs">
-            <button
-              type="button"
-              data-tab="config"
-              class="hero-tab-btn px-2.5 py-0.5 rounded text-[11px] font-mono transition-colors bg-[#252320] text-[#cc785c] font-medium"
-            >
-              developer.ts
-            </button>
-            <button
-              type="button"
-              data-tab="tokens"
-              class="hero-tab-btn px-2.5 py-0.5 rounded text-[11px] font-mono transition-colors text-[#a09d96] hover:text-[#faf9f5]"
-            >
-              principles.json
-            </button>
-          </div>
-        </div>
-
-        <!-- Code Block Content 1: TypeScript Config -->
-        <div id="code-content-config" class="hero-code-block">
-          <pre class="font-code text-xs sm:text-[13px] leading-relaxed text-[#e6dfd8] overflow-x-auto"><code><span class="text-[#cc785c]">export const</span> <span class="text-[#5db8a6]">frontendDeveloper</span> = &#123;
-  <span class="text-[#a09d96]">name:</span> <span class="text-[#e8a55a]">"Muhammad Syafi'ul Umam"</span>,
-  <span class="text-[#a09d96]">role:</span> <span class="text-[#e8a55a]">"Frontend Developer & UI/UX"</span>,
-  <span class="text-[#a09d96]">education:</span> <span class="text-[#e8a55a]">"Universitas YARSI"</span>,
-  <span class="text-[#a09d96]">coreStack:</span> [
-    <span class="text-[#e8a55a]">"React"</span>,
-    <span class="text-[#e8a55a]">"TypeScript"</span>,
-    <span class="text-[#e8a55a]">"Tailwind CSS"</span>,
-    <span class="text-[#e8a55a]">"Figma"</span>,
-  ],
-  <span class="text-[#a09d96]">flagshipProject:</span> <span class="text-[#5db872]">"PentaDosen"</span>,
-  <span class="text-[#a09d96]">internship:</span> <span class="text-[#5db872]">"C-Tech ERP Indonesia"</span>,
-&#125;;</code></pre>
-        </div>
-
-        <!-- Code Block Content 2: JSON Theme Tokens -->
-        <div id="code-content-tokens" class="hero-code-block hidden">
-          <pre class="font-code text-xs sm:text-[13px] leading-relaxed text-[#e6dfd8] overflow-x-auto"><code>&#123;
-  <span class="text-[#5db8a6]">"clarity"</span>: <span class="text-[#e8a55a]">"Clean & intuitive layouts"</span>,
-  <span class="text-[#5db8a6]">"consistency"</span>: <span class="text-[#e8a55a]">"Figma tokens to code"</span>,
-  <span class="text-[#5db8a6]">"accessibility"</span>: <span class="text-[#e8a55a]">"WCAG AA & semantic HTML"</span>,
-  <span class="text-[#5db8a6]">"responsiveness"</span>: <span class="text-[#5db872]">"Mobile to desktop"</span>,
-  <span class="text-[#5db8a6]">"performance"</span>: <span class="text-[#5db872]">"Fast & zero-bloat"</span>,
-  <span class="text-[#5db8a6]">"simplicity"</span>: <span class="text-[#cc785c]">"Functionality-first"</span>
-&#125;</code></pre>
-        </div>
-
-        <!-- Status Bottom Bar -->
-        <div class="mt-5 pt-4 border-t border-[#252320] flex items-center justify-between text-xs font-mono text-[#a09d96]">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-[#5db872] animate-pulse"></span>
-            <span>TypeScript & React Ready</span>
-          </div>
-          <span class="text-[#cc785c]">Open for Roles</span>
-        </div>
-      </div>
+    <!-- Right Column: Interactive Eye-Tracking Mascot (col-span-5) -->
+    <div class="hero-reveal lg:col-span-5 w-full flex items-center justify-center">
+      <MascotHero />
     </div>
 
   </div>
 </section>
-
-<script>
-  const tabBtns = document.querySelectorAll('.hero-tab-btn');
-  const codeConfig = document.getElementById('code-content-config');
-  const codeTokens = document.getElementById('code-content-tokens');
-
-  tabBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const tab = btn.getAttribute('data-tab');
-
-      tabBtns.forEach((b) => {
-        b.classList.remove('bg-[#252320]', 'text-[#cc785c]', 'font-medium');
-        b.classList.add('text-[#a09d96]');
-      });
-
-      btn.classList.remove('text-[#a09d96]');
-      btn.classList.add('bg-[#252320]', 'text-[#cc785c]', 'font-medium');
-
-      if (tab === 'config') {
-        codeConfig?.classList.remove('hidden');
-        codeTokens?.classList.add('hidden');
-      } else {
-        codeConfig?.classList.add('hidden');
-        codeTokens?.classList.remove('hidden');
-      }
-    });
-  });
-</script>

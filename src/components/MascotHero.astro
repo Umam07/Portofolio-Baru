@@ -1,0 +1,97 @@
+---
+// MascotHero.astro - Interactive Eye Tracking Mascot
+---
+
+<div
+  id="mascot-container"
+  class="relative w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto select-none group"
+>
+  <!-- Subtle Ambient Glow Behind Mascot -->
+  <div class="absolute -inset-4 rounded-3xl bg-[#cc785c]/10 dark:bg-[#cc785c]/15 blur-2xl -z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-100"></div>
+
+  <!-- Base Mascot Image -->
+  <img
+    src="/images/mascot-hero-base.png"
+    alt="Interactive Mascot"
+    class="w-full h-auto drop-shadow-md transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+    draggable="false"
+    loading="eager"
+  />
+
+  <!-- Left Eye Pupil -->
+  <div
+    id="left-pupil"
+    class="absolute rounded-full pointer-events-none"
+    style="left: 42.4%; top: 47.8%; width: 4.2%; aspect-ratio: 1 / 1; transform: translate(-50%, -50%); background: radial-gradient(circle at 35% 30%, #2d6b66 0%, #0a1f1c 65%, #06110f 100%); box-shadow: 0 0 6px rgba(0,0,0,0.25) inset;"
+  ></div>
+
+  <!-- Right Eye Pupil -->
+  <div
+    id="right-pupil"
+    class="absolute rounded-full pointer-events-none"
+    style="left: 57.3%; top: 48.2%; width: 4.2%; aspect-ratio: 1 / 1; transform: translate(-50%, -50%); background: radial-gradient(circle at 35% 30%, #2d6b66 0%, #0a1f1c 65%, #06110f 100%); box-shadow: 0 0 6px rgba(0,0,0,0.25) inset;"
+  ></div>
+</div>
+
+<script>
+  // Koordinat pusat mata (persen dari lebar/tinggi gambar)
+  const EYES = {
+    left: { xPct: 42.4, yPct: 47.8 },
+    right: { xPct: 57.3, yPct: 48.2 },
+  } as const;
+
+  const MAX_OFFSET_PCT = 1.0; // batas gerak pupil relatif terhadap lebar container
+  const EASE = 0.15; // faktor smoothing (0-1), makin kecil makin "lembut"
+
+  const container = document.getElementById('mascot-container');
+  const leftPupil = document.getElementById('left-pupil');
+  const rightPupil = document.getElementById('right-pupil');
+
+  if (container && leftPupil && rightPupil) {
+    let target = { x: 0, y: 0 };
+    let current = { x: 0, y: 0 };
+
+    function handlePointerMove(e: PointerEvent) {
+      if (!container) return;
+      const rect = container.getBoundingClientRect();
+      const mouseXPct = ((e.clientX - rect.left) / rect.width) * 100;
+      const mouseYPct = ((e.clientY - rect.top) / rect.height) * 100;
+
+      // Pakai titik tengah antara dua mata sebagai acuan arah pandang
+      const centerX = (EYES.left.xPct + EYES.right.xPct) / 2;
+      const centerY = (EYES.left.yPct + EYES.right.yPct) / 2;
+
+      const dx = mouseXPct - centerX;
+      const dy = mouseYPct - centerY;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      const clamped = Math.min(dist, MAX_OFFSET_PCT);
+
+      target.x = (dx / dist) * clamped;
+      target.y = (dy / dist) * clamped;
+    }
+
+    function handlePointerLeave() {
+      target.x = 0;
+      target.y = 0;
+    }
+
+    function animate() {
+      current.x += (target.x - current.x) * EASE;
+      current.y += (target.y - current.y) * EASE;
+
+      const { x, y } = current;
+      if (leftPupil) {
+        leftPupil.style.transform = `translate(calc(-50% + ${x}%), calc(-50% + ${y}%))`;
+      }
+      if (rightPupil) {
+        rightPupil.style.transform = `translate(calc(-50% + ${x}%), calc(-50% + ${y}%))`;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointerleave', handlePointerLeave);
+    requestAnimationFrame(animate);
+  }
+</script>
