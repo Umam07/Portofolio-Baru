@@ -11,18 +11,18 @@ const { personal } = portfolioData;
     <div class="lg:col-span-7 flex flex-col items-start">
       
       <!-- Category Badge Pill -->
-      <div class="hero-reveal mb-5 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] text-[#141413] text-xs font-medium border border-[#e6dfd8]">
+      <div class="hero-reveal mb-5 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] text-xs font-medium border border-[#e6dfd8] dark:border-[#2e2b26]">
         <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
         <span>{personal.role}</span>
       </div>
 
       <!-- Serif Display Headline (Copernicus / Newsreader style, weight 400, negative tracking) -->
-      <h1 class="hero-reveal font-display text-4xl sm:text-5xl lg:text-[56px] text-[#141413] leading-[1.12] tracking-tight pb-1">
+      <h1 class="hero-reveal font-display text-4xl sm:text-5xl lg:text-[56px] text-[#141413] dark:text-[#faf9f5] leading-[1.12] tracking-tight pb-1">
         Engineering thoughtful digital interfaces with editorial craft.
       </h1>
 
       <!-- Body Copy (StyreneB / Inter, muted ink) -->
-      <p class="hero-reveal mt-5 text-base sm:text-lg text-[#3d3d3a] leading-relaxed max-w-[48ch]">
+      <p class="hero-reveal mt-5 text-base sm:text-lg text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed max-w-[48ch]">
         {personal.subtext}
       </p>
 
@@ -37,18 +37,18 @@ const { personal } = portfolioData;
 
         <a
           href="#contact"
-          class="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-[#faf9f5] hover:bg-[#f5f0e8] text-[#141413] border border-[#e6dfd8] text-sm font-medium transition-all"
+          class="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#f5f0e8] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-sm font-medium transition-all"
         >
           Get in Touch
         </a>
       </div>
 
       <!-- Metric Stats Banner -->
-      <div class="hero-reveal mt-12 pt-8 border-t border-[#e6dfd8] w-full grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="hero-reveal mt-12 pt-8 border-t border-[#e6dfd8] dark:border-[#2e2b26] w-full grid grid-cols-2 sm:grid-cols-4 gap-4">
         {personal.stats.map((stat) => (
           <div class="flex flex-col">
-            <span class="font-display text-2xl sm:text-3xl text-[#141413]">{stat.value}</span>
-            <span class="text-xs text-[#6c6a64] mt-0.5">{stat.label}</span>
+            <span class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5]">{stat.value}</span>
+            <span class="text-xs text-[#6c6a64] dark:text-[#8e8b82] mt-0.5">{stat.label}</span>
           </div>
         ))}
       </div>

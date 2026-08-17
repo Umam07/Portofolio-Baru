@@ -8,26 +8,26 @@ const categories = ['All', 'Design System', 'Web Application', 'Interactive Expe
 
 <section id="projects" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
   <!-- Section Header -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#e6dfd8]">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
     <div>
-      <h2 class="font-display text-3xl sm:text-4xl text-[#141413] tracking-tight">
+      <h2 class="font-display text-3xl sm:text-4xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
         Featured Case Studies
       </h2>
-      <p class="mt-2 text-sm sm:text-base text-[#6c6a64] max-w-[54ch]">
+      <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[54ch]">
         A curated selection of multi-brand token architectures, real-time analytics platforms, and interactive experiences.
       </p>
     </div>
 
     <!-- Category Tabs Filter (Claude category-tab tokens) -->
-    <div class="flex flex-wrap gap-1.5 p-1 rounded-lg bg-[#efe9de] border border-[#e6dfd8]" id="project-filters">
+    <div class="flex flex-wrap gap-1.5 p-1 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]" id="project-filters">
       {categories.map((cat, idx) => (
         <button
           type="button"
           data-category={cat}
           class={`filter-btn px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
             idx === 0
-              ? 'bg-[#faf9f5] text-[#141413] shadow-xs font-semibold'
-              : 'text-[#6c6a64] hover:text-[#141413]'
+              ? 'bg-[#faf9f5] dark:bg-[#252320] text-[#141413] dark:text-[#faf9f5] shadow-xs font-semibold'
+              : 'text-[#6c6a64] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5]'
           }`}
         >
           {cat}
@@ -55,11 +55,11 @@ const categories = ['All', 'Design System', 'Web Application', 'Interactive Expe
       const selectedCategory = btn.getAttribute('data-category');
 
       filterButtons.forEach((b) => {
-        b.classList.remove('bg-[#faf9f5]', 'text-[#141413]', 'shadow-xs', 'font-semibold');
-        b.classList.add('text-[#6c6a64]');
+        b.classList.remove('bg-[#faf9f5]', 'dark:bg-[#252320]', 'text-[#141413]', 'dark:text-[#faf9f5]', 'shadow-xs', 'font-semibold');
+        b.classList.add('text-[#6c6a64]', 'dark:text-[#a09d96]');
       });
-      btn.classList.remove('text-[#6c6a64]');
-      btn.classList.add('bg-[#faf9f5]', 'text-[#141413]', 'shadow-xs', 'font-semibold');
+      btn.classList.remove('text-[#6c6a64]', 'dark:text-[#a09d96]');
+      btn.classList.add('bg-[#faf9f5]', 'dark:bg-[#252320]', 'text-[#141413]', 'dark:text-[#faf9f5]', 'shadow-xs', 'font-semibold');
 
       projectItems.forEach((item) => {
         const itemCategory = item.getAttribute('data-category');

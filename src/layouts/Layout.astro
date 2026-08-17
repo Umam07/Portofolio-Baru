@@ -13,10 +13,26 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth bg-[#faf9f5]">
+<html lang="en" class="scroll-smooth bg-[#faf9f5] dark:bg-[#121110]">
   <head>
     <SEO title={title} description={description} />
     
+    <!-- Theme Initializer (Default: Light Theme, with zero FOUT) -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return 'light'; // Default is light theme
+      })();
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+
     <!-- Preconnect & Google Fonts (Newsreader serif + Inter humanist sans + JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,7 +41,7 @@ const { title, description } = Astro.props;
       rel="stylesheet"
     />
   </head>
-  <body class="bg-[#faf9f5] text-[#141413] antialiased selection:bg-[#cc785c]/25 selection:text-[#141413] min-h-[100dvh] flex flex-col justify-between">
+  <body class="bg-[#faf9f5] dark:bg-[#121110] text-[#141413] dark:text-[#faf9f5] antialiased selection:bg-[#cc785c]/25 selection:text-[#141413] dark:selection:text-[#faf9f5] min-h-[100dvh] flex flex-col justify-between transition-colors duration-300">
     <!-- Top Navigation -->
     <Navbar />
 
