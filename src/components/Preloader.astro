@@ -1,0 +1,125 @@
+---
+---
+
+<div
+  id="preloader"
+  aria-hidden="true"
+  class="fixed inset-0 z-[99999] bg-[#faf9f5] dark:bg-[#121110] flex flex-col justify-between p-6 sm:p-10 select-none overflow-hidden"
+>
+  <!-- Top Bar -->
+  <div class="preloader-elem flex items-center justify-between text-[11px] font-mono text-[#8e8b82] dark:text-[#7a7770] uppercase tracking-widest">
+    <div class="flex items-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c] animate-pulse"></span>
+      <span>Muhammad Syafi'ul Umam</span>
+    </div>
+    <span class="hidden sm:inline-block">Frontend & UI/UX · syafiul.id</span>
+  </div>
+
+  <!-- Center Focal Icon & Label -->
+  <div class="preloader-elem flex flex-col items-center justify-center my-auto">
+    <!-- Geometric LogoMark with Warm Ambient Glow -->
+    <div class="relative flex items-center justify-center">
+      <div class="absolute -inset-4 rounded-full bg-[#cc785c]/15 dark:bg-[#cc785c]/20 blur-xl animate-pulse"></div>
+      
+      <svg
+        viewBox="0 0 141 141"
+        class="w-12 h-12 sm:w-14 sm:h-14 text-[#141413] dark:text-[#faf9f5] relative z-10 transition-transform duration-700 ease-out hover:scale-105"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M 79.1753 140.756 L 15.1742 140.756 L 79.1753 76.7549 L 79.1753 140.756 Z M 140.756 114.089 L 109.966 140.756 L 109.966 30.7904 L 0 30.7904 L 26.3918 0 L 140.756 0 L 140.756 114.089 Z M 0 112.386 L 0 61.5808 L 50.8052 61.5808 L 0 112.386 Z" />
+      </svg>
+    </div>
+
+    <!-- Editorial Subtitle -->
+    <div class="mt-5 flex items-center gap-2 text-xs font-mono text-[#6c6a64] dark:text-[#a09d96] tracking-wider uppercase">
+      <span>Crafting Interfaces</span>
+      <span class="inline-block w-1.5 h-3 bg-[#cc785c] animate-pulse"></span>
+    </div>
+  </div>
+
+  <!-- Bottom Row: Progress Hairline & Percentage -->
+  <div class="preloader-elem flex items-end justify-between gap-4">
+    <!-- Left: Slim Progress Bar -->
+    <div class="flex flex-col gap-2 w-full max-w-xs sm:max-w-sm">
+      <div class="w-full h-[2px] bg-[#e6dfd8] dark:bg-[#252320] rounded-full overflow-hidden">
+        <div
+          id="preloader-progress-bar"
+          class="h-full bg-[#cc785c] w-0 transition-all duration-150 ease-out rounded-full shadow-[0_0_8px_rgba(204,120,92,0.6)]"
+        ></div>
+      </div>
+      <span class="text-[10px] font-mono text-[#8e8b82] dark:text-[#7a7770] tracking-wider">
+        JAKARTA, ID · 2026
+      </span>
+    </div>
+
+    <!-- Right: High-Precision Monospace Counter -->
+    <div class="text-right">
+      <span
+        id="preloader-counter"
+        class="font-mono text-2xl sm:text-3xl font-light text-[#141413] dark:text-[#faf9f5] tabular-nums"
+      >
+        00%
+      </span>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const preloader = document.getElementById('preloader');
+  const progressBar = document.getElementById('preloader-progress-bar');
+  const counterEl = document.getElementById('preloader-counter');
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (preloader) {
+    if (prefersReduced) {
+      preloader.style.display = 'none';
+    } else {
+      let progress = { value: 0 };
+
+      // Fluid non-linear counter animation
+      gsap.to(progress, {
+        value: 100,
+        duration: 1.1,
+        ease: 'power3.inOut',
+        onUpdate: () => {
+          const rounded = Math.round(progress.value);
+          const formatted = rounded < 10 ? `0${rounded}%` : `${rounded}%`;
+          if (counterEl) counterEl.textContent = formatted;
+          if (progressBar) progressBar.style.width = `${rounded}%`;
+        },
+        onComplete: () => {
+          // Graceful exit timeline
+          const tl = gsap.timeline({
+            onComplete: () => {
+              preloader.style.display = 'none';
+              document.body.style.overflow = '';
+            },
+          });
+
+          // 1. Fade out inner elements with a soft upward drift
+          tl.to('.preloader-elem', {
+            opacity: 0,
+            y: -18,
+            duration: 0.45,
+            stagger: 0.05,
+            ease: 'power2.in',
+          })
+          // 2. Slide the entire preloader overlay upwards smoothly
+          .to(
+            preloader,
+            {
+              yPercent: -100,
+              duration: 0.75,
+              ease: 'power4.inOut',
+            },
+            '-=0.15'
+          );
+        },
+      });
+    }
+  }
+</script>
