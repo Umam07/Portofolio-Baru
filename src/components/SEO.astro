@@ -19,9 +19,14 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: portfolioData.personal.name,
+  alternateName: ['Muhammad Syafi\'ul Umam', 'Syafi\'ul Umam', 'Syafiul Umam', 'Umam'],
   jobTitle: portfolioData.personal.role,
   description: portfolioData.personal.subtext,
   url: canonicalURL,
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Universitas YARSI',
+  },
   sameAs: portfolioData.personal.socials.map((s) => s.url),
   address: {
     '@type': 'PostalAddress',
@@ -29,8 +34,11 @@ const personSchema = {
     addressCountry: 'Indonesia',
   },
   knowsAbout: [
-    ...portfolioData.skills.design,
     ...portfolioData.skills.frontend,
+    ...portfolioData.skills.backend,
+    ...portfolioData.skills.database,
+    ...portfolioData.skills.design,
+    ...portfolioData.skills.tools,
   ],
 };
 ---

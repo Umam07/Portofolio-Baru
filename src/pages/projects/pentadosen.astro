@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { portfolioData } from '../../data/portfolioData';
+
+const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
+---
+
+<Layout
+  title="PentaDosen Case Study — Muhammad Syafi'ul Umam"
+  description="Case study on PentaDosen: A research and performance management platform for university lecturers built with React, Vite, and Tailwind CSS."
+>
+  <article class="pt-24 pb-20 md:pt-32 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    
+    <!-- Back to Works Navigation -->
+    <div class="mb-8">
+      <a
+        href="/#projects"
+        class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-[#8e8b82] dark:text-[#a09d96] hover:text-[#cc785c] dark:hover:text-[#cc785c] transition-colors group"
+      >
+        <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        <span>Back to Selected Works</span>
+      </a>
+    </div>
+
+    <!-- Case Study Header -->
+    <header class="pb-10 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] text-xs font-mono font-medium border border-[#e6dfd8] dark:border-[#2e2b26] mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
+        <span>Featured Case Study · {project.category}</span>
+      </div>
+
+      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-[#141413] dark:text-[#faf9f5] tracking-tight leading-[1.15]">
+        PentaDosen: Lecturer Research & Performance Management Platform
+      </h1>
+
+      <p class="mt-4 text-base sm:text-lg text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed max-w-[65ch]">
+        {project.subtitle}
+      </p>
+
+      <!-- Metadata Strip -->
+      <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 sm:p-5 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-mono">
+        <div>
+          <span class="text-[#8e8b82] dark:text-[#7a7770] block">ROLE</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">{project.role}</span>
+        </div>
+        <div>
+          <span class="text-[#8e8b82] dark:text-[#7a7770] block">TIMELINE</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">{project.year}</span>
+        </div>
+        <div>
+          <span class="text-[#8e8b82] dark:text-[#7a7770] block">PRIMARY STACK</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">React · Vite · Tailwind</span>
+        </div>
+        <div>
+          <span class="text-[#8e8b82] dark:text-[#7a7770] block">CORE MODULES</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">HKI · Research · Calendar</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Project Preview Image -->
+    <div class="my-10 rounded-2xl overflow-hidden border border-[#e6dfd8] dark:border-[#2e2b26] shadow-lg bg-[#181715]">
+      <img
+        src={project.image}
+        alt="PentaDosen UI Dashboard Preview"
+        class="w-full h-auto object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Case Study Narrative Body -->
+    <div class="space-y-12 text-[#3d3d3a] dark:text-[#d4cfc7] text-sm sm:text-base leading-relaxed font-sans">
+      
+      <!-- Section 1: Overview -->
+      <section>
+        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+          01. Project Overview
+        </h2>
+        <p>
+          <strong class="text-[#141413] dark:text-[#faf9f5]">PentaDosen</strong> is a dedicated web application designed to simplify how university lecturers document, organize, and monitor their research activities, academic publications, intellectual property (HKI), and performance metrics.
+        </p>
+        <p class="mt-3">
+          University lecturers are routinely required to report on research grants, publication submissions, patents, and community service milestones. PentaDosen gathers these disparate streams into a coherent, responsive dashboard.
+        </p>
+      </section>
+
+      <!-- Section 2: The Problem -->
+      <section class="p-6 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+        <h2 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-3">
+          02. The Problem
+        </h2>
+        <p>
+          Prior to having a unified interface, academic staff faced several friction points:
+        </p>
+        <ul class="mt-3 space-y-2 text-xs sm:text-sm">
+          <li class="flex items-start gap-2">
+            <span class="text-[#cc785c] mt-0.5 font-bold">✕</span>
+            <span><strong>Scattered Documentation:</strong> Research proposals, journal publications, and HKI certificates were stored across separate documents and email threads.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[#cc785c] mt-0.5 font-bold">✕</span>
+            <span><strong>Unclear Performance Visibility:</strong> Lecturers had difficulty tracking accumulated research points and grant milestones in real time.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[#cc785c] mt-0.5 font-bold">✕</span>
+            <span><strong>Missed Deadlines:</strong> Crucial thesis defense schedules, grant submissions, and review deadlines lacked an integrated academic calendar.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 3: The Solution -->
+      <section>
+        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+          03. The Solution
+        </h2>
+        <p>
+          PentaDosen introduces a clean, modular web dashboard that centralizes academic management into several key modules:
+        </p>
+        <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">📊 Research Analytics & Grants</h3>
+            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Live grant totals, H-index tracking, citations overview, and active project counts.</p>
+          </div>
+          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">📑 Publication & Milestone Tracking</h3>
+            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Categorized tables for journal articles, conference papers, and book publications.</p>
+          </div>
+          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">🛡️ HKI & Intellectual Property</h3>
+            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Status tracking for Copyrights (Approved), Patents (Pending), and Industrial Designs.</p>
+          </div>
+          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">📅 Academic Calendar & Tasks</h3>
+            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Monthly timeline for grant deadlines, thesis defenses, and faculty workshops.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: My Contribution -->
+      <section class="p-6 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+        <h2 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-3">
+          04. My Contribution
+        </h2>
+        <p class="text-sm">
+          As the <strong>Frontend Developer & UI Implementer</strong>, my responsibilities included:
+        </p>
+        <ul class="mt-3 space-y-2 text-xs sm:text-sm">
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#cc785c] mt-0.5">✦</span>
+            <span><strong>Component Architecture:</strong> Built modular React components with Vite for fast HMR and lightweight bundle distribution.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#cc785c] mt-0.5">✦</span>
+            <span><strong>UI Implementation:</strong> Translated wireframes into responsive Tailwind CSS layouts with clear typographic hierarchy and consistent spacing.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#cc785c] mt-0.5">✦</span>
+            <span><strong>REST API Integration:</strong> Connected frontend views to backend endpoints for research listings, publication updates, and HKI status changes.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#cc785c] mt-0.5">✦</span>
+            <span><strong>Data Presentation & Usability:</strong> Crafted clean status badges, modal drawers, and responsive table views tailored to faculty workflows.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 5: Technologies Used -->
+      <section>
+        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+          05. Technologies & Architecture
+        </h2>
+        <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">React (SPA)</span>
+          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">Vite</span>
+          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">Tailwind CSS</span>
+          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">TypeScript / ES6+</span>
+          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">REST API Integration</span>
+          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">Figma UI Prototyping</span>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Case Study Footer Action -->
+    <div class="mt-14 pt-8 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a
+        href="/#projects"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        <span>Back to All Projects</span>
+      </a>
+
+      <a
+        href="/#contact"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs font-medium transition-all shadow-xs"
+      >
+        <span>Discuss a Project with Umam</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+
+  </article>
+</Layout>

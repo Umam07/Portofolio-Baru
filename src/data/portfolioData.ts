@@ -7,7 +7,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: 'Design System' | 'Web Application' | 'Interactive Experience' | 'E-Commerce';
+  category: 'Web Application' | 'System Workflows' | 'Design System' | 'UI/UX';
   role: string;
   year: string;
   featured: boolean;
@@ -17,12 +17,12 @@ export interface Project {
   description: string;
   impact: string;
   metrics: ProjectMetric[];
+  caseStudyUrl?: string;
   links: {
     live?: string;
     github?: string;
     figma?: string;
   };
-  accentColor: string; // Tailwind tint or hex
 }
 
 export interface ExperienceItem {
@@ -30,275 +30,198 @@ export interface ExperienceItem {
   role: string;
   company: string;
   location: string;
-  type: 'Full-time' | 'Contract' | 'Freelance';
+  type: string;
   description: string;
   highlights: string[];
   skills: string[];
 }
 
-export interface Testimonial {
-  quote: string;
-  author: string;
-  role: string;
-  company: string;
-  avatar?: string;
-}
-
 export const portfolioData = {
   personal: {
     name: "Muhammad Syafi'ul Umam",
-    role: 'UI/UX Designer & Frontend Developer',
-    designation: 'Design Engineer',
-    headline: 'Engineering thoughtful digital interfaces with editorial craft.',
-    subtext: 'Translating Figma design tokens into fluid, accessible, and ultra-performant web experiences.',
+    preferredName: 'Umam',
+    role: 'Frontend Developer · UI/UX',
+    designation: 'Frontend Developer & UI/UX',
+    education: 'Information Technology Student at Universitas YARSI',
+    headline: 'Building thoughtful, functional, and production-ready digital interfaces.',
+    subtext: 'Information Technology student at Universitas YARSI with a focus on frontend development, UI/UX implementation, system workflows, and building genuinely useful digital products.',
     location: 'Jakarta, Indonesia (UTC+7)',
     timezone: 'Asia/Jakarta',
-    status: 'Open for Projects',
+    status: 'Open for Opportunities & Projects',
     isAvailable: true,
     email: 'muhammadumamsyafiul@gmail.com',
-    resumeUrl: '#',
     socials: [
       { name: 'GitHub', url: 'https://github.com/Umam07', icon: 'github', username: '@Umam07' },
       { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'linkedin', username: 'LinkedIn' },
-      { name: 'Instagram', url: 'https://instagram.com', icon: 'instagram', username: '@instagram' },
+      { name: 'Instagram', url: 'https://instagram.com', icon: 'instagram', username: 'Instagram' },
     ],
     stats: [
-      { value: '4+', label: 'Years Experience' },
-      { value: '30+', label: 'Shipped Projects' },
-      { value: '100%', label: 'Clean Code & A11y' },
-      { value: '<100ms', label: 'Interaction Latency' },
+      { label: 'Core Focus', value: 'Frontend & UI/UX' },
+      { label: 'University', value: 'Universitas YARSI' },
+      { label: 'ERP Experience', value: 'C-Tech Indonesia' },
+      { label: 'Location', value: 'Jakarta, ID' },
+    ],
+  },
+
+  about: {
+    title: 'About Me',
+    bio1: "I am an Information Technology student at Universitas YARSI in Jakarta with a strong interest in frontend development, UI/UX design, and digital product workflows.",
+    bio2: "I enjoy translating user needs and wireframes into clean, accessible, and responsive web applications. Through my internship experience at C-Tech ERP Indonesia, I developed a solid foundation in understanding complex business processes, system blueprints, and structured technical documentation.",
+    bio3: "Whether building a lecturer research management platform like PentaDosen or crafting modular component libraries, my goal is always to deliver interfaces that are both technically reliable and effortless to use.",
+    values: [
+      { title: 'Clarity', description: 'Intuitive layouts and crisp typography that help users accomplish tasks without friction.' },
+      { title: 'Consistency', description: 'Modular components and token-driven design bridging Figma to production code.' },
+      { title: 'Accessibility', description: 'Semantic HTML, responsive viewports, and readable contrast for all users.' },
+      { title: 'Responsiveness', description: 'Fluid adaptations from mobile screens to high-density desktop monitors.' },
+      { title: 'Performance', description: 'Fast loading, clean markup, and zero-bloat modern web architectures.' },
+      { title: 'Simplicity', description: 'Functional aesthetics focused on what matters most to the user.' },
     ],
   },
 
   skills: {
-    design: [
-      'UI/UX Architecture',
-      'Design Systems & Tokens',
-      'Figma & Auto Layout',
-      'User Journey Mapping',
-      'Wireframing & Prototyping',
-      'Micro-Interactions & Motion',
-      'Accessibility (WCAG AA)',
-      'Design-to-Code Systems',
-    ],
     frontend: [
-      'Astro & Island Architecture',
-      'React & Next.js',
+      'React',
+      'JavaScript (ES6+)',
       'TypeScript',
-      'Tailwind CSS v4',
-      'GSAP & ScrollTrigger',
-      'Lenis Smooth Scroll',
-      'Semantic HTML5 & Modern CSS',
-      'Core Web Vitals & SEO',
+      'Vite',
+      'Tailwind CSS',
+      'HTML5 & Modern CSS',
+      'Astro',
+      'Responsive Web Design',
     ],
-    workflow: [
-      'Git / GitHub Actions',
-      'Component-Driven Development',
-      'Storybook / UI Testing',
-      'REST & GraphQL APIs',
-      'Figma REST API Integration',
-      'Performance Profiling',
+    backend: [
+      'Laravel',
+      'Node.js',
+      'Express.js',
+      'REST API Integration',
+    ],
+    database: [
+      'MySQL',
+      'TiDB',
+    ],
+    design: [
+      'Figma & Auto Layout',
+      'UI/UX Prototyping',
+      'Design Systems & Tokens',
+      'Wireframing & User Flows',
+      'UI Implementation',
+    ],
+    tools: [
+      'Git & GitHub',
+      'Odoo ERP Workflows',
+      'VS Code',
+      'User Acceptance Testing (UAT)',
+      'Technical Documentation',
     ],
   },
 
   projects: [
     {
-      id: 'aura-design-system',
-      title: 'Aura Design System & Component Studio',
-      subtitle: 'Multi-brand design token system connecting Figma variables directly with production React code.',
-      category: 'Design System',
-      role: 'Lead Design Engineer',
+      id: 'pentadosen',
+      title: 'PentaDosen — Lecturer Research & Performance Management',
+      subtitle: 'A dedicated research, publication, and academic performance tracking platform for university lecturers.',
+      category: 'Web Application',
+      role: 'Frontend Developer & UI Implementation',
       year: '2025',
       featured: true,
-      image: '/images/projects/aura-ds.jpg',
-      tags: ['Design Systems', 'Figma Tokens', 'React', 'Tailwind CSS', 'TypeScript', 'A11y'],
-      summary: 'Bridged the gap between product design in Figma and code implementation with zero-drift tokens.',
-      description: 'Architected a modular token taxonomy with automated exports from Figma variables to Tailwind CSS configs. Built 80+ WCAG 2.1 AAA compliant UI components with interactive documentation and fluid motion primitives.',
-      impact: 'Accelerated feature development speed by 45% and eliminated visual regression bugs across 5 product squads.',
+      image: '/images/projects/pentadosen.jpg',
+      tags: ['React', 'Vite', 'Tailwind CSS', 'TypeScript', 'REST API', 'Figma UI'],
+      summary: 'Centralized portal empowering university lecturers to monitor research grants, publication milestones, intellectual property (HKI), and academic activity calendars.',
+      description: 'PentaDosen was built to solve fragmented academic documentation for lecturers. Developed a modular, responsive dashboard featuring research grant tracking, publication status overviews, HKI intellectual property approval workflows, and an academic calendar schedule.',
+      impact: 'Consolidates research documentation into a unified, user-friendly interface that streamlines academic reporting and performance tracking.',
+      caseStudyUrl: '/projects/pentadosen',
       metrics: [
-        { label: 'UI Components', value: '85+' },
-        { label: 'Design Tokens', value: '340+' },
-        { label: 'Token Sync Drift', value: '0.0%' },
+        { label: 'Core Modules', value: 'Dashboard · HKI · Research' },
+        { label: 'Frontend Stack', value: 'React · Vite · Tailwind' },
+        { label: 'Architecture', value: 'Component-Driven' },
       ],
       links: {
-        live: 'https://example.com/aura',
-        github: 'https://github.com/example/aura-design-system',
-        figma: 'https://figma.com/@example/aura',
+        live: '/projects/pentadosen',
+        github: 'https://github.com/Umam07',
       },
-      accentColor: 'emerald',
     },
     {
-      id: 'nexus-financial-os',
-      title: 'Nexus Financial Operating Dashboard',
-      subtitle: 'High-density real-time financial analytics dashboard with customizable bento widgets.',
-      category: 'Web Application',
-      role: 'Product Designer & Frontend Architect',
-      year: '2024',
+      id: 'ctech-erp-workflow',
+      title: 'C-Tech ERP — Odoo System Workflows & Module Documentation',
+      subtitle: 'Functional ERP blueprints, UAT validation, and technical manual books across core Odoo enterprise modules.',
+      category: 'System Workflows',
+      role: 'Functional ERP Intern',
+      year: '2025 - 2026',
       featured: true,
-      image: '/images/projects/nexus-os.jpg',
-      tags: ['Fintech UX', 'Next.js', 'GSAP', 'TypeScript', 'Tailwind CSS', 'WebSockets'],
-      summary: 'Designed an elegant dark-mode financial workbench with sub-100ms micro-interactions.',
-      description: 'Streamlined complex portfolio balances and multi-currency transactions into a customizable bento layout. Engineered real-time charting interactions and responsive split-screen audit drawers with zero layout shift.',
-      impact: 'Handled over $14M+ in simulated daily volume with a 99.4% user satisfaction score.',
+      image: '/images/projects/ctech-erp.jpg',
+      tags: ['Odoo ERP', 'Business Process', 'UAT', 'Manual Book', 'Purchase & Construction', 'Master Data'],
+      summary: 'System workflows, functional analysis, and comprehensive user manual documentation for enterprise Odoo ERP implementation.',
+      description: 'Analyzed enterprise business processes and formulated functional blueprints for Odoo ERP modules. Authored end-user manual books for Purchase and Construction modules, executed User Acceptance Testing (UAT), and managed master data validation across Inventory, Sales, and Accounting.',
+      impact: 'Enhanced operational clarity and standard operating procedures for end-users across critical procurement and inventory workflows.',
       metrics: [
-        { label: 'Interaction Latency', value: '<80ms' },
-        { label: 'Lighthouse Score', value: '99/100' },
-        { label: 'User Retention', value: '+38%' },
+        { label: 'Modules Covered', value: 'Purchase · Inventory · Sales' },
+        { label: 'Documentation', value: 'Manual Books & UAT' },
+        { label: 'ERP Platform', value: 'Odoo Ecosystem' },
       ],
       links: {
-        live: 'https://example.com/nexus',
-        github: 'https://github.com/example/nexus-os',
-        figma: 'https://figma.com/@example/nexus',
+        github: 'https://github.com/Umam07',
       },
-      accentColor: 'blue',
     },
     {
-      id: 'veloce-spatial-commerce',
-      title: 'Veloce Luxury Spatial Commerce',
-      subtitle: 'Editorial luxury e-commerce experience with smooth inertia scroll and interactive preview.',
-      category: 'Interactive Experience',
-      role: 'UI/UX & Creative Developer',
-      year: '2024',
+      id: 'systema-ui-kit',
+      title: 'Systema — Design Tokens & Accessible Web UI Kit',
+      subtitle: 'A modular UI kit translating Figma design variables into clean, responsive Tailwind CSS components.',
+      category: 'Design System',
+      role: 'Frontend & UI/UX',
+      year: '2024 - 2025',
       featured: true,
-      image: '/images/projects/veloce-commerce.jpg',
-      tags: ['Astro', 'Lenis Scroll', 'GSAP ScrollTrigger', 'Interaction Design', 'Tailwind'],
-      summary: 'Created an immersive, high-fashion commerce site with buttery smooth narrative scrolling.',
-      description: 'Engineered scroll-bound GSAP animations, dynamic typography scaling, and instant page transitions using Astro zero-JS server architecture and Lenis smooth momentum scrolling.',
-      impact: 'Boosted average user session duration by +85% and achieved perfect 100/100 Core Web Vitals on mobile.',
+      image: '/images/projects/ui-component-kit.jpg',
+      tags: ['Figma', 'Tailwind CSS', 'Design Tokens', 'HTML/CSS', 'Responsive UI'],
+      summary: 'Bridging design tokens and component standards between Figma and responsive web frontends.',
+      description: 'Constructed an accessible component library focusing on token consistency (colors, typography scales, spacing), form inputs, card variations, and responsive layout primitives with clean HTML5 semantics.',
+      impact: 'Enabled rapid and consistent prototyping of web interfaces with verified WCAG contrast and responsive behaviors.',
       metrics: [
-        { label: 'Mobile CWV', value: '100/100' },
-        { label: 'Session Time', value: '+85%' },
-        { label: 'TTFB Speed', value: '75ms' },
+        { label: 'Design System', value: 'Figma Variables' },
+        { label: 'Accessibility', value: 'WCAG AA Principles' },
+        { label: 'Codebase', value: 'Tailwind CSS' },
       ],
       links: {
-        live: 'https://example.com/veloce',
-        github: 'https://github.com/example/veloce-commerce',
-        figma: 'https://figma.com/@example/veloce',
+        github: 'https://github.com/Umam07',
       },
-      accentColor: 'indigo',
-    },
-    {
-      id: 'synapse-ai-studio',
-      title: 'Synapse Node-Based AI Canvas',
-      subtitle: 'Visual node orchestration canvas for creative developers and prompt workflows.',
-      category: 'Web Application',
-      role: 'UI/UX Designer & Frontend Developer',
-      year: '2024',
-      featured: true,
-      image: '/images/projects/synapse-canvas.jpg',
-      tags: ['AI Interface', 'React Flow', 'Figma UI', 'Tailwind CSS', 'Motion'],
-      summary: 'Designed an intuitive node graph interface for chaining generative AI pipelines.',
-      description: 'Crafted a sleek, distraction-free dark interface with draggable node connectors, keyboard shortcuts, and instantaneous visual feedback for multi-model LLM generation.',
-      impact: 'Accumulated 12,000+ active beta creators with over 4,500 community workflow templates.',
-      metrics: [
-        { label: 'Active Creators', value: '12k+' },
-        { label: 'Community Clones', value: '4.5k' },
-        { label: 'Satisfaction', value: '4.9/5' },
-      ],
-      links: {
-        live: 'https://example.com/synapse',
-        github: 'https://github.com/example/synapse-ai-studio',
-      },
-      accentColor: 'purple',
     },
   ] as Project[],
 
   experience: [
     {
-      period: '2023 - Present',
-      role: 'Senior Design Engineer',
-      company: 'Studio Veloce',
-      location: 'Remote',
-      type: 'Full-time',
-      description: 'Leading the bridge between product design and frontend engineering. Building scalable design systems and high-touch web applications.',
+      period: '11 Aug 2025 — 11 Feb 2026',
+      role: 'Functional ERP Intern',
+      company: 'C-Tech ERP Indonesia',
+      location: 'Indonesia',
+      type: 'Internship',
+      description: 'Conducted functional analysis, business workflow documentation, User Acceptance Testing (UAT), and manual book preparation across enterprise Odoo ERP modules.',
       highlights: [
-        'Established automated Figma-to-code token workflows used across 5 major product squads.',
-        'Engineered responsive web applications with sub-100ms Core Web Vitals and 100% test coverage.',
-        'Mentored 6 junior designers and engineers on interaction design and modern CSS architecture.',
+        'Prepared functional blueprints and managed master data import validation for enterprise workflows.',
+        'Authored detailed manual books and operational documentation for the Purchase and Construction modules.',
+        'Executed User Acceptance Testing (UAT) to ensure system features adhered to business requirements.',
+        'Analyzed core Odoo modules: Inventory, Purchase, Sales, Accounting, Manufacturing, Lot/Serial Numbers, Replenishment, MPS, Inventory Valuation, Move History, and Move Analysis.',
+        'Created system mockups and documentation to bridge functional requirements with technical execution.',
       ],
-      skills: ['Design Systems', 'Astro', 'React', 'Tailwind CSS', 'GSAP', 'TypeScript', 'A11y'],
-    },
-    {
-      period: '2021 - 2023',
-      role: 'Frontend Developer & UI Specialist',
-      company: 'Pixelcraft Interactive',
-      location: 'Jakarta, ID',
-      type: 'Full-time',
-      description: 'Developed responsive client web apps, animated marketing platforms, and reusable component libraries.',
-      highlights: [
-        'Redesigned core client SaaS dashboards, increasing task completion rate by 34%.',
-        'Implemented Lenis smooth scrolling and GSAP scroll experiences for flagship product launches.',
-        'Maintained 99+ Lighthouse performance across all shipped client repositories.',
-      ],
-      skills: ['Figma', 'JavaScript', 'React', 'Tailwind CSS', 'CSS Grid', 'REST APIs'],
-    },
-    {
-      period: '2020 - 2021',
-      role: 'Junior UI/UX Designer & Web Developer',
-      company: 'Creative Horizon',
-      location: 'Bandung, ID',
-      type: 'Full-time',
-      description: 'Conducted user research, designed high-fidelity wireframes, and built clean HTML/CSS/JS websites for enterprise clients.',
-      highlights: [
-        'Delivered 18+ client landing pages and brand websites with pixel-perfect precision.',
-        'Created interactive Figma prototypes for client stakeholder pitches with 95% approval rate.',
-      ],
-      skills: ['Figma', 'HTML5', 'CSS3', 'Wireframing', 'Prototyping', 'User Testing'],
+      skills: ['Odoo ERP', 'ERP Workflows', 'Business Process Analysis', 'UAT', 'Manual Book Creation', 'Master Data Import', 'Mockup Design'],
     },
   ] as ExperienceItem[],
 
-  testimonials: [
-    {
-      quote: 'Umam possesses that rare blend of pristine visual taste and robust frontend engineering skills. Handing him a design concept means receiving a production-ready, ultra-smooth web app that exceeds all expectations.',
-      author: 'Alex Rivera',
-      role: 'Head of Product',
-      company: 'Veloce Technologies',
-    },
-    {
-      quote: 'The attention to micro-interactions, layout balance, and performance was extraordinary. Our platform redesign led to an immediate +38% jump in user retention and engagement.',
-      author: 'Sarah Chen',
-      role: 'Engineering Director',
-      company: 'Nexus Labs',
-    },
-    {
-      quote: 'Working with Umam was seamless. His ability to translate complex user journeys into intuitive, accessible, and blazing fast web interfaces is truly best-in-class.',
-      author: 'Marcus Vance',
-      role: 'Founder & CEO',
-      company: 'Aura Studio',
-    },
-  ] as Testimonial[],
-
-  faq: [
-    {
-      q: 'What is a Design Engineer?',
-      a: 'A Design Engineer operates at the intersection of UI/UX design and frontend development. I do not just design static mocks in Figma; I build the real, interactive, accessible, and performant code that powers the experience.',
-    },
-    {
-      q: 'What is your typical design-to-development workflow?',
-      a: '1. Discovery & User Journey mapping -> 2. Wireframes & High-Fidelity UI in Figma -> 3. Design Tokens & Component architecture -> 4. Frontend implementation (Astro/React + Tailwind + GSAP) -> 5. Performance profiling & accessibility testing -> 6. Deployment & documentation.',
-    },
-    {
-      q: 'Are you available for freelance or full-time roles?',
-      a: 'Yes, I am currently open to high-impact freelance projects, contract roles, or select full-time Design Engineer opportunities.',
-    },
-  ],
-
   seo: {
-    title: "Muhammad Syafi'ul Umam — UI/UX Designer & Frontend Developer (Design Engineer)",
-    description: "Portfolio of Muhammad Syafi'ul Umam, a Design Engineer specializing in UI/UX design systems, modern frontend architecture, GSAP micro-interactions, and high-performance web applications.",
-    url: 'https://portfolio.dev',
-    ogImage: '/og-image.png',
+    title: "Muhammad Syafi'ul Umam (Umam) — Frontend Developer · UI/UX",
+    description: "Personal portfolio of Muhammad Syafi'ul Umam, an Information Technology student at Universitas YARSI focused on frontend development, UI/UX implementation, system workflows, and web applications.",
+    url: 'https://portfolio-baru.vercel.app',
+    ogImage: '/images/projects/pentadosen.jpg',
     keywords: [
-      'UI/UX Designer',
-      'Frontend Developer',
-      'Design Engineer',
-      'Astro Portfolio',
-      'GSAP Animation',
-      'Lenis Smooth Scroll',
-      'Tailwind CSS v4',
-      'React Developer',
-      'Design Systems',
-      'Indonesia Web Developer',
+      "Muhammad Syafi'ul Umam",
+      "Syafi'ul Umam",
+      'Syafiul Umam',
+      'Umam Frontend Developer',
+      "Muhammad Syafi'ul Umam Frontend Developer",
+      'Frontend Developer UI UX',
+      'Universitas YARSI',
+      'PentaDosen',
+      'React Developer Indonesia',
+      'Tailwind CSS',
+      'Web Developer Jakarta',
     ],
   },
 };

@@ -1,0 +1,77 @@
+---
+import { portfolioData } from '../data/portfolioData';
+
+const { about } = portfolioData;
+---
+
+<section id="about" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+  <!-- Section Header -->
+  <div class="pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] text-xs font-mono font-medium border border-[#e6dfd8] dark:border-[#2e2b26] mb-3">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
+      <span>BACKGROUND & CRAFT</span>
+    </div>
+    <h2 class="font-display text-3xl sm:text-4xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
+      About Me & Engineering Principles
+    </h2>
+    <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[54ch]">
+      Information Technology student at Universitas YARSI dedicated to building functional, accessible, and well-crafted digital interfaces.
+    </p>
+  </div>
+
+  <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    
+    <!-- Left Column: Authentic Personal Narrative (col-span-6) -->
+    <div class="lg:col-span-6 space-y-4 text-sm sm:text-base text-[#3d3d3a] dark:text-[#d4cfc7] leading-relaxed">
+      <p>
+        I am <strong class="text-[#141413] dark:text-[#faf9f5]">Muhammad Syafi'ul Umam</strong> (commonly known as <strong class="text-[#cc785c]">Umam</strong>), an Information Technology student at <strong class="text-[#141413] dark:text-[#faf9f5]">Universitas YARSI</strong> in Jakarta with a strong passion for frontend engineering, UI/UX design, and digital product workflows.
+      </p>
+
+      <p>
+        My journey bridges design and code. Rather than treating UI design and software implementation as separate silos, I focus on translating user requirements, Figma components, and data structures into production-ready, responsive web applications.
+      </p>
+
+      <p>
+        Through my experience as a <strong>Functional ERP Intern at C-Tech ERP Indonesia</strong>, I worked deeply with enterprise business processes, User Acceptance Testing (UAT), and manual book preparation across core Odoo modules. This taught me the value of structured thinking, system blueprints, and thorough documentation.
+      </p>
+
+      <!-- Quick Info Strip -->
+      <div class="pt-4 grid grid-cols-2 gap-3 font-mono text-xs">
+        <div class="p-3 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+          <span class="text-[#8e8b82] dark:text-[#7a7770] block">INSTITUTION</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Universitas YARSI</span>
+        </div>
+        <div class="p-3 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+          <span class="text-[#8e8b82] dark:text-[#7a7770] block">MAJOR</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Information Technology</span>
+        </div>
+        <div class="p-3 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+          <span class="text-[#8e8b82] dark:text-[#7a7770] block">BASE</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Jakarta, Indonesia</span>
+        </div>
+        <div class="p-3 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+          <span class="text-[#8e8b82] dark:text-[#7a7770] block">STATUS</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Available for Projects</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: 6 Authentic Design Principles (col-span-6) -->
+    <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+      {about.values.map((val, idx) => (
+        <div class="p-4 sm:p-5 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-colors">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
+            <h3 class="font-display text-lg text-[#141413] dark:text-[#faf9f5] tracking-tight">
+              {val.title}
+            </h3>
+            <span class="text-[10px] font-mono text-[#cc785c]">0{idx + 1}</span>
+          </div>
+          <p class="text-xs text-[#6c6a64] dark:text-[#a09d96] leading-relaxed">
+            {val.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -15,12 +15,23 @@ const { project, index } = Astro.props;
     <!-- Visual Preview Image Frame -->
     {project.image && (
       <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#e6dfd8] dark:border-[#2e2b26] bg-[#181715] mb-6 shadow-xs">
-        <img
-          src={project.image}
-          alt={`Preview of ${project.title}`}
-          loading="lazy"
-          class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-        />
+        {project.caseStudyUrl ? (
+          <a href={project.caseStudyUrl} class="block w-full h-full">
+            <img
+              src={project.image}
+              alt={`Preview of ${project.title}`}
+              loading="lazy"
+              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </a>
+        ) : (
+          <img
+            src={project.image}
+            alt={`Preview of ${project.title}`}
+            loading="lazy"
+            class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        )}
         <div class="absolute inset-0 ring-1 ring-inset ring-black/5 dark:ring-white/5 rounded-lg pointer-events-none"></div>
       </div>
     )}
@@ -36,7 +47,13 @@ const { project, index } = Astro.props;
 
     <!-- Serif Headline -->
     <h3 class="font-display text-2xl sm:text-[26px] text-[#141413] dark:text-[#faf9f5] tracking-tight group-hover:text-[#cc785c] dark:group-hover:text-[#cc785c] transition-colors leading-snug">
-      {project.title}
+      {project.caseStudyUrl ? (
+        <a href={project.caseStudyUrl} class="hover:underline">
+          {project.title}
+        </a>
+      ) : (
+        project.title
+      )}
     </h3>
     
     <p class="mt-2.5 text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
@@ -51,7 +68,7 @@ const { project, index } = Astro.props;
 
     <!-- Key Impact Note -->
     <div class="mt-3.5 p-3 rounded-lg bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs text-[#252523] dark:text-[#d4cfc7] leading-relaxed">
-      <span class="font-semibold text-[#cc785c] mr-1">✦ Impact:</span>
+      <span class="font-semibold text-[#cc785c] mr-1">✦ Context:</span>
       {project.impact}
     </div>
 
@@ -59,8 +76,8 @@ const { project, index } = Astro.props;
     <div class="mt-4 grid grid-cols-3 gap-2 pt-3.5 border-t border-[#e6dfd8] dark:border-[#2e2b26]">
       {project.metrics.map((metric) => (
         <div class="flex flex-col">
-          <span class="font-display text-lg sm:text-xl text-[#141413] dark:text-[#faf9f5]">{metric.value}</span>
-          <span class="text-[11px] text-[#6c6a64] dark:text-[#8e8b82]">{metric.label}</span>
+          <span class="font-display text-base sm:text-lg text-[#141413] dark:text-[#faf9f5] leading-tight">{metric.value}</span>
+          <span class="text-[11px] text-[#6c6a64] dark:text-[#8e8b82] mt-0.5">{metric.label}</span>
         </div>
       ))}
     </div>
@@ -78,7 +95,17 @@ const { project, index } = Astro.props;
   <!-- Bottom Action Links -->
   <div class="mt-6 pt-4 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex items-center justify-between gap-3">
     <div class="flex items-center gap-2">
-      {project.links.live && (
+      {project.caseStudyUrl ? (
+        <a
+          href={project.caseStudyUrl}
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs font-medium transition-all shadow-xs"
+        >
+          <span>Read Case Study</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      ) : project.links.live ? (
         <a
           href={project.links.live}
           target="_blank"
@@ -90,6 +117,17 @@ const { project, index } = Astro.props;
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
           </svg>
         </a>
+      ) : null}
+
+      {project.links.github && (
+        <a
+          href={project.links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#faf9f5] dark:bg-[#252320] hover:bg-[#f5f0e8] dark:hover:bg-[#2e2b26] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all"
+        >
+          <span>GitHub</span>
+        </a>
       )}
 
       {project.links.figma && (
@@ -100,17 +138,6 @@ const { project, index } = Astro.props;
           class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#faf9f5] dark:bg-[#252320] hover:bg-[#f5f0e8] dark:hover:bg-[#2e2b26] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all"
         >
           <span>Figma</span>
-        </a>
-      )}
-
-      {project.links.github && (
-        <a
-          href={project.links.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#faf9f5] dark:bg-[#252320] hover:bg-[#f5f0e8] dark:hover:bg-[#2e2b26] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all"
-        >
-          <span>Code</span>
         </a>
       )}
     </div>
