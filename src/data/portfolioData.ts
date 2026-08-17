@@ -7,7 +7,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: 'Web Application' | 'System Workflows' | 'Design System' | 'UI/UX';
+  category: 'Web Application' | 'System Workflows' | 'Mobile Application' | 'Design System' | 'UI/UX';
   role: string;
   year: string;
   featured: boolean;
@@ -163,25 +163,25 @@ export const portfolioData = {
       },
     },
     {
-      id: 'systema-ui-kit',
-      title: 'Systema — Design Tokens & Accessible Web UI Kit',
-      subtitle: 'A modular UI kit translating Figma design variables into clean, responsive Tailwind CSS components.',
-      category: 'Design System',
-      role: 'Frontend & UI/UX',
+      id: 'infolansia',
+      title: 'InfoLansia — Posyandu Elderly Health Monitoring',
+      subtitle: 'Solusi digital untuk petugas Posyandu dalam memantau kesehatan lansia secara berkala.',
+      category: 'Mobile Application',
+      role: 'Developer',
       year: '2024 - 2025',
       featured: true,
-      image: '/images/projects/ui-component-kit.jpg',
-      tags: ['Figma', 'Tailwind CSS', 'Design Tokens', 'HTML/CSS', 'Responsive UI'],
-      summary: 'Bridging design tokens and component standards between Figma and responsive web frontends.',
-      description: 'Constructed an accessible component library focusing on token consistency (colors, typography scales, spacing), form inputs, card variations, and responsive layout primitives with clean HTML5 semantics.',
-      impact: 'Enabled rapid and consistent prototyping of web interfaces with verified WCAG contrast and responsive behaviors.',
+      image: '/images/projects/infolansia.jpg',
+      tags: ['Flutter', 'Dart', 'Mobile App', 'Health Tech', 'Posyandu'],
+      summary: 'Solusi digital untuk petugas Posyandu dalam memantau kesehatan lansia secara berkala.',
+      description: 'Memindahkan proses skrining manual ke sistem digital terintegrasi dengan visualisasi tren kesehatan untuk membantu petugas memantau kondisi lansia dengan lebih terstruktur.',
+      impact: 'Memindahkan proses skrining manual ke sistem digital terintegrasi dengan visualisasi tren kesehatan untuk membantu pemantauan terstruktur.',
       metrics: [
-        { label: 'Design System', value: 'Figma Variables' },
-        { label: 'Accessibility', value: 'WCAG AA Principles' },
-        { label: 'Codebase', value: 'Tailwind CSS' },
+        { label: 'Technology', value: 'Flutter & Dart' },
+        { label: 'Platform', value: 'Mobile Application' },
+        { label: 'Domain', value: 'Health Monitoring' },
       ],
       links: {
-        github: 'https://github.com/Umam07',
+        github: 'https://github.com/Umam07/InfoLansia',
       },
     },
   ] as Project[],
