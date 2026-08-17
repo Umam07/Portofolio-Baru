@@ -55,14 +55,12 @@ export const portfolioData = {
     timezone: 'Asia/Jakarta',
     status: 'Available for Q3/Q4 2026 Projects',
     isAvailable: true,
-    email: 'umam.designdev@gmail.com',
+    email: 'muhammadumamsyafiul@gmail.com',
     resumeUrl: '#',
     socials: [
-      { name: 'GitHub', url: 'https://github.com', icon: 'github' },
-      { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'linkedin' },
-      { name: 'Dribbble', url: 'https://dribbble.com', icon: 'dribbble' },
-      { name: 'Figma', url: 'https://figma.com', icon: 'figma' },
-      { name: 'X / Twitter', url: 'https://x.com', icon: 'x' },
+      { name: 'GitHub', url: 'https://github.com/Umam07', icon: 'github', username: '@Umam07' },
+      { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'linkedin', username: 'LinkedIn' },
+      { name: 'Instagram', url: 'https://instagram.com', icon: 'instagram', username: '@instagram' },
     ],
     stats: [
       { value: '4+', label: 'Years Experience' },

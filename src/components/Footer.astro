@@ -4,39 +4,41 @@ import { portfolioData } from '../data/portfolioData';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="py-16 px-4 sm:px-6 lg:px-8 bg-[#181715] text-[#a09d96] border-t border-[#252320]">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+<footer class="py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-[#181715] text-[#8e8b82] border-t border-[#252320]">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
     
-    <!-- Left: Spike Mark & Name -->
-    <div class="flex flex-col gap-2">
-      <div class="flex items-center gap-2 text-[#faf9f5]">
-        <svg class="w-4 h-4 text-[#cc785c]" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M7 0h2v6.586l4.657-4.657 1.414 1.414L10.414 8l4.657 4.657-1.414 1.414L9 9.414V16H7V9.414l-4.657 4.657-1.414-1.414L5.586 8 .929 3.343 2.343 1.93 7 6.586V0z"/>
-        </svg>
-        <span class="font-medium text-sm text-[#faf9f5] font-sans font-semibold">{portfolioData.personal.name}</span>
-      </div>
-      <p class="text-xs text-[#8e8b82] font-mono">
-        © {currentYear} · Designed with Claude Design System & built with Astro, Tailwind v4, GSAP & Lenis
-      </p>
-    </div>
-
-    <!-- Center: Jakarta Time Clock -->
-    <div class="flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#252320] border border-[#3d3d3a] text-xs font-mono text-[#a09d96]">
-      <span class="w-2 h-2 rounded-full bg-[#5db872]"></span>
-      <span>JAKARTA (UTC+7):</span>
-      <span id="local-time-clock" class="text-[#faf9f5]">--:--:-- WIB</span>
-    </div>
-
-    <!-- Right: Back to Top -->
-    <a
-      href="#hero"
-      class="inline-flex items-center gap-1.5 text-xs font-mono text-[#a09d96] hover:text-[#faf9f5] transition-colors"
-    >
-      <span>Back to top</span>
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    <!-- Left: Spike Mark & Clean Minimalist Copyright -->
+    <div class="flex items-center gap-2.5">
+      <svg class="w-3.5 h-3.5 text-[#cc785c]" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M7 0h2v6.586l4.657-4.657 1.414 1.414L10.414 8l4.657 4.657-1.414 1.414L9 9.414V16H7V9.414l-4.657 4.657-1.414-1.414L5.586 8 .929 3.343 2.343 1.93 7 6.586V0z"/>
       </svg>
-    </a>
+      <span class="text-xs font-mono text-[#a09d96]">
+        © {currentYear} {portfolioData.personal.name}
+      </span>
+    </div>
+
+    <!-- Right Cluster: Jakarta Clock & Back to Top -->
+    <div class="flex items-center gap-6 text-xs font-mono">
+      <!-- Live Jakarta Time Indicator -->
+      <div class="flex items-center gap-2 text-[#8e8b82]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#5db872]"></span>
+        <span id="local-time-clock" class="text-[#a09d96]">--:-- WIB</span>
+      </div>
+
+      <!-- Divider -->
+      <span class="text-[#3d3d3a]">/</span>
+
+      <!-- Back to Top Link -->
+      <a
+        href="#hero"
+        class="inline-flex items-center gap-1 text-[#8e8b82] hover:text-[#faf9f5] transition-colors"
+      >
+        <span>Top</span>
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+      </a>
+    </div>
 
   </div>
 </footer>
@@ -50,7 +52,6 @@ const currentYear = new Date().getFullYear();
       timeZone: 'Asia/Jakarta',
       hour: '2-digit',
       minute: '2-digit',
-      second: '2-digit',
       hour12: false,
     };
     clockEl.textContent = `${now.toLocaleTimeString('en-GB', options)} WIB`;
