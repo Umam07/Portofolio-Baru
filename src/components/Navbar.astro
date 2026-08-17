@@ -3,9 +3,10 @@ import { portfolioData } from '../data/portfolioData';
 
 const navLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Works', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Contact', href: '#contact' },
 ];
 ---
 
@@ -20,7 +21,7 @@ const navLinks = [
   >
     
     <!-- Brand Logo Mark Only -->
-    <a href="#" aria-label="Home" class="group flex items-center text-[#141413] dark:text-[#faf9f5] hover:opacity-85 transition-opacity">
+    <a href="#" aria-label="Muhammad Syafi'ul Umam Home" class="group flex items-center text-[#141413] dark:text-[#faf9f5] hover:opacity-85 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c] rounded p-0.5">
       <svg
         viewBox="0 0 141 141"
         class="w-7 h-7 sm:w-8 sm:h-8 transition-all duration-300 group-hover:scale-110 text-[#141413] dark:text-[#faf9f5]"
@@ -33,19 +34,19 @@ const navLinks = [
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center gap-6">
+    <nav aria-label="Main Navigation" class="hidden md:flex items-center gap-6">
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="text-sm font-medium text-[#3d3d3a] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5] transition-colors"
+          class="text-sm font-medium text-[#3d3d3a] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c] rounded px-1 py-0.5"
         >
           {link.label}
         </a>
       ))}
     </nav>
 
-    <!-- Right Cluster: Theme Switcher, Contact CTA & Mobile Menu -->
-    <div class="flex items-center gap-2.5 sm:gap-3">
+    <!-- Right Cluster: Theme Switcher, Resume Link, Contact CTA & Mobile Menu -->
+    <div class="flex items-center gap-2 sm:gap-2.5">
       
       <!-- Theme Switcher Button (Light / Dark) -->
       <button
@@ -53,7 +54,7 @@ const navLinks = [
         type="button"
         aria-label="Toggle light and dark theme"
         title="Toggle Theme"
-        class="flex items-center justify-center w-8 h-8 rounded-md border border-[#e6dfd8] dark:border-[#2e2b26] text-[#3d3d3a] dark:text-[#faf9f5] bg-[#faf9f5] dark:bg-[#181715] hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-all cursor-pointer shadow-xs active:scale-95"
+        class="flex items-center justify-center w-8 h-8 rounded-md border border-[#e6dfd8] dark:border-[#2e2b26] text-[#3d3d3a] dark:text-[#faf9f5] bg-[#faf9f5] dark:bg-[#181715] hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-all cursor-pointer shadow-xs active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
       >
         <!-- Sun Icon (Visible in Dark Mode) -->
         <svg id="theme-sun-icon" class="w-4 h-4 hidden dark:block text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,10 +66,23 @@ const navLinks = [
         </svg>
       </button>
 
+      <!-- Resume Button (Desktop) -->
+      <a
+        href={portfolioData.personal.resumeUrl}
+        download="Resume_Muhammad_Syafiul_Umam.pdf"
+        aria-label="Download Resume"
+        class="hidden sm:inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md bg-[#faf9f5] dark:bg-[#181715] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+      >
+        <svg class="w-3.5 h-3.5 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+        </svg>
+        <span>Resume</span>
+      </a>
+
       <!-- Primary Contact Button -->
       <a
         href="#contact"
-        class="inline-flex items-center justify-center px-3.5 sm:px-4 py-2 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white font-medium text-xs sm:text-sm tracking-tight transition-all shadow-xs"
+        class="inline-flex items-center justify-center px-3 sm:px-3.5 py-1.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white font-medium text-xs tracking-tight transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
       >
         Contact
       </a>
@@ -77,7 +91,7 @@ const navLinks = [
       <button
         id="mobile-menu-btn"
         aria-label="Toggle navigation menu"
-        class="md:hidden flex items-center justify-center w-8 h-8 rounded-md border border-[#e6dfd8] dark:border-[#2e2b26] text-[#141413] dark:text-[#faf9f5] bg-[#faf9f5] dark:bg-[#181715]"
+        class="md:hidden flex items-center justify-center w-8 h-8 rounded-md border border-[#e6dfd8] dark:border-[#2e2b26] text-[#141413] dark:text-[#faf9f5] bg-[#faf9f5] dark:bg-[#181715] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
       >
         <svg id="menu-icon-open" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -96,20 +110,32 @@ const navLinks = [
   id="mobile-drawer"
   class="fixed inset-0 top-16 z-40 bg-[#faf9f5] dark:bg-[#121110] opacity-0 pointer-events-none transition-all duration-200 md:hidden flex flex-col justify-start px-6 pt-8 border-t border-[#e6dfd8] dark:border-[#2e2b26]"
 >
-  <nav class="flex flex-col gap-5">
+  <nav aria-label="Mobile Navigation" class="flex flex-col gap-4">
     {navLinks.map((link) => (
       <a
         href={link.href}
-        class="mobile-nav-item text-lg font-medium text-[#141413] dark:text-[#faf9f5] py-2 border-b border-[#e6dfd8]/60 dark:border-[#2e2b26]"
+        class="mobile-nav-item text-base font-medium text-[#141413] dark:text-[#faf9f5] py-2 border-b border-[#e6dfd8]/60 dark:border-[#2e2b26]"
       >
         {link.label}
       </a>
     ))}
+
+    <a
+      href={portfolioData.personal.resumeUrl}
+      download="Resume_Muhammad_Syafiul_Umam.pdf"
+      class="mobile-nav-item inline-flex items-center gap-2 text-base font-medium text-[#cc785c] py-2 border-b border-[#e6dfd8]/60 dark:border-[#2e2b26]"
+    >
+      <svg class="w-4 h-4 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+      </svg>
+      <span>Download Resume</span>
+    </a>
+
     <div class="pt-4 flex flex-col gap-2">
       <span class="text-xs text-[#8e8b82] font-mono">{portfolioData.personal.status}</span>
       <a
         href={`mailto:${portfolioData.personal.email}`}
-        class="text-sm font-medium text-[#cc785c] underline font-mono text-xs"
+        class="text-xs font-medium text-[#cc785c] underline font-mono"
       >
         {portfolioData.personal.email}
       </a>

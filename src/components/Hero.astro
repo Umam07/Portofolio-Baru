@@ -18,28 +18,39 @@ const { personal } = portfolioData;
 
       <!-- Serif Display Headline (Copernicus / Newsreader style, weight 400, negative tracking) -->
       <h1 class="hero-reveal font-display text-4xl sm:text-5xl lg:text-[56px] text-[#141413] dark:text-[#faf9f5] leading-[1.12] tracking-tight pb-1">
-        Frontend Developer & UI/UX
+        Frontend Developer & UI/UX Designer
       </h1>
 
-      <!-- Body Copy (StyreneB / Inter, muted ink) -->
+      <!-- Body Copy (Humanist sans, muted ink) -->
       <p class="hero-reveal mt-5 text-base sm:text-lg text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed max-w-[48ch]">
-        Building thoughtful, functional, responsive, and production-ready digital interfaces with modern frontend architecture and clean design systems.
+        Building responsive, accessible, and structured web interfaces with modern frontend architecture (React, TypeScript, Tailwind CSS) and clean design systems.
       </p>
 
-      <!-- Action Buttons (Coral primary + Cream secondary hairline) -->
+      <!-- Action Buttons (View Projects, Download Resume, Contact Me) -->
       <div class="hero-reveal mt-8 flex flex-wrap items-center gap-3">
         <a
           href="#projects"
-          class="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white font-medium text-sm transition-all shadow-xs"
+          class="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white font-medium text-sm transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
         >
-          View My Work
+          View Projects
+        </a>
+
+        <a
+          href={personal.resumeUrl}
+          download="Resume_Muhammad_Syafiul_Umam.pdf"
+          class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#f5f0e8] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-sm font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        >
+          <svg class="w-4 h-4 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          <span>Download Resume</span>
         </a>
 
         <a
           href="#contact"
-          class="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#f5f0e8] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-sm font-medium transition-all"
+          class="inline-flex items-center justify-center px-4 py-2.5 rounded-md hover:bg-[#efe9de] dark:hover:bg-[#1c1b18] text-[#6c6a64] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5] text-sm font-medium transition-all"
         >
-          Let's Connect
+          Contact Me
         </a>
       </div>
 
@@ -87,14 +98,15 @@ const { personal } = portfolioData;
         <div id="code-content-config" class="hero-code-block">
           <pre class="font-code text-xs sm:text-[13px] leading-relaxed text-[#e6dfd8] overflow-x-auto"><code><span class="text-[#cc785c]">export const</span> <span class="text-[#5db8a6]">frontendDeveloper</span> = &#123;
   <span class="text-[#a09d96]">name:</span> <span class="text-[#e8a55a]">"Muhammad Syafi'ul Umam"</span>,
+  <span class="text-[#a09d96]">role:</span> <span class="text-[#e8a55a]">"Frontend Developer & UI/UX"</span>,
   <span class="text-[#a09d96]">education:</span> <span class="text-[#e8a55a]">"Universitas YARSI"</span>,
-  <span class="text-[#a09d96]">primaryFocus:</span> [
-    <span class="text-[#e8a55a]">"React & Vite"</span>,
+  <span class="text-[#a09d96]">coreStack:</span> [
+    <span class="text-[#e8a55a]">"React"</span>,
+    <span class="text-[#e8a55a]">"TypeScript"</span>,
     <span class="text-[#e8a55a]">"Tailwind CSS"</span>,
-    <span class="text-[#e8a55a]">"Figma UI/UX"</span>,
-    <span class="text-[#e8a55a]">"ERP Workflows"</span>,
+    <span class="text-[#e8a55a]">"Figma"</span>,
   ],
-  <span class="text-[#a09d96]">featuredProject:</span> <span class="text-[#5db872]">"PentaDosen"</span>,
+  <span class="text-[#a09d96]">flagshipProject:</span> <span class="text-[#5db872]">"PentaDosen"</span>,
   <span class="text-[#a09d96]">internship:</span> <span class="text-[#5db872]">"C-Tech ERP Indonesia"</span>,
 &#125;;</code></pre>
         </div>
@@ -117,7 +129,7 @@ const { personal } = portfolioData;
             <span class="w-2 h-2 rounded-full bg-[#5db872] animate-pulse"></span>
             <span>TypeScript & React Ready</span>
           </div>
-          <span class="text-[#cc785c]">Open for Projects</span>
+          <span class="text-[#cc785c]">Open for Roles</span>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
 
 <Layout
   title="PentaDosen Case Study — Muhammad Syafi'ul Umam"
-  description="Case study on PentaDosen: A research and performance management platform for university lecturers built with React, Vite, and Tailwind CSS."
+  description="In-depth case study on PentaDosen: A research and academic performance management platform for university lecturers built with React, Vite, Tailwind CSS, and TypeScript."
 >
   <article class="pt-24 pb-20 md:pt-32 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
     
@@ -15,7 +15,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
     <div class="mb-8">
       <a
         href="/#projects"
-        class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-[#8e8b82] dark:text-[#a09d96] hover:text-[#cc785c] dark:hover:text-[#cc785c] transition-colors group"
+        class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-[#8e8b82] dark:text-[#a09d96] hover:text-[#cc785c] dark:hover:text-[#cc785c] transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c] rounded p-1"
       >
         <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
@@ -64,121 +64,236 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
     <div class="my-10 rounded-2xl overflow-hidden border border-[#e6dfd8] dark:border-[#2e2b26] shadow-lg bg-[#181715]">
       <img
         src={project.image}
-        alt="PentaDosen UI Dashboard Preview"
+        alt="PentaDosen UI Dashboard Preview showing Lecturer Research Management"
         class="w-full h-auto object-cover"
         loading="eager"
       />
     </div>
 
-    <!-- Case Study Narrative Body -->
+    <!-- Case Study Narrative Body (Structured 8-Part Case Study) -->
     <div class="space-y-12 text-[#3d3d3a] dark:text-[#d4cfc7] text-sm sm:text-base leading-relaxed font-sans">
       
-      <!-- Section 1: Overview -->
+      <!-- 01 — Overview -->
       <section>
+        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1.5 uppercase tracking-wider">
+          <span>01</span>
+          <span>//</span>
+          <span>Context & Purpose</span>
+        </div>
         <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
-          01. Project Overview
+          Overview
         </h2>
         <p>
-          <strong class="text-[#141413] dark:text-[#faf9f5]">PentaDosen</strong> is a dedicated web application designed to simplify how university lecturers document, organize, and monitor their research activities, academic publications, intellectual property (HKI), and performance metrics.
+          <strong class="text-[#141413] dark:text-[#faf9f5]">PentaDosen</strong> is a dedicated academic management web application designed to simplify how university lecturers document, organize, and track their research grants, peer-reviewed publications, intellectual property rights (HKI), and faculty calendar milestones.
         </p>
         <p class="mt-3">
-          University lecturers are routinely required to report on research grants, publication submissions, patents, and community service milestones. PentaDosen gathers these disparate streams into a coherent, responsive dashboard.
+          University faculty members must continually report their research outputs and community service milestones for accreditation and academic ranking. PentaDosen gathers these disparate streams into a coherent, responsive dashboard.
         </p>
       </section>
 
-      <!-- Section 2: The Problem -->
-      <section class="p-6 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+      <!-- 02 — Problem -->
+      <section class="p-6 sm:p-7 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1.5 uppercase tracking-wider">
+          <span>02</span>
+          <span>//</span>
+          <span>The Challenge</span>
+        </div>
         <h2 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-3">
-          02. The Problem
+          The Problem
         </h2>
         <p>
-          Prior to having a unified interface, academic staff faced several friction points:
+          Before having a centralized interface, lecturers and academic reviewers encountered significant administrative friction:
         </p>
-        <ul class="mt-3 space-y-2 text-xs sm:text-sm">
-          <li class="flex items-start gap-2">
+        <ul class="mt-4 space-y-2.5 text-xs sm:text-sm">
+          <li class="flex items-start gap-2.5">
             <span class="text-[#cc785c] mt-0.5 font-bold">✕</span>
-            <span><strong>Scattered Documentation:</strong> Research proposals, journal publications, and HKI certificates were stored across separate documents and email threads.</span>
+            <span><strong>Scattered Academic Documentation:</strong> Research proposals, journal proofs, and HKI certificates were stored across disconnected spreadsheets, local drives, and email threads.</span>
           </li>
-          <li class="flex items-start gap-2">
+          <li class="flex items-start gap-2.5">
             <span class="text-[#cc785c] mt-0.5 font-bold">✕</span>
-            <span><strong>Unclear Performance Visibility:</strong> Lecturers had difficulty tracking accumulated research points and grant milestones in real time.</span>
+            <span><strong>Lack of Real-Time Status Visibility:</strong> Lecturers had to manually inquire about verification statuses for intellectual property (HKI) submissions and research grant disbursements.</span>
           </li>
-          <li class="flex items-start gap-2">
+          <li class="flex items-start gap-2.5">
             <span class="text-[#cc785c] mt-0.5 font-bold">✕</span>
-            <span><strong>Missed Deadlines:</strong> Crucial thesis defense schedules, grant submissions, and review deadlines lacked an integrated academic calendar.</span>
+            <span><strong>Missed Deadlines & Unsynchronized Schedules:</strong> Academic review dates, grant deadlines, and proposal submission windows lacked an integrated faculty calendar.</span>
           </li>
         </ul>
       </section>
 
-      <!-- Section 3: The Solution -->
+      <!-- 03 — My Role -->
       <section>
+        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1.5 uppercase tracking-wider">
+          <span>03</span>
+          <span>//</span>
+          <span>Responsibilities</span>
+        </div>
         <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
-          03. The Solution
+          My Role & Scope
         </h2>
         <p>
-          PentaDosen introduces a clean, modular web dashboard that centralizes academic management into several key modules:
+          As the <strong>Frontend Developer & UI Implementer</strong>, I was responsible for transforming wireframes and functional requirements into an interactive, accessible, and responsive single-page web application.
         </p>
-        <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">📊 Research Analytics & Grants</h3>
-            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Live grant totals, H-index tracking, citations overview, and active project counts.</p>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm font-mono">
+          <div class="p-3.5 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <span class="text-[#cc785c] block mb-1">UI / UX IMPLEMENTATION</span>
+            <span class="text-[#3d3d3a] dark:text-[#d4cfc7] font-sans">Figma component translation, layout grid architecture, and responsive breakpoints.</span>
           </div>
-          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">📑 Publication & Milestone Tracking</h3>
-            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Categorized tables for journal articles, conference papers, and book publications.</p>
+          <div class="p-3.5 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <span class="text-[#cc785c] block mb-1">FRONTEND ARCHITECTURE</span>
+            <span class="text-[#3d3d3a] dark:text-[#d4cfc7] font-sans">React component modularity, TypeScript typings, state management, and Vite tooling.</span>
           </div>
-          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">🛡️ HKI & Intellectual Property</h3>
-            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Status tracking for Copyrights (Approved), Patents (Pending), and Industrial Designs.</p>
+          <div class="p-3.5 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <span class="text-[#cc785c] block mb-1">REST API INTEGRATION</span>
+            <span class="text-[#3d3d3a] dark:text-[#d4cfc7] font-sans">Connecting client interfaces with REST endpoints for CRUD operations on publications and HKI.</span>
           </div>
-          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">📅 Academic Calendar & Tasks</h3>
-            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Monthly timeline for grant deadlines, thesis defenses, and faculty workshops.</p>
+          <div class="p-3.5 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <span class="text-[#cc785c] block mb-1">FORM VALIDATION & UX</span>
+            <span class="text-[#3d3d3a] dark:text-[#d4cfc7] font-sans">Multi-step document upload modals, feedback toasts, and accessible form states.</span>
           </div>
         </div>
       </section>
 
-      <!-- Section 4: My Contribution -->
-      <section class="p-6 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+      <!-- 04 — Design & UX Process -->
+      <section class="p-6 sm:p-7 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1.5 uppercase tracking-wider">
+          <span>04</span>
+          <span>//</span>
+          <span>Information Architecture</span>
+        </div>
         <h2 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-3">
-          04. My Contribution
+          Design & UX Process
         </h2>
-        <p class="text-sm">
-          As the <strong>Frontend Developer & UI Implementer</strong>, my responsibilities included:
+        <p>
+          To ensure lecturers can navigate high-density academic tables without visual fatigue, the interface was structured around three core design principles:
         </p>
-        <ul class="mt-3 space-y-2 text-xs sm:text-sm">
+        <div class="mt-4 space-y-3 text-xs sm:text-sm">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-md bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex items-center justify-center font-mono text-xs font-bold text-[#cc785c] shrink-0">1</span>
+            <div>
+              <strong class="text-[#141413] dark:text-[#faf9f5]">Progressive Disclosure:</strong>
+              <span class="text-[#3d3d3a] dark:text-[#a09d96] block mt-0.5">Summary metrics and status badges appear on the primary dashboard, while detailed grant milestones and reviewer notes expand inside modular drawer panels.</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-md bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex items-center justify-center font-mono text-xs font-bold text-[#cc785c] shrink-0">2</span>
+            <div>
+              <strong class="text-[#141413] dark:text-[#faf9f5]">Scannable Status Indicators:</strong>
+              <span class="text-[#3d3d3a] dark:text-[#a09d96] block mt-0.5">Color-coded status chips (Draft, Submitted, Approved, Pending Review) provide instantaneous clarity at a single glance.</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-md bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex items-center justify-center font-mono text-xs font-bold text-[#cc785c] shrink-0">3</span>
+            <div>
+              <strong class="text-[#141413] dark:text-[#faf9f5]">Responsive Table Fallbacks:</strong>
+              <span class="text-[#3d3d3a] dark:text-[#a09d96] block mt-0.5">On mobile screens, dense tabular rows transform seamlessly into stacked cards without data truncation or awkward horizontal overflow.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 — Technical Implementation -->
+      <section>
+        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1.5 uppercase tracking-wider">
+          <span>05</span>
+          <span>//</span>
+          <span>Engineering</span>
+        </div>
+        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+          Technical Implementation
+        </h2>
+        <p>
+          The application was built as a responsive Single Page Application (SPA) prioritizing performance, clean component boundaries, and type safety:
+        </p>
+        <ul class="mt-4 space-y-2 text-xs sm:text-sm">
           <li class="flex items-start gap-2.5">
             <span class="text-[#cc785c] mt-0.5">✦</span>
-            <span><strong>Component Architecture:</strong> Built modular React components with Vite for fast HMR and lightweight bundle distribution.</span>
+            <span><strong>Component Architecture:</strong> Organized into atomic UI elements (Buttons, Badges, Modals, StatCards) and composite feature modules (ResearchTable, HKIWorkflow, AcademicCalendar).</span>
           </li>
           <li class="flex items-start gap-2.5">
             <span class="text-[#cc785c] mt-0.5">✦</span>
-            <span><strong>UI Implementation:</strong> Translated wireframes into responsive Tailwind CSS layouts with clear typographic hierarchy and consistent spacing.</span>
+            <span><strong>Styling System:</strong> Utility-first styling via Tailwind CSS with a consistent typographic hierarchy and curated color variables.</span>
           </li>
           <li class="flex items-start gap-2.5">
             <span class="text-[#cc785c] mt-0.5">✦</span>
-            <span><strong>REST API Integration:</strong> Connected frontend views to backend endpoints for research listings, publication updates, and HKI status changes.</span>
+            <span><strong>Type Safety:</strong> TypeScript interfaces for data models (LecturerProfile, ResearchGrant, PublicationItem, HKIStatus) eliminating runtime type mismatches.</span>
           </li>
           <li class="flex items-start gap-2.5">
             <span class="text-[#cc785c] mt-0.5">✦</span>
-            <span><strong>Data Presentation & Usability:</strong> Crafted clean status badges, modal drawers, and responsive table views tailored to faculty workflows.</span>
+            <span><strong>Asynchronous API Layer:</strong> Centralized Axios/fetch service handlers with clean error boundaries and loading skeleton placeholders.</span>
           </li>
         </ul>
       </section>
 
-      <!-- Section 5: Technologies Used -->
+      <!-- 06 — Key Features -->
       <section>
-        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
-          05. Technologies & Architecture
-        </h2>
-        <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
-          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">React (SPA)</span>
-          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">Vite</span>
-          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">Tailwind CSS</span>
-          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">TypeScript / ES6+</span>
-          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">REST API Integration</span>
-          <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26]">Figma UI Prototyping</span>
+        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1.5 uppercase tracking-wider">
+          <span>06</span>
+          <span>//</span>
+          <span>Platform Capabilities</span>
         </div>
+        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+          Key Features
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">📊 Executive Research Overview</h3>
+            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Interactive summaries of ongoing grants, publication distribution by category, and research milestone achievements.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">📑 Publication Tracker</h3>
+            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Filterable listings for indexed journals, international conference proceedings, and authored book chapters.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">🛡️ HKI & Patent Management</h3>
+            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">End-to-end status tracker for Intellectual Property filings (Copyrights, Patents, and Industrial Designs).</p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] text-sm mb-1">📅 Faculty Academic Calendar</h3>
+            <p class="text-xs text-[#6c6a64] dark:text-[#a09d96]">Integrated schedule tracking grant submission deadlines, thesis defense dates, and faculty seminars.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 — Challenges & Solutions -->
+      <section class="p-6 sm:p-7 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
+        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1.5 uppercase tracking-wider">
+          <span>07</span>
+          <span>//</span>
+          <span>Problem Solving</span>
+        </div>
+        <h2 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-3">
+          Challenges & Solutions
+        </h2>
+        <div class="space-y-4 text-xs sm:text-sm">
+          <div class="p-3.5 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <span class="font-semibold text-[#cc785c] block mb-1">Challenge: Dense Tabular Data on Small Screens</span>
+            <p class="text-[#3d3d3a] dark:text-[#a09d96]">Academic publication lists contained 8+ columns (Title, Authors, Journal, Volume, Year, Index, Status, Actions) that caused severe horizontal scrolling and broken layouts on mobile devices.</p>
+            <p class="text-[#141413] dark:text-[#faf9f5] mt-1.5 font-medium"><strong>Solution:</strong> Designed adaptive card-based view states below 768px that preserve primary metadata and collapse supplementary details into a touch-friendly accordion drawer.</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <span class="font-semibold text-[#cc785c] block mb-1">Challenge: Complex Multi-Status Workflows</span>
+            <p class="text-[#3d3d3a] dark:text-[#a09d96]">HKI submissions progress through multiple administrative stages requiring different action sets for submitters versus departmental reviewers.</p>
+            <p class="text-[#141413] dark:text-[#faf9f5] mt-1.5 font-medium"><strong>Solution:</strong> Built reusable visual stepper components and deterministic state guards that clearly show current progress and required next actions.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 — Outcome -->
+      <section>
+        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1.5 uppercase tracking-wider">
+          <span>08</span>
+          <span>//</span>
+          <span>Impact & Reflection</span>
+        </div>
+        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+          Outcome & Key Learnings
+        </h2>
+        <p>
+          PentaDosen successfully demonstrated how modern frontend architecture and thoughtful UI design can transform cumbersome academic reporting into an intuitive, responsive, and structured digital experience.
+        </p>
+        <p class="mt-3">
+          This project deepened my expertise in building scalable React component systems, integrating asynchronous REST APIs, implementing responsive data tables, and prioritizing user experience for non-technical academic users.
+        </p>
       </section>
 
     </div>
@@ -187,7 +302,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
     <div class="mt-14 pt-8 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col sm:flex-row items-center justify-between gap-4">
       <a
         href="/#projects"
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
@@ -197,7 +312,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
 
       <a
         href="/#contact"
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs font-medium transition-all shadow-xs"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
       >
         <span>Discuss a Project with Umam</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
