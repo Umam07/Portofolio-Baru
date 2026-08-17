@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build Output
+dist/
+
+# Astro Cache & Generated Files
+.astro/
+
+# Agent, Skill & IDE artifacts
+.agents/
+.codegraph/
+skills-lock.json
+.gemini/
+
+# Environment variables
+.env
+.env.production
+.env.development
+.env.local
+.env.*.local
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories (optional)
+.vscode/
+.idea/

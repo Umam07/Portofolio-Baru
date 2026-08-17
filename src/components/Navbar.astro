@@ -1,0 +1,127 @@
+---
+import { portfolioData } from '../data/portfolioData';
+
+const navLinks = [
+  { label: 'Works', href: '#projects' },
+  { label: 'Capabilities', href: '#skills' },
+  { label: 'Journey', href: '#experience' },
+  { label: 'Testimonials', href: '#testimonials' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#faf9f5]/90 backdrop-blur-md border-b border-[#e6dfd8] h-16 flex items-center px-4 sm:px-6 lg:px-8 transition-all">
+  <div class="w-full max-w-6xl mx-auto flex items-center justify-between">
+    
+    <!-- Brand Wordmark with Anthropic-inspired Spike Mark -->
+    <a href="#" class="group flex items-center gap-2.5 text-[#141413] hover:opacity-85 transition-opacity">
+      <!-- 4-Spoke Radial Spike Mark -->
+      <svg class="w-4 h-4 text-[#141413]" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M7 0h2v6.586l4.657-4.657 1.414 1.414L10.414 8l4.657 4.657-1.414 1.414L9 9.414V16H7V9.414l-4.657 4.657-1.414-1.414L5.586 8 .929 3.343 2.343 1.93 7 6.586V0z"/>
+      </svg>
+      <span class="font-medium text-sm sm:text-base tracking-tight text-[#141413] font-sans font-semibold">
+        {portfolioData.personal.name}
+      </span>
+      <span class="hidden md:inline-block text-xs font-mono text-[#8e8b82] border-l border-[#e6dfd8] pl-2.5">
+        {portfolioData.personal.designation}
+      </span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center gap-6">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-sm font-medium text-[#3d3d3a] hover:text-[#141413] transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Right Cluster: Status & Coral Primary CTA -->
+    <div class="flex items-center gap-3">
+      <div class="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#efe9de] text-xs font-medium text-[#3d3d3a] border border-[#e6dfd8]">
+        <span class="w-2 h-2 rounded-full bg-[#5db872] animate-pulse"></span>
+        <span>Available for Work</span>
+      </div>
+
+      <a
+        href="#contact"
+        class="inline-flex items-center justify-center px-4 py-2 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white font-medium text-sm tracking-tight transition-all shadow-xs"
+      >
+        Contact
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="mobile-menu-btn"
+        aria-label="Toggle navigation menu"
+        class="md:hidden flex items-center justify-center w-8 h-8 rounded-md border border-[#e6dfd8] text-[#141413] bg-[#faf9f5]"
+      >
+        <svg id="menu-icon-open" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div
+  id="mobile-drawer"
+  class="fixed inset-0 top-16 z-40 bg-[#faf9f5] opacity-0 pointer-events-none transition-all duration-200 md:hidden flex flex-col justify-start px-6 pt-8 border-t border-[#e6dfd8]"
+>
+  <nav class="flex flex-col gap-5">
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class="mobile-nav-item text-lg font-medium text-[#141413] py-2 border-b border-[#e6dfd8]/60"
+      >
+        {link.label}
+      </a>
+    ))}
+    <div class="pt-4 flex flex-col gap-2">
+      <span class="text-xs text-[#8e8b82] font-mono">{portfolioData.personal.status}</span>
+      <a
+        href={`mailto:${portfolioData.personal.email}`}
+        class="text-sm font-medium text-[#cc785c] underline"
+      >
+        {portfolioData.personal.email}
+      </a>
+    </div>
+  </nav>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const drawer = document.getElementById('mobile-drawer');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+  const navItems = document.querySelectorAll('.mobile-nav-item');
+
+  let isOpen = false;
+
+  const toggleMenu = () => {
+    isOpen = !isOpen;
+    if (isOpen) {
+      drawer?.classList.remove('opacity-0', 'pointer-events-none');
+      drawer?.classList.add('opacity-100', 'pointer-events-auto');
+      iconOpen?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    } else {
+      drawer?.classList.add('opacity-0', 'pointer-events-none');
+      drawer?.classList.remove('opacity-100', 'pointer-events-auto');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  };
+
+  menuBtn?.addEventListener('click', toggleMenu);
+  navItems.forEach((item) => item.addEventListener('click', toggleMenu));
+</script>
