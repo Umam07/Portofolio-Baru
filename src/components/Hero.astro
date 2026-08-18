@@ -1,15 +1,15 @@
 ---
 import { portfolioData } from '../data/portfolioData';
-import MascotHero from './MascotHero.astro';
+import { HeroInteractiveStudio } from './ui/HeroInteractiveStudio';
 
 const { personal } = portfolioData;
 ---
 
 <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
     
-    <!-- Left Column: Editorial Headline & Actions (col-span-7) -->
-    <div class="lg:col-span-7 flex flex-col items-start">
+    <!-- Left Column: Editorial Headline & Actions (col-span-12 lg:col-span-6) -->
+    <div class="lg:col-span-6 flex flex-col items-start">
       
       <!-- Category Badge Pill -->
       <div class="hero-reveal mb-5 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] text-xs font-mono font-medium border border-[#e6dfd8] dark:border-[#2e2b26]">
@@ -18,7 +18,7 @@ const { personal } = portfolioData;
       </div>
 
       <!-- Serif Display Headline (Copernicus / Newsreader style, weight 400, negative tracking) -->
-      <h1 class="hero-reveal font-display text-4xl sm:text-5xl lg:text-[56px] text-[#141413] dark:text-[#faf9f5] leading-[1.12] tracking-tight pb-1">
+      <h1 class="hero-reveal font-display text-4xl sm:text-5xl lg:text-[52px] text-[#141413] dark:text-[#faf9f5] leading-[1.12] tracking-tight pb-1">
         Frontend Developer & UI/UX Designer
       </h1>
 
@@ -39,6 +39,7 @@ const { personal } = portfolioData;
         <a
           href={personal.resumeUrl}
           download="Resume_Muhammad_Syafiul_Umam.pdf"
+          aria-label="Download Resume"
           class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#f5f0e8] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-sm font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
         >
           <svg class="w-4 h-4 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,9 +67,9 @@ const { personal } = portfolioData;
       </div>
     </div>
 
-    <!-- Right Column: Interactive Eye-Tracking Mascot (col-span-5) -->
-    <div class="hero-reveal lg:col-span-5 w-full flex items-center justify-center">
-      <MascotHero />
+    <!-- Right Column: Interactive Design Engineering Studio (col-span-12 lg:col-span-6) -->
+    <div class="hero-reveal lg:col-span-6 w-full flex items-center justify-center relative">
+      <HeroInteractiveStudio client:load />
     </div>
 
   </div>

@@ -38,7 +38,8 @@ const navLinks = [
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="text-sm font-medium text-[#3d3d3a] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c] rounded px-1 py-0.5"
+          data-nav-href={link.href}
+          class="desktop-nav-link text-sm font-medium text-[#3d3d3a] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c] rounded px-1 py-0.5"
         >
           {link.label}
         </a>
@@ -114,7 +115,8 @@ const navLinks = [
     {navLinks.map((link) => (
       <a
         href={link.href}
-        class="mobile-nav-item text-base font-medium text-[#141413] dark:text-[#faf9f5] py-2 border-b border-[#e6dfd8]/60 dark:border-[#2e2b26]"
+        data-nav-href={link.href}
+        class="mobile-nav-item text-base font-medium text-[#141413] dark:text-[#faf9f5] py-2 border-b border-[#e6dfd8]/60 dark:border-[#2e2b26] transition-colors"
       >
         {link.label}
       </a>
@@ -152,6 +154,8 @@ const navLinks = [
   const iconClose = document.getElementById('menu-icon-close');
   const navItems = document.querySelectorAll('.mobile-nav-item');
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const desktopLinks = document.querySelectorAll<HTMLAnchorElement>('.desktop-nav-link');
+  const mobileLinks = document.querySelectorAll<HTMLAnchorElement>('.mobile-nav-item[data-nav-href]');
 
   // Theme Toggle Handler
   themeToggleBtn?.addEventListener('click', () => {
@@ -159,7 +163,7 @@ const navLinks = [
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 
-  // Floating on scroll transition
+  // Floating on scroll transition & Scrollspy
   const handleScroll = () => {
     const scrollY = window.scrollY || window.pageYOffset;
     if (scrollY > 30) {
@@ -171,6 +175,43 @@ const navLinks = [
       navInner?.classList.remove('max-w-4xl', 'border', 'rounded-full', 'shadow-md', 'h-14', 'px-5', 'sm:px-6', 'bg-[#faf9f5]/85', 'dark:bg-[#181715]/85');
       navInner?.classList.add('max-w-6xl', 'border-b', 'rounded-none', 'h-16', 'px-4', 'lg:px-8');
     }
+
+    // Scrollspy section detection
+    const sections = document.querySelectorAll<HTMLElement>('section[id]');
+    const scrollPosition = scrollY + 180;
+    let activeId = '';
+
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPosition >= top && scrollPosition < top + height) {
+        activeId = `#${section.id}`;
+      }
+    });
+
+    if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 50) {
+      activeId = '#contact';
+    }
+
+    desktopLinks.forEach((link) => {
+      const href = link.getAttribute('data-nav-href');
+      if (href === activeId) {
+        link.classList.add('text-[#cc785c]', 'dark:text-[#cc785c]', 'font-semibold');
+        link.classList.remove('text-[#3d3d3a]', 'dark:text-[#a09d96]');
+      } else {
+        link.classList.remove('text-[#cc785c]', 'dark:text-[#cc785c]', 'font-semibold');
+        link.classList.add('text-[#3d3d3a]', 'dark:text-[#a09d96]');
+      }
+    });
+
+    mobileLinks.forEach((link) => {
+      const href = link.getAttribute('data-nav-href');
+      if (href === activeId) {
+        link.classList.add('text-[#cc785c]', 'dark:text-[#cc785c]', 'font-semibold');
+      } else {
+        link.classList.remove('text-[#cc785c]', 'dark:text-[#cc785c]', 'font-semibold');
+      }
+    });
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
