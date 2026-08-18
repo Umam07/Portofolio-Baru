@@ -7,34 +7,30 @@ const { experience } = portfolioData;
 <section id="experience" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
   <!-- Section Header -->
   <div class="pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] text-xs font-mono font-medium border border-[#e6dfd8] dark:border-[#2e2b26] mb-3">
-      <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
-      <span>CAREER & INDUSTRY EXPERIENCE</span>
-    </div>
     <h2 class="font-display text-3xl sm:text-4xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
       Professional Experience
     </h2>
-    <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[54ch]">
-      Demonstrating transferable skills in business process analysis, User Acceptance Testing (UAT), and translating stakeholder requirements into structured digital workflows.
+    <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[58ch]">
+      Demonstrating transferable experience in enterprise software workflow analysis, User Acceptance Testing (UAT), and frontend implementation.
     </p>
   </div>
 
   <!-- Timeline Cards List -->
   <div class="mt-10 space-y-6">
     {experience.map((item) => (
-      <div class="experience-card group p-6 sm:p-8 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] transition-all duration-200 hover:border-[#cc785c] dark:hover:border-[#cc785c]">
+      <div class="experience-card group p-6 sm:p-8 rounded-xl bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] transition-all duration-200 hover:border-[#cc785c] dark:hover:border-[#cc785c]">
         <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-4 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
           <div>
             <div class="flex items-center gap-3">
               <h3 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] group-hover:text-[#cc785c] dark:group-hover:text-[#cc785c] transition-colors">
                 {item.role}
               </h3>
-              <span class="px-2 py-0.5 rounded-full text-[11px] font-mono bg-[#faf9f5] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26]">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-[#faf9f5] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26]">
                 {item.type}
               </span>
             </div>
             
-            <p class="mt-1 text-sm font-medium text-[#3d3d3a] dark:text-[#d4cfc7]">
+            <p class="mt-1.5 text-sm font-medium text-[#3d3d3a] dark:text-[#d4cfc7]">
               {item.company} <span class="text-[#8e8b82] dark:text-[#7a7770] font-normal">· {item.location}</span>
             </p>
           </div>
@@ -48,11 +44,11 @@ const { experience } = portfolioData;
           {item.description}
         </p>
 
-        <!-- Highlights -->
-        <ul class="mt-4 space-y-2">
+        <!-- Highlights (Semantic list without AI sparkle) -->
+        <ul class="mt-4 space-y-2.5">
           {item.highlights.map((highlight) => (
             <li class="flex items-start gap-2.5 text-xs sm:text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
-              <span class="text-[#cc785c] mt-0.5 text-xs">✦</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c] mt-2 shrink-0"></span>
               <span>{highlight}</span>
             </li>
           ))}

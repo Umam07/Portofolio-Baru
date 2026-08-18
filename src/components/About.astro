@@ -1,21 +1,17 @@
 ---
 import { portfolioData } from '../data/portfolioData';
 
-const { about } = portfolioData;
+const { about, personal } = portfolioData;
 ---
 
 <section id="about" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-  <!-- Section Header -->
+  <!-- Editorial Section Header (No AI-cliche eyebrow badge) -->
   <div class="pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] text-xs font-mono font-medium border border-[#e6dfd8] dark:border-[#2e2b26] mb-3">
-      <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
-      <span>BACKGROUND & CRAFT</span>
-    </div>
     <h2 class="font-display text-3xl sm:text-4xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
-      About Me & Engineering Principles
+      Background & Engineering Philosophy
     </h2>
-    <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[54ch]">
-      Information Technology student at Universitas YARSI dedicated to building functional, accessible, and well-crafted digital interfaces.
+    <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[58ch]">
+      Bridging Figma prototypes and production web applications with structured frontend architecture and business workflow understanding.
     </p>
   </div>
 
@@ -24,43 +20,41 @@ const { about } = portfolioData;
     <!-- Left Column: Authentic Personal Narrative (col-span-6) -->
     <div class="lg:col-span-6 space-y-4 text-sm sm:text-base text-[#3d3d3a] dark:text-[#d4cfc7] leading-relaxed">
       <p>
-        I am <strong class="text-[#141413] dark:text-[#faf9f5]">Muhammad Syafi'ul Umam</strong> (known as <strong class="text-[#cc785c]">Umam</strong>), an Information Technology student at <strong class="text-[#141413] dark:text-[#faf9f5]">Universitas YARSI</strong> in Jakarta focused on frontend development and UI/UX design.
+        I am <strong class="text-[#141413] dark:text-[#faf9f5]">{personal.name}</strong> (known as <strong class="text-[#cc785c]">{personal.preferredName}</strong>), an Information Technology student at <strong class="text-[#141413] dark:text-[#faf9f5]">Universitas YARSI</strong> in Jakarta specializing in frontend development and UI/UX design.
       </p>
 
       <p>
-        I bridge design and implementation by turning Figma wireframes and design systems into responsive, accessible web applications with <strong>React, TypeScript, and Tailwind CSS</strong>. My background as a <strong>Functional ERP Intern at C-Tech ERP Indonesia</strong> adds a strong foundation in business workflows, UAT, and structured technical documentation.
+        I focus on translating design systems, token architectures, and component libraries into fast, accessible, and responsive user interfaces using <strong>React, TypeScript, and Tailwind CSS</strong>.
       </p>
 
-      <!-- Quick Info Strip -->
-      <div class="pt-3 grid grid-cols-2 gap-3 font-mono text-xs">
-        <div class="p-3 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
-          <span class="text-[#8e8b82] dark:text-[#7a7770] block">INSTITUTION</span>
-          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Universitas YARSI</span>
+      <p>
+        During my internship as a <strong>Functional ERP Intern at C-Tech ERP Indonesia</strong>, I gained hands-on experience in business process mapping, user acceptance testing (UAT), and enterprise software documentation — enabling me to approach frontend engineering with deep user empathy and domain clarity.
+      </p>
+
+      <!-- Authentic Metadata Block -->
+      <div class="pt-4 grid grid-cols-2 gap-3 font-mono text-xs">
+        <div class="p-3.5 rounded-lg bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+          <span class="text-[10px] text-[#8e8b82] dark:text-[#7a7770] uppercase tracking-wider block">Education</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-1 block">Universitas YARSI</span>
+          <span class="text-[11px] text-[#6c6a64] dark:text-[#a09d96] block">Information Technology</span>
         </div>
-        <div class="p-3 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
-          <span class="text-[#8e8b82] dark:text-[#7a7770] block">MAJOR</span>
-          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Information Technology</span>
-        </div>
-        <div class="p-3 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
-          <span class="text-[#8e8b82] dark:text-[#7a7770] block">BASE</span>
-          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Jakarta, Indonesia</span>
-        </div>
-        <div class="p-3 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
-          <span class="text-[#8e8b82] dark:text-[#7a7770] block">STATUS</span>
-          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Open for Roles & Projects</span>
+        <div class="p-3.5 rounded-lg bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
+          <span class="text-[10px] text-[#8e8b82] dark:text-[#7a7770] uppercase tracking-wider block">Work Experience</span>
+          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-1 block">C-Tech ERP</span>
+          <span class="text-[11px] text-[#6c6a64] dark:text-[#a09d96] block">Functional ERP Intern</span>
         </div>
       </div>
     </div>
 
-    <!-- Right Column: 3 Sharp Engineering Principles (col-span-6) -->
-    <div class="lg:col-span-6 flex flex-col gap-3.5">
+    <!-- Right Column: 3 Core Engineering Principles (col-span-6) -->
+    <div class="lg:col-span-6 flex flex-col gap-4">
       {about.values.map((val, idx) => (
-        <div class="p-4 sm:p-5 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-colors">
+        <div class="p-5 sm:p-6 rounded-xl bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-colors">
           <div class="flex items-center justify-between pb-2 mb-2 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
             <h3 class="font-display text-lg text-[#141413] dark:text-[#faf9f5] tracking-tight">
               {val.title}
             </h3>
-            <span class="text-[10px] font-mono text-[#cc785c]">0{idx + 1}</span>
+            <span class="text-xs font-mono text-[#cc785c]">0{idx + 1}</span>
           </div>
           <p class="text-xs sm:text-sm text-[#6c6a64] dark:text-[#a09d96] leading-relaxed">
             {val.description}

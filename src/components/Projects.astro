@@ -13,25 +13,21 @@ const otherProjects = projects.slice(1);
   <!-- Section Header -->
   <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
     <div>
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] text-xs font-mono font-medium border border-[#e6dfd8] dark:border-[#2e2b26] mb-3">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
-        <span>PORTFOLIO SELECTION</span>
-      </div>
       <h2 class="font-display text-3xl sm:text-4xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
         Featured Projects & Case Studies
       </h2>
       <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[54ch]">
-        Real projects spanning university academic web applications, enterprise ERP documentation, and Flutter mobile health monitoring.
+        Selected works spanning university academic platforms, enterprise ERP systems, and Flutter mobile applications.
       </p>
     </div>
 
     <!-- Category Tabs Filter -->
-    <div class="flex flex-wrap gap-1.5 p-1 rounded-lg bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]" id="project-filters">
+    <div class="flex flex-wrap gap-1.5 p-1 rounded-lg bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]" id="project-filters">
       {categories.map((cat, idx) => (
         <button
           type="button"
           data-category={cat}
-          class={`filter-btn px-3 py-1.5 rounded-md text-xs font-mono font-medium transition-all ${
+          class={`filter-btn px-3 py-1.5 rounded-md text-xs font-mono font-medium transition-all cursor-pointer ${
             idx === 0
               ? 'bg-[#faf9f5] dark:bg-[#252320] text-[#141413] dark:text-[#faf9f5] shadow-xs font-semibold'
               : 'text-[#6c6a64] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5]'
