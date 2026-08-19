@@ -7,7 +7,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: 'Web Application' | 'System Workflows' | 'Mobile Application' | 'Design System' | 'UI/UX';
+  category: 'Web Application' | 'System Workflows' | 'Mobile Application' | 'Design System' | 'UI/UX' | 'Scripting & Automation';
   role: string;
   year: string;
   featured: boolean;
@@ -169,23 +169,45 @@ export const portfolioData = {
     {
       id: 'infolansia',
       title: 'InfoLansia — Posyandu Elderly Health Monitoring',
-      subtitle: 'Solusi digital untuk petugas Posyandu dalam memantau kesehatan lansia secara berkala.',
+      subtitle: 'A digital health monitoring solution for community Posyandu healthcare workers to track elderly wellness metrics.',
       category: 'Mobile Application',
-      role: 'Developer',
+      role: 'Mobile Developer',
       year: '2024 - 2025',
       featured: true,
       image: '/images/projects/infolansia.jpg',
       tags: ['Flutter', 'Dart', 'Mobile App', 'Health Tech', 'Posyandu'],
-      summary: 'Solusi digital untuk petugas Posyandu dalam memantau kesehatan lansia secara berkala.',
-      description: 'Memindahkan proses skrining manual ke sistem digital terintegrasi dengan visualisasi tren kesehatan untuk membantu petugas memantau kondisi lansia dengan lebih terstruktur.',
-      impact: 'Memindahkan proses skrining manual ke sistem digital terintegrasi dengan visualisasi tren kesehatan untuk membantu pemantauan terstruktur.',
+      summary: 'Cross-platform mobile application designed for community healthcare workers to conduct structured elderly health screening and monitor longitudinal wellness trends.',
+      description: 'Digitized manual, paper-based health recording workflows into a structured mobile app. Features periodic screening checklists, biometric trend tracking, and aggregated health reports for local healthcare cadres.',
+      impact: 'Replaced manual records with automated trend visualization, enabling faster screening cycles and structured wellness tracking.',
       metrics: [
         { label: 'Technology', value: 'Flutter & Dart' },
         { label: 'Platform', value: 'Mobile Application' },
-        { label: 'Domain', value: 'Health Monitoring' },
+        { label: 'Domain', value: 'Community Health' },
       ],
       links: {
         github: 'https://github.com/Umam07/InfoLansia',
+      },
+    },
+    {
+      id: 'sirapi',
+      title: 'SiRapi — Intelligent Directory & File Sorting Utility',
+      subtitle: 'Lightweight PowerShell automation script for intelligent, conflict-free file routing and workspace organization.',
+      category: 'Scripting & Automation',
+      role: 'Script Developer',
+      year: '2025',
+      featured: true,
+      image: '/images/projects/sirapi.png',
+      tags: ['PowerShell', 'Automation', 'CLI Script', 'File System', 'Workflow Utility'],
+      summary: 'Automated file organization utility built in PowerShell that classifies and moves unorganized workspace files into categorized subfolders by extension safely and non-destructively.',
+      description: 'SiRapi is an intelligent directory organization utility written in PowerShell. It systematically scans designated folders, analyzes file extensions, and routes items into neatly structured subfolders with collision detection to prevent overwriting existing assets.',
+      impact: 'Automates workspace cleanup with fast, non-destructive file sorting, zero external dependencies, and reliable collision prevention.',
+      metrics: [
+        { label: 'Runtime Engine', value: 'PowerShell 7+ / 5.1' },
+        { label: 'Execution Mode', value: 'Zero-Dependency CLI' },
+        { label: 'Safety Level', value: 'Non-Destructive' },
+      ],
+      links: {
+        github: 'https://github.com/Umam07',
       },
     },
   ] as Project[],

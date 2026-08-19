@@ -3,7 +3,7 @@ import { portfolioData } from '../data/portfolioData';
 import ProjectCard from './ProjectCard.astro';
 
 const { projects } = portfolioData;
-const categories = ['All', 'Web Application', 'System Workflows', 'Mobile Application'];
+const categories = ['All', 'Web Application', 'System Workflows', 'Mobile Application', 'Scripting & Automation'];
 
 const featuredProject = projects[0]; // PentaDosen
 const otherProjects = projects.slice(1);
@@ -17,7 +17,7 @@ const otherProjects = projects.slice(1);
         Featured Projects & Case Studies
       </h2>
       <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[54ch]">
-        Selected works spanning university academic platforms, enterprise ERP systems, and Flutter mobile applications.
+        Selected works spanning university academic platforms, enterprise ERP systems, mobile applications, and automation utilities.
       </p>
     </div>
 
@@ -96,7 +96,7 @@ const otherProjects = projects.slice(1);
 
                 <!-- Context Impact Box -->
                 <div class="mt-3 p-3 rounded-lg bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs text-[#252523] dark:text-[#d4cfc7] leading-relaxed">
-                  <span class="font-semibold text-[#cc785c] mr-1">✦ Context:</span>
+                  <span class="font-semibold text-[#cc785c] mr-1">Context:</span>
                   {featuredProject.impact}
                 </div>
 
@@ -141,8 +141,8 @@ const otherProjects = projects.slice(1);
       </div>
     )}
 
-    <!-- 02 & 03. Supporting Projects Grid (2 Balanced Columns) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- 02, 03, 04. Supporting Projects Grid (Responsive 3 Columns on Large Displays) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {otherProjects.map((project, idx) => (
         <div class="project-item h-full" data-category={project.category}>
           <ProjectCard project={project} index={idx + 1} />
