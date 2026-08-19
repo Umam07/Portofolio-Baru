@@ -1,117 +1,282 @@
 ---
 import { portfolioData } from '../data/portfolioData';
+import { SkillsInteractiveStudio } from './ui/SkillsInteractiveStudio';
 
 const { skills } = portfolioData;
 ---
 
 <section id="skills" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-  <!-- Section Header -->
-  <div class="pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
-    <h2 class="font-display text-3xl sm:text-4xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
-      Technical Matrix & Tooling
-    </h2>
-    <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[58ch]">
-      Core specialization in Frontend Development & UI/UX Design, supported by backend integration and enterprise system workflows.
-    </p>
+  
+  <!-- Section Header (Warm Editorial Typography) -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
+        <span class="text-xs font-mono font-medium text-[#cc785c] uppercase tracking-wider">
+          Technical Architecture & Competencies
+        </span>
+      </div>
+      <h2 class="font-display text-3xl sm:text-4xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
+        Technical Matrix & Tooling
+      </h2>
+      <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[58ch] leading-relaxed">
+        Bridging Figma design systems and production web applications with type-safe frontend engineering, API integration, and enterprise ERP workflow experience.
+      </p>
+    </div>
+
+    <!-- Quick Domain Metric Strip -->
+    <div class="flex items-center gap-2 font-mono text-xs text-[#8e8b82] dark:text-[#7a7770]">
+      <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] text-[#141413] dark:text-[#faf9f5]">
+        4 Core Domains
+      </span>
+      <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] text-[#cc785c]">
+        TypeScript & React
+      </span>
+    </div>
   </div>
 
-  <!-- Bento Grid -->
-  <div class="mt-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+  <!-- Asymmetric Bento Grid -->
+  <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-6">
     
-    <!-- Bento Tile 1: CORE SPECIALIZATION (Cream Card, col-span-7) -->
-    <div class="bento-card md:col-span-7 p-6 sm:p-8 rounded-xl bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col justify-between hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-colors">
+    <!-- ========================================================================= -->
+    <!-- TILE 1: FLAGSHIP HERO (Col-span-12 lg:col-span-7)                          -->
+    <!-- Frontend Engineering, Component Architecture & Interactive Code Sandbox   -->
+    <!-- ========================================================================= -->
+    <div class="bento-card lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col justify-between hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-all shadow-xs">
       <div>
+        <!-- Card Sub-header -->
         <div class="flex items-center justify-between pb-3 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
-          <span class="text-xs font-mono font-medium text-[#cc785c]">PRIMARY FOCUS</span>
-          <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">FRONTEND & UI/UX</span>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#cc785c] animate-pulse"></span>
+            <span class="text-xs font-mono font-medium text-[#cc785c]">CORE SPECIALIZATION</span>
+          </div>
+          <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">REACT · TS · TAILWIND</span>
         </div>
 
-        <h3 class="mt-4 font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
-          Core Frontend & UI/UX
+        <!-- Title & Concept -->
+        <h3 class="mt-4 font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
+          Frontend Engineering & Component Architecture
         </h3>
-        <p class="mt-2 text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
-          Building responsive, accessible web interfaces and single-page applications from Figma prototypes using React, TypeScript, and modern semantic HTML5 and Tailwind CSS.
+        <p class="mt-2 text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed max-w-[56ch]">
+          Developing modular, responsive, and accessible user interfaces. Converting design tokens and wireframes into clean, type-safe React and TypeScript components with strict state boundaries.
         </p>
+
+        <!-- Interactive Code & Token Inspector -->
+        <div class="mt-5">
+          <SkillsInteractiveStudio client:visible />
+        </div>
       </div>
 
-      <div class="mt-6 pt-4 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex flex-wrap gap-1.5">
-        {skills.core.map((item) => (
-          <span class="px-2.5 py-0.5 rounded-md bg-[#faf9f5] dark:bg-[#252320] text-xs font-mono text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            {item}
-          </span>
-        ))}
+      <!-- Core Technologies Badges -->
+      <div class="mt-6 pt-4 border-t border-[#e6dfd8] dark:border-[#2e2b26]">
+        <span class="text-[11px] font-mono text-[#8e8b82] dark:text-[#7a7770] uppercase tracking-wider block mb-2.5">
+          Core Frontend Stack
+        </span>
+        <div class="flex flex-wrap gap-1.5">
+          {skills.core.map((item) => (
+            <span class="px-2.5 py-1 rounded-md bg-[#faf9f5] dark:bg-[#252320] text-xs font-mono text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26] hover:border-[#cc785c] transition-colors">
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
 
-    <!-- Bento Tile 2: BACKEND & DATABASE (Dark Card, col-span-5) -->
-    <div class="bento-card md:col-span-5 p-6 sm:p-8 rounded-xl bg-[#181715] text-[#faf9f5] border border-[#252320] flex flex-col justify-between hover:border-[#cc785c] transition-colors">
+    <!-- ========================================================================= -->
+    <!-- TILE 2: DESIGN SYSTEMS & UI/UX CRAFT (Col-span-12 lg:col-span-5)           -->
+    <!-- Figma Prototyping, Design Tokens, Spatial & Micro-interaction Engineering -->
+    <!-- ========================================================================= -->
+    <div class="bento-card lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col justify-between hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-all shadow-xs">
+      <div>
+        <div class="flex items-center justify-between pb-3 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
+          <span class="text-xs font-mono font-medium text-[#5db8a6]">DESIGN SYSTEMS</span>
+          <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">FIGMA → CODE</span>
+        </div>
+
+        <h3 class="mt-4 font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
+          UI/UX & Design Tokens
+        </h3>
+        <p class="mt-2 text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
+          Crafting consistent visual languages in Figma with semantic color variables, auto-layout hierarchies, and WCAG AA accessibility standards.
+        </p>
+
+        <!-- Visual Design Token Card -->
+        <div class="mt-5 p-4 rounded-xl bg-[#faf9f5] dark:bg-[#141311] border border-[#e6dfd8] dark:border-[#2e2b26] space-y-3 font-mono text-xs">
+          
+          <!-- Color Tokens Palette -->
+          <div>
+            <span class="text-[10px] text-[#8e8b82] uppercase tracking-wider block mb-1.5">Color Tokens</span>
+            <div class="grid grid-cols-4 gap-2">
+              <div class="p-2 rounded bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col items-center text-center">
+                <span class="w-3.5 h-3.5 rounded-full bg-[#faf9f5] border border-[#e6dfd8] mb-1"></span>
+                <span class="text-[10px] text-[#141413] dark:text-[#faf9f5]">Canvas</span>
+              </div>
+              <div class="p-2 rounded bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col items-center text-center">
+                <span class="w-3.5 h-3.5 rounded-full bg-[#cc785c] mb-1"></span>
+                <span class="text-[10px] text-[#cc785c] font-semibold">Coral</span>
+              </div>
+              <div class="p-2 rounded bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col items-center text-center">
+                <span class="w-3.5 h-3.5 rounded-full bg-[#181715] mb-1"></span>
+                <span class="text-[10px] text-[#141413] dark:text-[#faf9f5]">Dark</span>
+              </div>
+              <div class="p-2 rounded bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col items-center text-center">
+                <span class="w-3.5 h-3.5 rounded-full bg-[#5db8a6] mb-1"></span>
+                <span class="text-[10px] text-[#5db8a6]">Teal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Typography & Spacing Rhythm -->
+          <div class="pt-2 border-t border-[#e6dfd8] dark:border-[#2e2b26] space-y-1.5 text-[11px]">
+            <div class="flex items-center justify-between text-[#6c6a64] dark:text-[#a09d96]">
+              <span>Typography:</span>
+              <span class="text-[#141413] dark:text-[#faf9f5]">Newsreader + Inter</span>
+            </div>
+            <div class="flex items-center justify-between text-[#6c6a64] dark:text-[#a09d96]">
+              <span>Contrast Ratio:</span>
+              <span class="text-[#5db872] font-semibold">WCAG AA Compliant</span>
+            </div>
+            <div class="flex items-center justify-between text-[#6c6a64] dark:text-[#a09d96]">
+              <span>Micro-Motion:</span>
+              <span class="text-[#cc785c]">cubic-bezier(0.16, 1, 0.3, 1)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design-to-Code Workflow Strip -->
+      <div class="mt-6 pt-4 border-t border-[#e6dfd8] dark:border-[#2e2b26]">
+        <div class="flex items-center justify-between text-xs font-mono text-[#8e8b82] dark:text-[#a09d96]">
+          <span>Wireframe</span>
+          <span>→</span>
+          <span>Figma Prototype</span>
+          <span>→</span>
+          <span class="text-[#cc785c] font-semibold">React TSX</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TILE 3: BACKEND API & DATA CONTRACTS (Col-span-12 md:col-span-4)           -->
+    <!-- Claude Code Product Surface Card                                          -->
+    <!-- ========================================================================= -->
+    <div class="bento-card lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#181715] text-[#faf9f5] border border-[#252320] flex flex-col justify-between hover:border-[#cc785c] transition-all shadow-md">
       <div>
         <div class="flex items-center justify-between pb-3 border-b border-[#252320]">
-          <span class="text-xs font-mono font-medium text-[#5db8a6]">SERVER & STORAGE</span>
-          <span class="text-xs font-mono text-[#a09d96]">APIS</span>
+          <span class="text-xs font-mono font-medium text-[#5db8a6]">SERVER & APIS</span>
+          <span class="text-xs font-mono text-[#a09d96]">REST & SQL</span>
         </div>
 
         <h3 class="mt-4 font-display text-2xl text-[#faf9f5] tracking-tight">
           Backend & Databases
         </h3>
-        <p class="mt-2 text-sm text-[#a09d96] leading-relaxed">
-          Connecting frontend views to RESTful services, building endpoints with Node.js, Express.js, and Laravel, and querying MySQL / TiDB databases.
+        <p class="mt-2 text-xs sm:text-sm text-[#a09d96] leading-relaxed">
+          Building RESTful endpoints with Node.js, Express, and Laravel, with structured relational schemas in MySQL & TiDB.
         </p>
+
+        <!-- Code Terminal Simulation -->
+        <div class="mt-4 p-3 rounded-lg bg-[#141311] border border-[#2e2b26] font-mono text-[11px] space-y-1.5">
+          <div class="flex items-center justify-between text-[#8e8b82] pb-1 border-b border-[#252320]">
+            <span>GET /api/v1/research</span>
+            <span class="text-[#5db872]">200 OK</span>
+          </div>
+          <p class="text-[#d4cfc7] text-[10.5px]">
+            <span class="text-[#cc785c]">Database:</span> MySQL / TiDB Cluster<br/>
+            <span class="text-[#5db8a6]">Latency:</span> 14ms (Indexed queries)
+          </p>
+        </div>
       </div>
 
       <div class="mt-6 pt-4 border-t border-[#252320] flex flex-wrap gap-1.5">
         {[...skills.backend, ...skills.database].map((item) => (
-          <span class="px-2.5 py-0.5 rounded-md bg-[#252320] text-xs font-mono text-[#e6dfd8] border border-[#3d3d3a]">
+          <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-[#252320] text-[#e6dfd8] border border-[#3d3d3a]">
             {item}
           </span>
         ))}
       </div>
     </div>
 
-    <!-- Bento Tile 3: TOOLS & DEVELOPMENT (Dark Card, col-span-5) -->
-    <div class="bento-card md:col-span-5 p-6 sm:p-8 rounded-xl bg-[#181715] text-[#faf9f5] border border-[#252320] flex flex-col justify-between hover:border-[#cc785c] transition-colors">
-      <div>
-        <div class="flex items-center justify-between pb-3 border-b border-[#252320]">
-          <span class="text-xs font-mono font-medium text-[#e8a55a]">WORKFLOW</span>
-          <span class="text-xs font-mono text-[#a09d96]">TOOLING</span>
-        </div>
-
-        <h3 class="mt-4 font-display text-2xl text-[#faf9f5] tracking-tight">
-          Developer Tools
-        </h3>
-        <p class="mt-2 text-sm text-[#a09d96] leading-relaxed">
-          Daily workflow using Git and GitHub for version control, Vite for rapid build bundling, VS Code, and Figma for design collaboration.
-        </p>
-      </div>
-
-      <div class="mt-6 pt-4 border-t border-[#252320] flex flex-wrap gap-1.5">
-        {skills.tools.map((item) => (
-          <span class="px-2.5 py-0.5 rounded-md bg-[#252320] text-xs font-mono text-[#e6dfd8] border border-[#3d3d3a]">
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
-
-    <!-- Bento Tile 4: ADDITIONAL & WORKFLOWS (Cream Card, col-span-7) -->
-    <div class="bento-card md:col-span-7 p-6 sm:p-8 rounded-xl bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col justify-between hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-colors">
+    <!-- ========================================================================= -->
+    <!-- TILE 4: ENTERPRISE ERP & QA PIPELINE (Col-span-12 md:col-span-4)          -->
+    <!-- Business Process, UAT Testing & Manual Books                              -->
+    <!-- ========================================================================= -->
+    <div class="bento-card lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col justify-between hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-all shadow-xs">
       <div>
         <div class="flex items-center justify-between pb-3 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
-          <span class="text-xs font-mono font-medium text-[#5db872]">DOMAIN & QUALITY</span>
-          <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">ERP & UAT</span>
+          <span class="text-xs font-mono font-medium text-[#e8a55a]">ENTERPRISE DOMAIN</span>
+          <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">ERP & QA</span>
         </div>
 
         <h3 class="mt-4 font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
-          Additional Technologies & Workflows
+          ERP Workflows & UAT
         </h3>
-        <p class="mt-2 text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
-          Static site generation with Astro, cross-platform mobile apps with Flutter & Dart, enterprise Odoo ERP workflow analysis, and User Acceptance Testing (UAT).
+        <p class="mt-2 text-xs sm:text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
+          Translating complex enterprise processes into functional blueprints, standard operating procedures, and rigorous UAT test cases.
         </p>
+
+        <!-- 4-Stage Verification Pipeline -->
+        <div class="mt-4 space-y-1.5 font-mono text-[11px]">
+          <div class="p-2 rounded bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex items-center justify-between">
+            <span class="text-[#3d3d3a] dark:text-[#d4cfc7]">1. Process Analysis</span>
+            <span class="text-[#5db872]">✓ Verified</span>
+          </div>
+          <div class="p-2 rounded bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex items-center justify-between">
+            <span class="text-[#3d3d3a] dark:text-[#d4cfc7]">2. Functional Blueprint</span>
+            <span class="text-[#5db872]">✓ Approved</span>
+          </div>
+          <div class="p-2 rounded bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] flex items-center justify-between">
+            <span class="text-[#3d3d3a] dark:text-[#d4cfc7]">3. UAT Execution</span>
+            <span class="text-[#cc785c]">✓ Validated</span>
+          </div>
+        </div>
       </div>
 
       <div class="mt-6 pt-4 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex flex-wrap gap-1.5">
-        {skills.additional.map((item) => (
-          <span class="px-2.5 py-0.5 rounded-md bg-[#faf9f5] dark:bg-[#252320] text-xs font-mono text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26]">
+        <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#faf9f5] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26]">Odoo ERP</span>
+        <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#faf9f5] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26]">UAT Testing</span>
+        <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#faf9f5] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26]">Manual Books</span>
+        <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#faf9f5] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26]">Master Data</span>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TILE 5: DEVELOPER TOOLING & MOBILE DELIVERY (Col-span-12 md:col-span-4)   -->
+    <!-- Git, Vite, Astro, Flutter Mobile Engineering                              -->
+    <!-- ========================================================================= -->
+    <div class="bento-card lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#181715] text-[#faf9f5] border border-[#252320] flex flex-col justify-between hover:border-[#cc785c] transition-all shadow-md">
+      <div>
+        <div class="flex items-center justify-between pb-3 border-b border-[#252320]">
+          <span class="text-xs font-mono font-medium text-[#cc785c]">TOOLING & ECOSYSTEM</span>
+          <span class="text-xs font-mono text-[#a09d96]">DEV & MOBILE</span>
+        </div>
+
+        <h3 class="mt-4 font-display text-2xl text-[#faf9f5] tracking-tight">
+          Tooling & Cross-Platform
+        </h3>
+        <p class="mt-2 text-xs sm:text-sm text-[#a09d96] leading-relaxed">
+          Modern developer workflow for fast bundle build pipelines, static generation with Astro, and Flutter mobile apps.
+        </p>
+
+        <!-- Dev Ecosystem Status Panel -->
+        <div class="mt-4 p-3 rounded-lg bg-[#141311] border border-[#2e2b26] font-mono text-[11px] space-y-2">
+          <div class="flex items-center justify-between text-[#a09d96]">
+            <span>Git / GitHub</span>
+            <span class="text-[#faf9f5]">Branch & PR flow</span>
+          </div>
+          <div class="flex items-center justify-between text-[#a09d96]">
+            <span>Build Engine</span>
+            <span class="text-[#5db872]">Vite & Astro 5</span>
+          </div>
+          <div class="flex items-center justify-between text-[#a09d96]">
+            <span>Mobile Stack</span>
+            <span class="text-[#cc785c]">Flutter & Dart</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-[#252320] flex flex-wrap gap-1.5">
+        {skills.tools.concat(['Astro', 'Flutter & Dart']).map((item) => (
+          <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-[#252320] text-[#e6dfd8] border border-[#3d3d3a]">
             {item}
           </span>
         ))}
