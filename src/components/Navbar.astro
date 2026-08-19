@@ -67,17 +67,18 @@ const navLinks = [
         </svg>
       </button>
 
-      <!-- Resume Button (Desktop) -->
+      <!-- Resume Button (Icon on mobile, Full on tablet/desktop) -->
       <a
         href={portfolioData.personal.resumeUrl}
         download="Resume_Muhammad_Syafiul_Umam.pdf"
         aria-label="Download Resume"
-        class="hidden sm:inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md bg-[#faf9f5] dark:bg-[#181715] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        title="Download Resume"
+        class="flex sm:inline-flex items-center justify-center gap-1.5 w-8 h-8 sm:w-auto sm:h-auto sm:px-3 sm:py-1.5 rounded-md bg-[#faf9f5] dark:bg-[#181715] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
       >
         <svg class="w-3.5 h-3.5 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
         </svg>
-        <span>Resume</span>
+        <span class="hidden sm:inline">Resume</span>
       </a>
 
       <!-- Mobile Hamburger Button -->
@@ -113,17 +114,6 @@ const navLinks = [
         {link.label}
       </a>
     ))}
-
-    <a
-      href={portfolioData.personal.resumeUrl}
-      download="Resume_Muhammad_Syafiul_Umam.pdf"
-      class="mobile-nav-item inline-flex items-center gap-2 text-base font-medium text-[#cc785c] py-2 border-b border-[#e6dfd8]/60 dark:border-[#2e2b26]"
-    >
-      <svg class="w-4 h-4 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-      </svg>
-      <span>Download Resume</span>
-    </a>
 
     <div class="pt-4 flex flex-col gap-2">
       <span class="text-xs text-[#8e8b82] font-mono">{portfolioData.personal.status}</span>
