@@ -8,9 +8,10 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  showPreloader?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, showPreloader = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -43,8 +44,8 @@ const { title, description } = Astro.props;
     />
   </head>
   <body class="bg-[#faf9f5] dark:bg-[#121110] text-[#141413] dark:text-[#faf9f5] antialiased selection:bg-[#cc785c]/25 selection:text-[#141413] dark:selection:text-[#faf9f5] min-h-[100dvh] flex flex-col justify-between transition-colors duration-300">
-    <!-- Smooth Editorial Preloader -->
-    <Preloader />
+    <!-- Smooth Editorial Preloader (Shown only once per session) -->
+    <Preloader forceHide={!showPreloader} />
 
     <!-- Accessibility Skip to Main Content Link -->
     <a

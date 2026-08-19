@@ -140,7 +140,7 @@ export const portfolioData = {
         { label: 'Architecture', value: 'Component-Driven' },
       ],
       links: {
-        live: '/projects/pentadosen',
+        live: 'https://pentadosen.yarsi.ac.id/',
         github: 'https://github.com/Umam07',
       },
     },

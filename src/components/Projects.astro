@@ -7,60 +7,131 @@ const categories = ['All', 'Web Application', 'System Workflows', 'Mobile Applic
 
 const featuredProject = projects[0]; // PentaDosen
 const otherProjects = projects.slice(1);
+
+// Helper to count items per category
+const getCategoryCount = (cat: string) => {
+  if (cat === 'All') return projects.length;
+  return projects.filter((p) => p.category === cat).length;
+};
 ---
 
 <section id="projects" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-  <!-- Section Header -->
+  
+  <!-- Section Header (Warm Editorial Typography + Domain Counts) -->
   <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
     <div>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
+        <span class="text-xs font-mono font-medium text-[#cc785c] uppercase tracking-wider">
+          Selected Works & Case Studies
+        </span>
+      </div>
       <h2 class="font-display text-3xl sm:text-4xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
         Featured Projects & Case Studies
       </h2>
-      <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[54ch]">
+      <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[56ch] leading-relaxed">
         Selected works spanning university academic platforms, enterprise ERP systems, mobile applications, and automation utilities.
       </p>
     </div>
 
-    <!-- Category Tabs Filter -->
-    <div class="flex flex-wrap gap-1.5 p-1 rounded-lg bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]" id="project-filters">
-      {categories.map((cat, idx) => (
-        <button
-          type="button"
-          data-category={cat}
-          class={`filter-btn px-3 py-1.5 rounded-md text-xs font-mono font-medium transition-all cursor-pointer ${
-            idx === 0
-              ? 'bg-[#faf9f5] dark:bg-[#252320] text-[#141413] dark:text-[#faf9f5] shadow-xs font-semibold'
-              : 'text-[#6c6a64] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5]'
-          }`}
-        >
-          {cat}
-        </button>
-      ))}
+    <!-- Live Filter & Count Strip -->
+    <div class="flex items-center gap-2 font-mono text-xs text-[#8e8b82] dark:text-[#7a7770]">
+      <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] text-[#141413] dark:text-[#faf9f5]">
+        {projects.length} Works Total
+      </span>
+      <span class="px-3 py-1.5 rounded-md bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] text-[#cc785c]">
+        1 Featured Study
+      </span>
+    </div>
+  </div>
+
+  <!-- Redesigned Filter Toolbar -->
+  <div class="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <!-- Category Tabs Segmented Control -->
+    <div
+      role="tablist"
+      aria-label="Filter projects by category"
+      class="inline-flex flex-wrap p-1.5 rounded-xl bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] shadow-xs gap-1"
+      id="project-filters"
+    >
+      {categories.map((cat, idx) => {
+        const count = getCategoryCount(cat);
+        const isActive = idx === 0;
+        return (
+          <button
+            type="button"
+            role="tab"
+            aria-selected={isActive ? 'true' : 'false'}
+            data-category={cat}
+            class={`filter-btn group relative px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all duration-200 cursor-pointer flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c] ${
+              isActive
+                ? 'bg-[#faf9f5] dark:bg-[#252320] text-[#141413] dark:text-[#faf9f5] shadow-xs font-semibold border border-[#e6dfd8]/80 dark:border-[#38342e]'
+                : 'text-[#6c6a64] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5] hover:bg-[#faf9f5]/50 dark:hover:bg-[#22201d]/50'
+            }`}
+          >
+            <span>{cat}</span>
+            <span
+              class={`filter-badge px-1.5 py-0.2 rounded text-[10px] font-mono transition-colors ${
+                isActive
+                  ? 'bg-[#e8e0d2] dark:bg-[#181715] text-[#cc785c] font-bold'
+                  : 'bg-[#e8e0d2]/70 dark:bg-[#252320] text-[#8e8b82] group-hover:text-[#141413] dark:group-hover:text-[#faf9f5]'
+              }`}
+            >
+              {count}
+            </span>
+          </button>
+        );
+      })}
+    </div>
+
+    <!-- Active Indicator Text -->
+    <div class="hidden lg:flex items-center gap-2 text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">
+      <span>Showing:</span>
+      <span id="active-category-indicator" class="text-[#cc785c] font-semibold">All Projects (4)</span>
     </div>
   </div>
 
   <!-- Projects Container -->
-  <div id="projects-grid" class="mt-10 space-y-8">
+  <div id="projects-grid" class="mt-8 space-y-8 min-h-[400px]">
     
     <!-- 01. Flagship Featured Project Card (PentaDosen - Wide Horizontal Showcase) -->
     {featuredProject && (
-      <div class="project-item" data-category={featuredProject.category}>
-        <article class="project-card group p-6 sm:p-8 lg:p-10 rounded-2xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-all shadow-xs overflow-hidden">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <div class="project-item transition-all duration-300" data-category={featuredProject.category}>
+        <article class="project-card group p-6 sm:p-8 lg:p-10 rounded-2xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] hover:border-[#cc785c] dark:hover:border-[#cc785c] hover:shadow-xl dark:hover:shadow-black/40 transition-all duration-300 overflow-hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            <!-- Left: Large Visual Preview (col-span-7) -->
-            <div class="lg:col-span-7">
-              <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-[#e6dfd8] dark:border-[#2e2b26] bg-[#181715] shadow-md">
-                <a href={featuredProject.caseStudyUrl} class="block w-full h-full">
+            <!-- Left: Large Visual Preview with Browser Mock Chrome (col-span-7) -->
+            <div class="lg:col-span-7 flex flex-col">
+              <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-[#e6dfd8] dark:border-[#2e2b26] bg-[#181715] shadow-md group-hover:border-[#cc785c]/40 transition-colors">
+                
+                <!-- Browser Mock Header Bar -->
+                <div class="absolute top-0 inset-x-0 h-7 bg-[#1c1b18]/90 backdrop-blur-md border-b border-white/10 px-3 flex items-center justify-between z-20">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444]/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#eab308]/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#22c55e]/80"></span>
+                  </div>
+                  <span class="text-[10px] font-mono text-white/60 tracking-wider">pentadosen.yarsi.ac.id</span>
+                  <div class="w-8"></div>
+                </div>
+
+                <a
+                  href={featuredProject.caseStudyUrl}
+                  class="block w-full h-full pt-7 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+                  aria-label={`Read case study for ${featuredProject.title}`}
+                >
                   <img
                     src={featuredProject.image}
                     alt={`Preview of ${featuredProject.title}`}
                     loading="lazy"
-                    class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                    class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                 </a>
-                <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#181715]/80 backdrop-blur-md text-white text-[11px] font-mono border border-white/10">
-                  Featured Case Study
+
+                <!-- Floating Featured Badge -->
+                <div class="absolute bottom-3 left-3 px-3 py-1 rounded-md bg-[#181715]/85 backdrop-blur-md text-white text-[11px] font-mono border border-white/15 flex items-center gap-1.5 shadow-md">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c] animate-pulse"></span>
+                  <span>Featured Case Study</span>
                 </div>
               </div>
             </div>
@@ -68,7 +139,7 @@ const otherProjects = projects.slice(1);
             <!-- Right: Editorial Content & Metadata (col-span-5) -->
             <div class="lg:col-span-5 flex flex-col justify-between h-full space-y-4">
               <div>
-                <!-- Category & Year Header -->
+                <!-- Category, Timeline & Status Strip -->
                 <div class="flex items-center justify-between pb-3 mb-3 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
                   <div class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
@@ -77,61 +148,94 @@ const otherProjects = projects.slice(1);
                   <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">{featuredProject.year}</span>
                 </div>
 
-                <!-- Headline -->
+                <!-- Serif Headline -->
                 <h3 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight group-hover:text-[#cc785c] dark:group-hover:text-[#cc785c] transition-colors leading-tight mt-1">
-                  <a href={featuredProject.caseStudyUrl} class="hover:underline">
+                  <a href={featuredProject.caseStudyUrl} class="hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#cc785c]">
                     {featuredProject.title}
                   </a>
                 </h3>
 
-                <p class="mt-2 text-xs sm:text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
+                <!-- Subtitle -->
+                <p class="mt-2.5 text-xs sm:text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
                   {featuredProject.subtitle}
                 </p>
 
                 <!-- Role Badge -->
-                <div class="mt-3 inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs text-[#3d3d3a] dark:text-[#d4cfc7]">
-                  <span class="text-[#8e8b82] dark:text-[#7a7770] font-mono">Role:</span>
+                <div class="mt-3.5 inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs text-[#3d3d3a] dark:text-[#d4cfc7]">
+                  <span class="text-[#8e8b82] dark:text-[#7a7770] font-mono text-[11px]">Role:</span>
                   <span class="font-medium text-[#141413] dark:text-[#faf9f5]">{featuredProject.role}</span>
                 </div>
 
                 <!-- Context Impact Box -->
-                <div class="mt-3 p-3 rounded-lg bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs text-[#252523] dark:text-[#d4cfc7] leading-relaxed">
-                  <span class="font-semibold text-[#cc785c] mr-1">Context:</span>
+                <div class="mt-3.5 p-3.5 rounded-xl bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs text-[#252523] dark:text-[#d4cfc7] leading-relaxed">
+                  <span class="font-semibold text-[#cc785c] mr-1 font-mono text-[11px] uppercase tracking-wider">Context & Outcome:</span>
                   {featuredProject.impact}
                 </div>
 
-                <!-- Key Metrics -->
-                <div class="mt-3.5 grid grid-cols-3 gap-2 pt-3 border-t border-[#e6dfd8] dark:border-[#2e2b26]">
+                <!-- Key Metrics Grid -->
+                <div class="mt-4 grid grid-cols-3 gap-2 pt-3.5 border-t border-[#e6dfd8] dark:border-[#2e2b26]">
                   {featuredProject.metrics.map((metric) => (
                     <div class="flex flex-col">
-                      <span class="font-display text-sm sm:text-base text-[#141413] dark:text-[#faf9f5] leading-tight">{metric.value}</span>
-                      <span class="text-[10px] text-[#6c6a64] dark:text-[#8e8b82] mt-0.5">{metric.label}</span>
+                      <span class="font-display text-sm sm:text-base text-[#141413] dark:text-[#faf9f5] leading-tight font-medium">{metric.value}</span>
+                      <span class="text-[10px] text-[#6c6a64] dark:text-[#8e8b82] mt-0.5 font-mono">{metric.label}</span>
                     </div>
                   ))}
                 </div>
 
-                <!-- Tags -->
-                <div class="mt-3.5 flex flex-wrap gap-1.5">
+                <!-- Tech Stack Tags -->
+                <div class="mt-4 flex flex-wrap gap-1.5">
                   {featuredProject.tags.map((tag) => (
-                    <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#e8e0d2] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8]/80 dark:border-[#2e2b26]">
+                    <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#e8e0d2] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8]/80 dark:border-[#2e2b26] hover:border-[#cc785c]/60 transition-colors">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <!-- Action Links -->
-              <div class="pt-4 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex items-center justify-between gap-3">
-                <a
-                  href={featuredProject.caseStudyUrl}
-                  class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs sm:text-sm font-medium transition-all shadow-xs"
-                >
-                  <span>Read Case Study</span>
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
-                </a>
-                <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">01 // FEATURED</span>
+              <!-- Action Links & Indicator -->
+              <div class="pt-5 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex flex-wrap items-center justify-between gap-3">
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <a
+                    href={featuredProject.caseStudyUrl}
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white text-xs sm:text-sm font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+                  >
+                    <span>Read Case Study</span>
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  </a>
+
+                  {featuredProject.links.live && (
+                    <a
+                      href={featuredProject.links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#252320] hover:bg-[#f5f0e8] dark:hover:bg-[#2e2b26] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+                    >
+                      <span>Visit Live Website</span>
+                      <svg class="w-3.5 h-3.5 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                      </svg>
+                    </a>
+                  )}
+
+                  {featuredProject.links.github && (
+                    <a
+                      href={featuredProject.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="View source code on GitHub"
+                      class="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#252320] hover:bg-[#f5f0e8] dark:hover:bg-[#2e2b26] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all"
+                    >
+                      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                      </svg>
+                      <span>GitHub</span>
+                    </a>
+                  )}
+                </div>
+
+                <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">01 · Flagship Showcase</span>
               </div>
 
             </div>
@@ -142,43 +246,112 @@ const otherProjects = projects.slice(1);
     )}
 
     <!-- 02, 03, 04. Supporting Projects Grid (Responsive 3 Columns on Large Displays) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="supporting-projects-grid">
       {otherProjects.map((project, idx) => (
-        <div class="project-item h-full" data-category={project.category}>
+        <div class="project-item h-full transition-all duration-300" data-category={project.category}>
           <ProjectCard project={project} index={idx + 1} />
         </div>
       ))}
+    </div>
+
+    <!-- Empty State if no project matches filter -->
+    <div id="no-projects-msg" class="hidden text-center py-16 px-4 rounded-2xl bg-[#efe9de]/50 dark:bg-[#1c1b18]/50 border border-dashed border-[#e6dfd8] dark:border-[#2e2b26]">
+      <p class="font-display text-xl text-[#141413] dark:text-[#faf9f5]">No projects found in this category.</p>
+      <p class="text-xs sm:text-sm text-[#6c6a64] dark:text-[#a09d96] mt-1">Try selecting another filter category above.</p>
+      <button
+        type="button"
+        id="reset-filter-btn"
+        class="mt-4 px-3.5 py-1.5 rounded-md bg-[#cc785c] text-white text-xs font-mono font-medium hover:bg-[#a9583e] transition-colors"
+      >
+        Reset Filter to All
+      </button>
     </div>
 
   </div>
 </section>
 
 <script>
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectItems = document.querySelectorAll('.project-item');
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const projectItems = document.querySelectorAll<HTMLElement>('.project-item');
+  const activeIndicator = document.getElementById('active-category-indicator');
+  const noProjectsMsg = document.getElementById('no-projects-msg');
+  const resetBtn = document.getElementById('reset-filter-btn');
+
+  function setCategory(selectedCategory: string) {
+    let visibleCount = 0;
+
+    // Update button visual states
+    filterButtons.forEach((btn) => {
+      const isSelected = btn.getAttribute('data-category') === selectedCategory;
+      const badge = btn.querySelector('.filter-badge');
+
+      btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+
+      if (isSelected) {
+        btn.classList.add('bg-[#faf9f5]', 'dark:bg-[#252320]', 'text-[#141413]', 'dark:text-[#faf9f5]', 'shadow-xs', 'font-semibold', 'border', 'border-[#e6dfd8]/80', 'dark:border-[#38342e]');
+        btn.classList.remove('text-[#6c6a64]', 'dark:text-[#a09d96]');
+        if (badge) {
+          badge.classList.add('bg-[#e8e0d2]', 'dark:bg-[#181715]', 'text-[#cc785c]', 'font-bold');
+          badge.classList.remove('bg-[#e8e0d2]/70', 'dark:bg-[#252320]', 'text-[#8e8b82]');
+        }
+      } else {
+        btn.classList.remove('bg-[#faf9f5]', 'dark:bg-[#252320]', 'text-[#141413]', 'dark:text-[#faf9f5]', 'shadow-xs', 'font-semibold', 'border', 'border-[#e6dfd8]/80', 'dark:border-[#38342e]');
+        btn.classList.add('text-[#6c6a64]', 'dark:text-[#a09d96]');
+        if (badge) {
+          badge.classList.remove('bg-[#e8e0d2]', 'dark:bg-[#181715]', 'text-[#cc785c]', 'font-bold');
+          badge.classList.add('bg-[#e8e0d2]/70', 'dark:bg-[#252320]', 'text-[#8e8b82]');
+        }
+      }
+    });
+
+    // Smooth filter items with opacity & transform
+    projectItems.forEach((item) => {
+      const itemCategory = item.getAttribute('data-category');
+      const shouldShow = selectedCategory === 'All' || itemCategory === selectedCategory;
+
+      if (shouldShow) {
+        visibleCount++;
+        item.style.display = '';
+        requestAnimationFrame(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0) scale(1)';
+        });
+      } else {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(8px) scale(0.98)';
+        setTimeout(() => {
+          if (item.style.opacity === '0') {
+            item.style.display = 'none';
+          }
+        }, 200);
+      }
+    });
+
+    // Update active text indicator
+    if (activeIndicator) {
+      activeIndicator.textContent = `${selectedCategory} (${visibleCount})`;
+    }
+
+    // Toggle empty state message
+    if (noProjectsMsg) {
+      if (visibleCount === 0) {
+        noProjectsMsg.classList.remove('hidden');
+      } else {
+        noProjectsMsg.classList.add('hidden');
+      }
+    }
+  }
 
   filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const selectedCategory = btn.getAttribute('data-category');
-
-      filterButtons.forEach((b) => {
-        b.classList.remove('bg-[#faf9f5]', 'dark:bg-[#252320]', 'text-[#141413]', 'dark:text-[#faf9f5]', 'shadow-xs', 'font-semibold');
-        b.classList.add('text-[#6c6a64]', 'dark:text-[#a09d96]');
-      });
-      btn.classList.remove('text-[#6c6a64]', 'dark:text-[#a09d96]');
-      btn.classList.add('bg-[#faf9f5]', 'dark:bg-[#252320]', 'text-[#141413]', 'dark:text-[#faf9f5]', 'shadow-xs', 'font-semibold');
-
-      projectItems.forEach((item) => {
-        const itemCategory = item.getAttribute('data-category');
-        const htmlItem = item as HTMLElement;
-
-        if (selectedCategory === 'All' || itemCategory === selectedCategory) {
-          htmlItem.style.display = 'block';
-          htmlItem.style.opacity = '1';
-        } else {
-          htmlItem.style.display = 'none';
-        }
-      });
+      const category = btn.getAttribute('data-category') || 'All';
+      setCategory(category);
     });
   });
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      setCategory('All');
+    });
+  }
 </script>

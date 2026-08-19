@@ -1,11 +1,33 @@
 ---
+interface Props {
+  forceHide?: boolean;
+}
+
+const { forceHide = false } = Astro.props;
 ---
 
 <div
   id="preloader"
   aria-hidden="true"
   class="fixed inset-0 z-[99999] bg-[#faf9f5] dark:bg-[#121110] flex flex-col justify-between p-6 sm:p-10 select-none overflow-hidden"
+  style={forceHide ? "display: none !important;" : ""}
 >
+  <!-- Immediate inline script to avoid flash of preloader if already seen in this session -->
+  <script is:inline>
+    (function() {
+      try {
+        const hasVisited = sessionStorage.getItem('visited_preloader');
+        const isSubpage = window.location.pathname.startsWith('/projects/');
+        if (hasVisited === 'true' || isSubpage) {
+          const preloaderEl = document.getElementById('preloader');
+          if (preloaderEl) {
+            preloaderEl.style.display = 'none';
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Top Bar -->
   <div class="preloader-elem flex items-center justify-between text-[11px] font-mono text-[#8e8b82] dark:text-[#7a7770] uppercase tracking-widest">
     <div class="flex items-center gap-2">
@@ -87,6 +109,8 @@
   const counterEl = document.getElementById('preloader-counter');
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isSubpage = window.location.pathname.startsWith('/projects/');
+  const hasVisited = typeof sessionStorage !== 'undefined' && sessionStorage.getItem('visited_preloader') === 'true';
 
   const greetings = [
     { text: 'Hello', lang: 'English' },
@@ -100,14 +124,17 @@
   ];
 
   if (preloader) {
-    if (prefersReduced) {
+    if (prefersReduced || hasVisited || isSubpage) {
       preloader.style.display = 'none';
+      try {
+        sessionStorage.setItem('visited_preloader', 'true');
+      } catch (e) {}
     } else {
       let progress = { value: 0 };
       let currentIndex = 0;
 
       // Cycle greetings synchronized with duration
-      const totalDuration = 1.6; // seconds
+      const totalDuration = 1.5; // seconds
       const intervalMs = (totalDuration * 1000) / greetings.length;
 
       const cycleInterval = setInterval(() => {
@@ -143,12 +170,16 @@
         },
         onComplete: () => {
           clearInterval(cycleInterval);
+          try {
+            sessionStorage.setItem('visited_preloader', 'true');
+          } catch (e) {}
+
           // Ensure final greeting is displayed
           if (greetingEl) greetingEl.textContent = 'Selamat Datang';
           if (langLabelEl) langLabelEl.textContent = 'Bahasa Indonesia';
 
           // Brief pause on "Selamat Datang" then smooth slide up
-          gsap.delayedCall(0.35, () => {
+          gsap.delayedCall(0.25, () => {
             const tl = gsap.timeline({
               onComplete: () => {
                 preloader.style.display = 'none';
@@ -160,8 +191,8 @@
             tl.to('.preloader-elem', {
               opacity: 0,
               y: -20,
-              duration: 0.4,
-              stagger: 0.04,
+              duration: 0.35,
+              stagger: 0.03,
               ease: 'power2.in',
             })
             // 2. Slide the preloader screen upwards smoothly
@@ -169,7 +200,7 @@
               preloader,
               {
                 yPercent: -100,
-                duration: 0.8,
+                duration: 0.7,
                 ease: 'power4.inOut',
               },
               '-=0.15'

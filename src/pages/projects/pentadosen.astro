@@ -8,6 +8,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
 <Layout
   title="PentaDosen Case Study — Muhammad Syafi'ul Umam"
   description="Case study on PentaDosen: A research and academic performance management platform for university lecturers built with React, Vite, Tailwind CSS, and TypeScript."
+  showPreloader={false}
 >
   <article class="pt-24 pb-20 md:pt-32 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
     
@@ -58,6 +59,33 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
           <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Research · HKI · Calendar</span>
         </div>
       </div>
+
+      <!-- Action Buttons Row -->
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <a
+          href="https://pentadosen.yarsi.ac.id/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white text-xs sm:text-sm font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        >
+          <span>Visit Live Website</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+
+        <a
+          href="https://github.com/Umam07"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs sm:text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>GitHub Repository</span>
+        </a>
+      </div>
     </header>
 
     <!-- 2. Hero Screenshot with Editorial Frame -->
@@ -89,7 +117,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
       <section>
         <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
           <span>01</span>
-          <span>//</span>
+          <span>·</span>
           <span>Overview</span>
         </div>
         <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-3">
@@ -107,7 +135,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
       <section class="p-6 sm:p-7 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
         <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
           <span>02</span>
-          <span>//</span>
+          <span>·</span>
           <span>The Problem</span>
         </div>
         <h2 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
@@ -138,7 +166,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
       <section>
         <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
           <span>03</span>
-          <span>//</span>
+          <span>·</span>
           <span>My Role & Scope</span>
         </div>
         <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
@@ -171,7 +199,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
       <section>
         <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
           <span>04</span>
-          <span>//</span>
+          <span>·</span>
           <span>Design Approach</span>
         </div>
         <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
@@ -202,7 +230,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
       <section>
         <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
           <span>05</span>
-          <span>//</span>
+          <span>·</span>
           <span>Architecture</span>
         </div>
         <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
@@ -235,7 +263,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
       <section>
         <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
           <span>06</span>
-          <span>//</span>
+          <span>·</span>
           <span>Core Capabilities</span>
         </div>
         <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
@@ -268,7 +296,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
       <section class="p-6 sm:p-7 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
         <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
           <span>07</span>
-          <span>//</span>
+          <span>·</span>
           <span>Problem Solving</span>
         </div>
         <h2 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
@@ -293,7 +321,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
       <section class="pb-2">
         <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
           <span>08</span>
-          <span>//</span>
+          <span>·</span>
           <span>Takeaways</span>
         </div>
         <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
@@ -344,15 +372,29 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
         <span>Back to All Projects</span>
       </a>
 
-      <a
-        href="/#contact"
-        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
-      >
-        <span>Discuss a Project with Umam</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-        </svg>
-      </a>
+      <div class="flex flex-wrap items-center gap-3">
+        <a
+          href="https://pentadosen.yarsi.ac.id/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        >
+          <span>Visit Live Website</span>
+          <svg class="w-3.5 h-3.5 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+
+        <a
+          href="/#contact"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        >
+          <span>Discuss a Project with Umam</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      </div>
     </div>
 
   </article>
