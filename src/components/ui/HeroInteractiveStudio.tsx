@@ -166,7 +166,7 @@ export const engineer = {
                         ? "bg-[#10b981]"
                         : status === "In Review"
                         ? "bg-[#f59e0b]"
-                        : "bg-[#38bdf8] animate-pulse"
+                        : "bg-[#38bdf8]"
                     }`}
                   />
                   <span className="text-zinc-200">{status}</span>
