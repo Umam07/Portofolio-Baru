@@ -17,14 +17,14 @@ const navLinks = [
 >
   <div
     id="nav-inner"
-    class="w-full max-w-6xl mx-auto h-16 bg-[#faf9f5]/90 dark:bg-[#121110]/90 backdrop-blur-md border-b border-[#e6dfd8] dark:border-[#2e2b26] px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ease-out pointer-events-auto"
+    class="w-full max-w-6xl mx-auto h-16 bg-white/90 dark:bg-[#080808]/90 backdrop-blur-md border-b border-zinc-200 dark:border-white/10 px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ease-out pointer-events-auto"
   >
     
     <!-- Brand Logo Mark Only -->
-    <a href="#" aria-label="Muhammad Syafi'ul Umam Home" class="group flex items-center text-[#141413] dark:text-[#faf9f5] hover:opacity-85 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c] rounded p-0.5">
+    <a href="#" aria-label="Muhammad Syafi'ul Umam Home" class="group flex items-center text-zinc-950 dark:text-white hover:opacity-85 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8] rounded p-0.5">
       <svg
         viewBox="0 0 141 141"
-        class="w-7 h-7 sm:w-8 sm:h-8 transition-all duration-300 group-hover:scale-110 text-[#141413] dark:text-[#faf9f5]"
+        class="w-7 h-7 sm:w-8 sm:h-8 transition-all duration-300 group-hover:scale-110 text-zinc-950 dark:text-white"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -39,7 +39,7 @@ const navLinks = [
         <a
           href={link.href}
           data-nav-href={link.href}
-          class="desktop-nav-link text-sm font-medium text-[#3d3d3a] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c] rounded px-1 py-0.5"
+          class="desktop-nav-link text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8] rounded px-1 py-0.5"
         >
           {link.label}
         </a>
@@ -55,14 +55,14 @@ const navLinks = [
         type="button"
         aria-label="Toggle light and dark theme"
         title="Toggle Theme"
-        class="flex items-center justify-center w-8 h-8 rounded-md border border-[#e6dfd8] dark:border-[#2e2b26] text-[#3d3d3a] dark:text-[#faf9f5] bg-[#faf9f5] dark:bg-[#181715] hover:border-[#cc785c] dark:hover:border-[#cc785c] transition-all cursor-pointer shadow-xs active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        class="flex items-center justify-center w-8 h-8 rounded-md border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-white bg-white dark:bg-[#121316] hover:border-[#0284c7] dark:hover:border-[#38bdf8] transition-all cursor-pointer shadow-xs active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
       >
         <!-- Sun Icon (Visible in Dark Mode) -->
-        <svg id="theme-sun-icon" class="w-4 h-4 hidden dark:block text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg id="theme-sun-icon" class="w-4 h-4 hidden dark:block text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
         </svg>
         <!-- Moon Icon (Visible in Light Mode) -->
-        <svg id="theme-moon-icon" class="w-4 h-4 block dark:hidden text-[#3d3d3a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg id="theme-moon-icon" class="w-4 h-4 block dark:hidden text-zinc-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
         </svg>
       </button>
@@ -73,9 +73,9 @@ const navLinks = [
         download="Resume_Muhammad_Syafiul_Umam.pdf"
         aria-label="Download Resume"
         title="Download Resume"
-        class="flex sm:inline-flex items-center justify-center gap-1.5 w-8 h-8 sm:w-auto sm:h-auto sm:px-3 sm:py-1.5 rounded-md bg-[#faf9f5] dark:bg-[#181715] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        class="flex sm:inline-flex items-center justify-center gap-1.5 w-8 h-8 sm:w-auto sm:h-auto sm:px-3 sm:py-1.5 rounded-md bg-white dark:bg-[#121316] hover:bg-zinc-50 dark:hover:bg-[#1a1c22] text-zinc-900 dark:text-white border border-zinc-200 dark:border-white/10 text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
       >
-        <svg class="w-3.5 h-3.5 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-3.5 h-3.5 text-[#0284c7] dark:text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
         </svg>
         <span class="hidden sm:inline">Resume</span>
@@ -85,7 +85,7 @@ const navLinks = [
       <button
         id="mobile-menu-btn"
         aria-label="Toggle navigation menu"
-        class="md:hidden flex items-center justify-center w-8 h-8 rounded-md border border-[#e6dfd8] dark:border-[#2e2b26] text-[#141413] dark:text-[#faf9f5] bg-[#faf9f5] dark:bg-[#181715] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        class="md:hidden flex items-center justify-center w-8 h-8 rounded-md border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white bg-white dark:bg-[#121316] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
       >
         <svg id="menu-icon-open" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -102,24 +102,24 @@ const navLinks = [
 <!-- Mobile Navigation Drawer -->
 <div
   id="mobile-drawer"
-  class="fixed inset-0 top-16 z-40 bg-[#faf9f5] dark:bg-[#121110] opacity-0 pointer-events-none transition-all duration-200 md:hidden flex flex-col justify-start px-6 pt-8 border-t border-[#e6dfd8] dark:border-[#2e2b26]"
+  class="fixed inset-0 top-16 z-40 bg-white dark:bg-[#080808] opacity-0 pointer-events-none transition-all duration-200 md:hidden flex flex-col justify-start px-6 pt-8 border-t border-zinc-200 dark:border-white/10"
 >
   <nav aria-label="Mobile Navigation" class="flex flex-col gap-4">
     {navLinks.map((link) => (
       <a
         href={link.href}
         data-nav-href={link.href}
-        class="mobile-nav-item text-base font-medium text-[#141413] dark:text-[#faf9f5] py-2 border-b border-[#e6dfd8]/60 dark:border-[#2e2b26] transition-colors"
+        class="mobile-nav-item text-base font-medium text-zinc-900 dark:text-white py-2 border-b border-zinc-100 dark:border-white/10 transition-colors"
       >
         {link.label}
       </a>
     ))}
 
     <div class="pt-4 flex flex-col gap-2">
-      <span class="text-xs text-[#8e8b82] font-mono">{portfolioData.personal.status}</span>
+      <span class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">{portfolioData.personal.status}</span>
       <a
         href={`mailto:${portfolioData.personal.email}`}
-        class="text-xs font-medium text-[#cc785c] underline font-mono"
+        class="text-xs font-medium text-[#0284c7] dark:text-[#38bdf8] underline font-mono"
       >
         {portfolioData.personal.email}
       </a>
@@ -151,10 +151,10 @@ const navLinks = [
     if (scrollY > 30) {
       header?.classList.add('pt-3', 'sm:pt-4');
       navInner?.classList.remove('max-w-6xl', 'border-b', 'rounded-none', 'h-16', 'px-4', 'lg:px-8');
-      navInner?.classList.add('max-w-4xl', 'border', 'rounded-full', 'shadow-md', 'h-14', 'px-5', 'sm:px-6', 'bg-[#faf9f5]/85', 'dark:bg-[#181715]/85');
+      navInner?.classList.add('max-w-4xl', 'border', 'rounded-full', 'shadow-md', 'h-14', 'px-5', 'sm:px-6', 'bg-white/85', 'dark:bg-[#121316]/85');
     } else {
       header?.classList.remove('pt-3', 'sm:pt-4');
-      navInner?.classList.remove('max-w-4xl', 'border', 'rounded-full', 'shadow-md', 'h-14', 'px-5', 'sm:px-6', 'bg-[#faf9f5]/85', 'dark:bg-[#181715]/85');
+      navInner?.classList.remove('max-w-4xl', 'border', 'rounded-full', 'shadow-md', 'h-14', 'px-5', 'sm:px-6', 'bg-white/85', 'dark:bg-[#121316]/85');
       navInner?.classList.add('max-w-6xl', 'border-b', 'rounded-none', 'h-16', 'px-4', 'lg:px-8');
     }
 
@@ -178,20 +178,20 @@ const navLinks = [
     desktopLinks.forEach((link) => {
       const href = link.getAttribute('data-nav-href');
       if (href === activeId) {
-        link.classList.add('text-[#cc785c]', 'dark:text-[#cc785c]', 'font-semibold');
-        link.classList.remove('text-[#3d3d3a]', 'dark:text-[#a09d96]');
+        link.classList.add('text-[#0284c7]', 'dark:text-[#38bdf8]', 'font-semibold');
+        link.classList.remove('text-zinc-600', 'dark:text-zinc-400');
       } else {
-        link.classList.remove('text-[#cc785c]', 'dark:text-[#cc785c]', 'font-semibold');
-        link.classList.add('text-[#3d3d3a]', 'dark:text-[#a09d96]');
+        link.classList.remove('text-[#0284c7]', 'dark:text-[#38bdf8]', 'font-semibold');
+        link.classList.add('text-zinc-600', 'dark:text-zinc-400');
       }
     });
 
     mobileLinks.forEach((link) => {
       const href = link.getAttribute('data-nav-href');
       if (href === activeId) {
-        link.classList.add('text-[#cc785c]', 'dark:text-[#cc785c]', 'font-semibold');
+        link.classList.add('text-[#0284c7]', 'dark:text-[#38bdf8]', 'font-semibold');
       } else {
-        link.classList.remove('text-[#cc785c]', 'dark:text-[#cc785c]', 'font-semibold');
+        link.classList.remove('text-[#0284c7]', 'dark:text-[#38bdf8]', 'font-semibold');
       }
     });
   };

@@ -3,78 +3,88 @@
 import React, { useState } from "react";
 
 type TabType = "preview" | "tokens" | "terminal";
+type GrantStatus = "Approved" | "In Review" | "Grant Active";
 
 export const HeroInteractiveStudio: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>("preview");
   const [copied, setCopied] = useState(false);
 
   // Interactive sandbox state
-  const [radius, setRadius] = useState<number>(10);
-  const [accentColor, setAccentColor] = useState<string>("#cc785c");
-  const [isAvailable, setIsAvailable] = useState<boolean>(true);
-  const [clickCount, setClickCount] = useState<number>(0);
+  const [radius, setRadius] = useState<number>(12);
+  const [accentColor, setAccentColor] = useState<string>("#38bdf8");
+  const [status, setStatus] = useState<GrantStatus>("Approved");
+  const [verifiedCount, setVerifiedCount] = useState<number>(18);
   const [terminalHistory, setTerminalHistory] = useState<string[]>([
-    "bun test --all: 18 tests passed (12ms)",
-    "git status: working tree clean, on branch main",
+    "bun test --all: 24 unit tests passed (11ms)",
+    "git status: on branch main, working tree clean",
   ]);
 
   const handleCopyCode = () => {
-    const code = `const developer = {
+    const code = `// Umam Engineering Profile & Design Tokens
+export const engineer = {
   name: "Muhammad Syafi'ul Umam",
   role: "Frontend Developer & UI/UX Designer",
-  stack: ["React", "TypeScript", "Tailwind CSS", "Astro", "Next.js"],
-  status: "Available for freelance & fulltime roles"
+  flagship: "PentaDosen Academic Portal",
+  themes: ["Swiss Light Mode (#fff)", "Obsidian Cyber Ice (#080808)"],
+  stack: ["React 19", "TypeScript", "Tailwind v4", "Astro 5", "Figma"],
+  status: "Open for Frontend Roles & Projects"
 };`;
     navigator.clipboard.writeText(code);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleToggleStatus = () => {
+    if (status === "Approved") setStatus("In Review");
+    else if (status === "In Review") setStatus("Grant Active");
+    else setStatus("Approved");
+  };
+
   const handleRunCommand = (cmd: string) => {
     let output = "";
-    if (cmd === "stack") {
-      output = "→ [React 19, TypeScript, Tailwind v4, Astro 5, Figma, Next.js]";
-    } else if (cmd === "stats") {
-      output = "→ 3+ Projects Delivered · 100% Lighthouse Score · Universitas YARSI";
+    if (cmd === "pentadosen") {
+      output = "→ PentaDosen: Lecturer research & HKI portal (React + TypeScript + Tailwind)";
+    } else if (cmd === "stack") {
+      output = "→ Stack: [React 19, TypeScript, Tailwind CSS, Astro 5, Vite, Figma]";
     } else if (cmd === "contact") {
-      output = "→ Email: syafiulumam147@gmail.com · Jakarta, Indonesia";
+      output = "→ Email: muhammadumamsyafiul@gmail.com · Jakarta, Indonesia";
     }
     setTerminalHistory((prev) => [...prev.slice(-3), `$ umam.${cmd}()`, output]);
   };
 
   return (
-    <div className="w-full max-w-xl mx-auto rounded-xl bg-[#141311] border border-[#2e2b26] shadow-2xl overflow-hidden text-[#e8e6e1] font-mono text-xs transition-all duration-300">
+    <div className="w-full max-w-xl mx-auto rounded-xl bg-[#0e1013] dark:bg-[#0d0e11] border border-zinc-800 dark:border-white/10 shadow-2xl overflow-hidden text-zinc-200 font-mono text-xs transition-all duration-300">
       
       {/* Window Top Chrome */}
-      <div className="h-10 px-3.5 bg-[#1a1916] border-b border-[#2e2b26] flex items-center justify-between select-none">
+      <div className="h-11 px-4 bg-[#15171c] dark:bg-[#121316] border-b border-zinc-800 dark:border-white/10 flex items-center justify-between select-none">
         
         {/* Traffic Light Dots */}
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80 hover:opacity-100 transition-opacity"></span>
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80 hover:opacity-100 transition-opacity"></span>
-          <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80 hover:opacity-100 transition-opacity"></span>
+        <div className="flex items-center gap-1.5" aria-hidden="true">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
         </div>
 
         {/* Tab Switcher Pills */}
-        <div className="flex items-center gap-1 bg-[#12110f] p-0.5 rounded-md border border-[#2e2b26]">
+        <div className="flex items-center gap-1 bg-[#090a0d] p-0.5 rounded-md border border-zinc-800 dark:border-white/10">
           <button
             type="button"
             onClick={() => setActiveTab("preview")}
-            className={`px-2.5 py-1 rounded text-[11px] font-sans font-medium transition-all ${
+            className={`px-3 py-1.5 rounded text-xs font-sans font-medium transition-all ${
               activeTab === "preview"
-                ? "bg-[#282622] text-[#faf9f5] shadow-xs"
-                : "text-[#8e8b82] hover:text-[#e8e6e1]"
+                ? "bg-[#222630] text-white shadow-xs"
+                : "text-zinc-400 hover:text-white"
             }`}
           >
-            UI Sandbox
+            PentaDosen UI
           </button>
           <button
             type="button"
             onClick={() => setActiveTab("tokens")}
-            className={`px-2.5 py-1 rounded text-[11px] font-sans font-medium transition-all ${
+            className={`px-3 py-1.5 rounded text-xs font-sans font-medium transition-all ${
               activeTab === "tokens"
-                ? "bg-[#282622] text-[#faf9f5] shadow-xs"
-                : "text-[#8e8b82] hover:text-[#e8e6e1]"
+                ? "bg-[#222630] text-white shadow-xs"
+                : "text-zinc-400 hover:text-white"
             }`}
           >
             Tokens.ts
@@ -82,10 +92,10 @@ export const HeroInteractiveStudio: React.FC = () => {
           <button
             type="button"
             onClick={() => setActiveTab("terminal")}
-            className={`px-2.5 py-1 rounded text-[11px] font-sans font-medium transition-all ${
+            className={`px-3 py-1.5 rounded text-xs font-sans font-medium transition-all ${
               activeTab === "terminal"
-                ? "bg-[#282622] text-[#faf9f5] shadow-xs"
-                : "text-[#8e8b82] hover:text-[#e8e6e1]"
+                ? "bg-[#222630] text-white shadow-xs"
+                : "text-zinc-400 hover:text-white"
             }`}
           >
             CLI
@@ -96,12 +106,13 @@ export const HeroInteractiveStudio: React.FC = () => {
         <button
           type="button"
           onClick={handleCopyCode}
+          aria-label="Copy code snippet"
           title="Copy snippet"
-          className="flex items-center gap-1 text-[11px] text-[#8e8b82] hover:text-[#cc785c] transition-colors focus:outline-none"
+          className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-[#38bdf8] transition-colors focus:outline-none min-h-[36px]"
         >
           {copied ? (
-            <span className="text-[#5db872] flex items-center gap-1 font-sans">
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="text-[#10b981] flex items-center gap-1 font-sans font-medium">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
               Copied
@@ -117,87 +128,102 @@ export const HeroInteractiveStudio: React.FC = () => {
       {/* Main Panel Content Area */}
       <div className="p-4 sm:p-5 min-h-[300px] flex flex-col justify-between">
         
-        {/* TAB 1: UI SANDBOX */}
+        {/* TAB 1: AUTHENTIC PENTADOSEN COMPONENT PREVIEW */}
         {activeTab === "preview" && (
           <div className="space-y-4">
             
-            {/* Live Interactive Preview Card */}
+            {/* Live Interactive Component Card */}
             <div
-              className="p-4 sm:p-5 bg-[#1b1a17] border border-[#2e2b26] transition-all duration-200"
+              className="p-4 sm:p-5 bg-[#14161b] border border-zinc-800 dark:border-white/10 transition-all duration-200 shadow-lg"
               style={{ borderRadius: `${radius}px` }}
             >
               <div className="flex items-start justify-between gap-3">
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white shadow-xs"
-                    style={{ backgroundColor: accentColor }}
-                  >
-                    U
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="w-2 h-2 rounded-full transition-colors"
+                      style={{ backgroundColor: accentColor }}
+                    />
+                    <span className="text-xs font-sans text-zinc-400 uppercase tracking-wider font-semibold">
+                      PentaDosen · YARSI
+                    </span>
                   </div>
-                  <div>
-                    <h4 className="font-sans font-semibold text-sm text-[#faf9f5]">
-                      Muhammad Syafi'ul Umam
-                    </h4>
-                    <p className="text-[11px] text-[#8e8b82] font-sans">
-                      Frontend Developer & UI/UX
-                    </p>
-                  </div>
+                  <h4 className="font-sans font-semibold text-sm text-white leading-snug">
+                    Distributed Data Architecture in Academic Portal
+                  </h4>
                 </div>
 
-                {/* Pulsing Status Badge */}
+                {/* Interactive Status Badge Toggle */}
                 <button
                   type="button"
-                  onClick={() => setIsAvailable(!isAvailable)}
-                  title="Toggle status"
-                  className="px-2 py-0.5 rounded-full text-[10px] font-sans font-medium inline-flex items-center gap-1.5 bg-[#252320] border border-[#3d3a33] hover:border-[#cc785c] transition-colors cursor-pointer"
+                  onClick={handleToggleStatus}
+                  title="Click to cycle status"
+                  className="px-2.5 py-1 rounded-full text-xs font-sans font-medium inline-flex items-center gap-1.5 bg-[#1e222b] border border-zinc-700 hover:border-[#38bdf8] transition-colors cursor-pointer"
                 >
                   <span
                     className={`w-1.5 h-1.5 rounded-full ${
-                      isAvailable ? "bg-[#5db872] animate-pulse" : "bg-[#8e8b82]"
+                      status === "Approved"
+                        ? "bg-[#10b981]"
+                        : status === "In Review"
+                        ? "bg-[#f59e0b]"
+                        : "bg-[#38bdf8] animate-pulse"
                     }`}
                   />
-                  <span className="text-[#d4cfc7]">
-                    {isAvailable ? "Available" : "Busy"}
-                  </span>
+                  <span className="text-zinc-200">{status}</span>
                 </button>
               </div>
 
-              {/* Action Button Strip */}
-              <div className="mt-4 pt-3 border-t border-[#2e2b26] flex items-center justify-between gap-2">
+              {/* Progress & Milestone Meta */}
+              <div className="mt-4 space-y-2">
+                <div className="flex items-center justify-between text-xs font-sans">
+                  <span className="text-zinc-400">Research Milestone Progress</span>
+                  <span className="font-medium text-white">85% Completed</span>
+                </div>
+                <div className="w-full h-1.5 bg-[#1e222b] rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full transition-all duration-300"
+                    style={{ width: "85%", backgroundColor: accentColor }}
+                  />
+                </div>
+              </div>
+
+              {/* Action Strip */}
+              <div className="mt-4 pt-3 border-t border-zinc-800 dark:border-white/10 flex items-center justify-between gap-2">
                 <button
                   type="button"
-                  onClick={() => setClickCount((c) => c + 1)}
+                  onClick={() => setVerifiedCount((c) => c + 1)}
                   style={{
                     backgroundColor: accentColor,
                     borderRadius: `${Math.min(radius, 8)}px`,
                   }}
-                  className="px-3 py-1.5 text-white font-sans text-xs font-medium hover:opacity-90 active:scale-95 transition-all shadow-xs"
+                  className="px-3.5 py-1.5 text-zinc-950 font-sans text-xs font-semibold hover:opacity-90 active:scale-95 transition-all shadow-sm"
                 >
-                  Interactive CTA · {clickCount} clicks
+                  Verify Milestone ({verifiedCount})
                 </button>
 
-                <span className="text-[11px] text-[#a09d96] font-mono">
+                <span className="text-xs text-zinc-400 font-mono">
                   radius: {radius}px
                 </span>
               </div>
             </div>
 
             {/* Sandbox Live Controls Strip */}
-            <div className="p-2.5 rounded-lg bg-[#181715] border border-[#2e2b26] flex flex-wrap items-center justify-between gap-3 text-[11px]">
+            <div className="p-3 rounded-lg bg-[#14161b] border border-zinc-800 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
               
               {/* Color Swatches */}
               <div className="flex items-center gap-2">
-                <span className="text-[#8e8b82] font-sans">Accent:</span>
-                <div className="flex items-center gap-1.5">
-                  {["#cc785c", "#5db8a6", "#e8a55a", "#818cf8"].map((color) => (
+                <span className="text-zinc-400 font-sans font-medium">Accent:</span>
+                <div className="flex items-center gap-2">
+                  {["#38bdf8", "#0284c7", "#10b981", "#818cf8"].map((color) => (
                     <button
                       key={color}
                       type="button"
                       onClick={() => setAccentColor(color)}
                       style={{ backgroundColor: color }}
+                      aria-label={`Select accent color ${color}`}
                       className={`w-4 h-4 rounded-full transition-transform ${
                         accentColor === color
-                          ? "ring-2 ring-white scale-110"
+                          ? "ring-2 ring-white scale-110 shadow-sm"
                           : "opacity-80 hover:opacity-100"
                       }`}
                     />
@@ -207,14 +233,15 @@ export const HeroInteractiveStudio: React.FC = () => {
 
               {/* Radius Range Slider */}
               <div className="flex items-center gap-2">
-                <span className="text-[#8e8b82] font-sans">Radius:</span>
+                <span className="text-zinc-400 font-sans font-medium">Radius:</span>
                 <input
                   type="range"
                   min="4"
-                  max="24"
+                  max="20"
                   value={radius}
+                  aria-label="Component border radius"
                   onChange={(e) => setRadius(Number(e.target.value))}
-                  className="w-20 h-1.5 accent-[#cc785c] cursor-pointer"
+                  className="w-20 h-1.5 accent-[#38bdf8] cursor-pointer"
                 />
               </div>
 
@@ -223,23 +250,22 @@ export const HeroInteractiveStudio: React.FC = () => {
           </div>
         )}
 
-        {/* TAB 2: DESIGN TOKENS TS */}
+        {/* TAB 2: AUTHENTIC DESIGN TOKENS TS */}
         {activeTab === "tokens" && (
-          <div className="p-3 rounded-lg bg-[#181715] border border-[#2e2b26] overflow-x-auto text-[11.5px] leading-relaxed">
-            <pre className="text-[#d4cfc7]">
-              <span className="text-[#8e8b82]">// Claude Editorial Design System Tokens</span>{"\n"}
-              <span className="text-[#cc785c]">export const</span> designTokens = {"{"}{"\n"}
-              {"  "}brand: {"{"}{"\n"}
-              {"    "}primary: <span className="text-[#5db872]">"#cc785c"</span>, <span className="text-[#8e8b82]">// Signature Warm Coral</span>{"\n"}
-              {"    "}canvas: <span className="text-[#5db872]">"#faf9f5"</span>,  <span className="text-[#8e8b82]">// Tinted Warm Cream</span>{"\n"}
-              {"    "}darkSurface: <span className="text-[#5db872]">"#181715"</span> <span className="text-[#8e8b82]">// Obsidian Product Card</span>{"\n"}
+          <div className="p-3.5 rounded-lg bg-[#14161b] border border-zinc-800 dark:border-white/10 overflow-x-auto text-xs leading-relaxed">
+            <pre className="text-zinc-300">
+              <span className="text-zinc-500">// Umam Dual-Mode Design System Tokens</span>{"\n"}
+              <span className="text-[#38bdf8]">export const</span> designTokens = {"{"}{"\n"}
+              {"  "}engineer: <span className="text-[#10b981]">"Muhammad Syafi'ul Umam"</span>,{"\n"}
+              {"  "}specialization: <span className="text-[#10b981]">"Frontend & UI/UX"</span>,{"\n"}
+              {"  "}flagship: <span className="text-[#10b981]">"PentaDosen Academic Portal"</span>,{"\n"}
+              {"  "}themes: {"{"}{"\n"}
+              {"    "}lightCanvas: <span className="text-[#10b981]">"#ffffff"</span>, <span className="text-zinc-500">// Swiss Studio Precision</span>{"\n"}
+              {"    "}darkCanvas: <span className="text-[#10b981]">"#080808"</span>,  <span className="text-zinc-500">// Sleek Obsidian Cyber</span>{"\n"}
+              {"    "}primaryLight: <span className="text-[#10b981]">"#0284c7"</span>, <span className="text-zinc-500">// Mediterranean Blue</span>{"\n"}
+              {"    "}primaryDark: <span className="text-[#10b981]">"#38bdf8"</span>   <span className="text-zinc-500">// Electric Ice Cyan</span>{"\n"}
               {"  "}{"}"},{"\n"}
-              {"  "}typography: {"{"}{"\n"}
-              {"    "}display: <span className="text-[#5db872]">"Newsreader, Copernicus Serif"</span>,{"\n"}
-              {"    "}body: <span className="text-[#5db872]">"Inter, StyreneB Sans"</span>,{"\n"}
-              {"    "}mono: <span className="text-[#5db872]">"JetBrains Mono"</span>{"\n"}
-              {"  "}{"}"},{"\n"}
-              {"  "}craft: [<span className="text-[#5db872]">"Accessible"</span>, <span className="text-[#5db872]">"Fluid Motion"</span>, <span className="text-[#5db872]">"Tailwind v4"</span>]{"\n"}
+              {"  "}standards: [<span className="text-[#10b981]">"Figma Fidelity"</span>, <span className="text-[#10b981]">"WCAG AA"</span>, <span className="text-[#10b981]">"100% Lighthouse"</span>]{"\n"}
               {"}"};
             </pre>
           </div>
@@ -248,17 +274,17 @@ export const HeroInteractiveStudio: React.FC = () => {
         {/* TAB 3: CLI TERMINAL */}
         {activeTab === "terminal" && (
           <div className="space-y-3">
-            <div className="p-3 rounded-lg bg-[#181715] border border-[#2e2b26] min-h-[160px] flex flex-col justify-start text-[11px] leading-relaxed space-y-1">
-              <span className="text-[#8e8b82]">System initialized · Node v22.13 · Astro v5.3</span>
+            <div className="p-3.5 rounded-lg bg-[#14161b] border border-zinc-800 dark:border-white/10 min-h-[160px] flex flex-col justify-start text-xs leading-relaxed space-y-1.5">
+              <span className="text-zinc-500">System initialized · Node v22 · Astro v5.3 · Dual Theme</span>
               {terminalHistory.map((item, idx) => (
                 <div
                   key={idx}
                   className={
                     item.startsWith("→")
-                      ? "text-[#5db872] pl-2"
+                      ? "text-[#38bdf8] pl-2 font-medium"
                       : item.startsWith("$")
-                        ? "text-[#cc785c] font-semibold"
-                        : "text-[#a09d96]"
+                        ? "text-white font-semibold"
+                        : "text-zinc-400"
                   }
                 >
                   {item}
@@ -267,26 +293,26 @@ export const HeroInteractiveStudio: React.FC = () => {
             </div>
 
             {/* Quick Command Buttons */}
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-[11px] text-[#8e8b82] font-sans">Run:</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs text-zinc-400 font-sans font-medium">Run:</span>
+              <button
+                type="button"
+                onClick={() => handleRunCommand("pentadosen")}
+                className="px-2.5 py-1 rounded bg-[#1e222b] hover:bg-[#282e3a] hover:text-[#38bdf8] text-xs border border-zinc-700 transition-colors"
+              >
+                pentadosen()
+              </button>
               <button
                 type="button"
                 onClick={() => handleRunCommand("stack")}
-                className="px-2 py-1 rounded bg-[#252320] hover:bg-[#312e2a] hover:text-[#cc785c] text-[10.5px] border border-[#3d3a33] transition-colors"
+                className="px-2.5 py-1 rounded bg-[#1e222b] hover:bg-[#282e3a] hover:text-[#38bdf8] text-xs border border-zinc-700 transition-colors"
               >
                 stack()
               </button>
               <button
                 type="button"
-                onClick={() => handleRunCommand("stats")}
-                className="px-2 py-1 rounded bg-[#252320] hover:bg-[#312e2a] hover:text-[#cc785c] text-[10.5px] border border-[#3d3a33] transition-colors"
-              >
-                stats()
-              </button>
-              <button
-                type="button"
                 onClick={() => handleRunCommand("contact")}
-                className="px-2 py-1 rounded bg-[#252320] hover:bg-[#312e2a] hover:text-[#cc785c] text-[10.5px] border border-[#3d3a33] transition-colors"
+                className="px-2.5 py-1 rounded bg-[#1e222b] hover:bg-[#282e3a] hover:text-[#38bdf8] text-xs border border-zinc-700 transition-colors"
               >
                 contact()
               </button>
@@ -295,10 +321,10 @@ export const HeroInteractiveStudio: React.FC = () => {
         )}
 
         {/* Window Footer Status Bar */}
-        <div className="mt-3 pt-2.5 border-t border-[#252320] flex items-center justify-between text-[10px] text-[#8e8b82] select-none">
+        <div className="mt-3 pt-2.5 border-t border-zinc-800 dark:border-white/10 flex items-center justify-between text-xs text-zinc-400 select-none">
           <div className="flex items-center gap-2">
-            <span className="flex items-center gap-1 text-[#5db872]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#5db872]"></span>
+            <span className="flex items-center gap-1.5 text-[#10b981]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]"></span>
               Ready
             </span>
             <span>·</span>
@@ -307,7 +333,7 @@ export const HeroInteractiveStudio: React.FC = () => {
           <div className="flex items-center gap-2">
             <span>UTF-8</span>
             <span>·</span>
-            <span className="text-[#cc785c]">React 19 + Astro 5</span>
+            <span className="text-[#38bdf8]">React 19 + Astro 5</span>
           </div>
         </div>
 

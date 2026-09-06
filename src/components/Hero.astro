@@ -11,27 +11,30 @@ const { personal } = portfolioData;
     <!-- Left Column: Editorial Headline & Actions (col-span-12 lg:col-span-6) -->
     <div class="lg:col-span-6 flex flex-col items-start">
       
-      <!-- Category Badge Pill -->
-      <div class="hero-reveal mb-5 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] text-xs font-mono font-medium border border-[#e6dfd8] dark:border-[#2e2b26]">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
-        <span>{personal.name} · {personal.role}</span>
+      <!-- Availability & Location Pill -->
+      <div class="hero-reveal mb-5 inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-[#121316] text-zinc-900 dark:text-zinc-200 text-xs font-mono font-medium border border-zinc-200 dark:border-white/10 shadow-2xs">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]"></span>
+        </span>
+        <span>{personal.status}</span>
       </div>
 
-      <!-- Serif Display Headline (Copernicus / Newsreader style, weight 400, negative tracking) -->
-      <h1 class="hero-reveal font-display text-4xl sm:text-5xl lg:text-[52px] text-[#141413] dark:text-[#faf9f5] leading-[1.12] tracking-tight pb-1">
-        Frontend Developer & UI/UX Designer
+      <!-- Display Headline (Plus Jakarta Sans, bold, tight tracking, standard 48px display-lg ramp) -->
+      <h1 class="hero-reveal font-display text-4xl sm:text-5xl text-zinc-950 dark:text-white font-bold leading-[1.15] tracking-tight pb-1">
+        Crafting structured design systems & production-ready web interfaces.
       </h1>
 
-      <!-- Body Copy (Humanist sans, muted ink) -->
-      <p class="hero-reveal mt-5 text-base sm:text-lg text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed max-w-[48ch]">
-        Building responsive, accessible, and structured web interfaces with modern frontend architecture (React, TypeScript, Tailwind CSS) and clean design systems.
+      <!-- Body Copy (Humanist sans, personal voice, grounded credibility) -->
+      <p class="hero-reveal mt-5 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-[48ch]">
+        Hi, I'm <strong class="font-semibold text-zinc-950 dark:text-white">{personal.name}</strong> — an IT student at Universitas YARSI. I translate Figma systems into accessible, high-performance web applications using React, TypeScript, and modern CSS architecture.
       </p>
 
-      <!-- Action Buttons (View Projects, Download Resume, Contact Me) -->
-      <div class="hero-reveal mt-8 flex flex-wrap items-center gap-3">
+      <!-- Action Buttons with Distinct Hierarchy (Primary, Secondary, Text Link) -->
+      <div class="hero-reveal mt-8 flex flex-wrap items-center gap-3.5">
         <a
           href="#projects"
-          class="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white font-medium text-sm transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          class="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-[#0284c7] hover:bg-[#0369a1] dark:bg-[#38bdf8] dark:hover:bg-[#7dd3fc] text-white dark:text-[#080808] font-semibold text-sm transition-all shadow-xs dark:shadow-[0_0_20px_rgba(56,189,248,0.25)] active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
         >
           View Projects
         </a>
@@ -39,10 +42,10 @@ const { personal } = portfolioData;
         <a
           href={personal.resumeUrl}
           download="Resume_Muhammad_Syafiul_Umam.pdf"
-          aria-label="Download Resume"
-          class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#f5f0e8] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-sm font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          aria-label="Download Resume (PDF)"
+          class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-white dark:bg-[#121316] hover:bg-zinc-50 dark:hover:bg-[#1a1c22] text-zinc-900 dark:text-white border border-zinc-200 dark:border-white/10 text-sm font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
         >
-          <svg class="w-4 h-4 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-[#0284c7] dark:text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
           </svg>
           <span>Download Resume</span>
@@ -50,18 +53,21 @@ const { personal } = portfolioData;
 
         <a
           href="#contact"
-          class="inline-flex items-center justify-center px-4 py-2.5 rounded-md hover:bg-[#efe9de] dark:hover:bg-[#1c1b18] text-[#6c6a64] dark:text-[#a09d96] hover:text-[#141413] dark:hover:text-[#faf9f5] text-sm font-medium transition-all"
+          class="group inline-flex items-center gap-1.5 px-3 py-2 text-zinc-600 dark:text-zinc-400 hover:text-[#0284c7] dark:hover:text-[#38bdf8] text-sm font-medium transition-colors"
         >
-          Contact Me
+          <span>Get in touch</span>
+          <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
         </a>
       </div>
 
       <!-- Metric Stats Banner (Authentic data, zero fabricated numbers) -->
-      <div class="hero-reveal mt-12 pt-8 border-t border-[#e6dfd8] dark:border-[#2e2b26] w-full grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="hero-reveal mt-12 pt-8 border-t border-zinc-200 dark:border-white/10 w-full grid grid-cols-2 sm:grid-cols-4 gap-4">
         {personal.stats.map((stat) => (
           <div class="flex flex-col">
-            <span class="font-display text-xl sm:text-2xl text-[#141413] dark:text-[#faf9f5]">{stat.value}</span>
-            <span class="text-xs text-[#6c6a64] dark:text-[#8e8b82] mt-0.5">{stat.label}</span>
+            <span class="font-display text-xl sm:text-2xl text-zinc-950 dark:text-white font-bold tracking-tight">{stat.value}</span>
+            <span class="text-xs text-zinc-500 dark:text-zinc-400 font-medium mt-0.5">{stat.label}</span>
           </div>
         ))}
       </div>

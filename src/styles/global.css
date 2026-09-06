@@ -4,92 +4,91 @@
 
 @layer base {
   :root {
-    --color-primary: #cc785c;
-    --color-primary-active: #a9583e;
-    --color-primary-disabled: #e6dfd8;
-    --color-ink: #141413;
-    --color-body: #3d3d3a;
-    --color-body-strong: #252523;
-    --color-muted: #6c6a64;
-    --color-muted-soft: #8e8b82;
-    --color-hairline: #e6dfd8;
-    --color-hairline-soft: #ebe6df;
-    --color-canvas: #faf9f5;
-    --color-surface-soft: #f5f0e8;
-    --color-surface-card: #efe9de;
-    --color-surface-cream-strong: #e8e0d2;
-    --color-surface-dark: #181715;
-    --color-surface-dark-elevated: #252320;
-    --color-surface-dark-soft: #1f1e1b;
+    --color-primary: #0284c7;
+    --color-primary-active: #0369a1;
+    --color-primary-disabled: #cbd5e1;
+    --color-ink: #09090b;
+    --color-body: #334155;
+    --color-body-strong: #0f172a;
+    --color-muted: #64748b;
+    --color-muted-soft: #94a3b8;
+    --color-hairline: #e2e8f0;
+    --color-hairline-soft: #f1f5f9;
+    --color-canvas: #ffffff;
+    --color-surface-soft: #f8fafc;
+    --color-surface-card: #ffffff;
+    --color-surface-cream-strong: #f1f5f9;
+    --color-surface-dark: #121316;
+    --color-surface-dark-elevated: #181a1f;
+    --color-surface-dark-soft: #0f1013;
     --color-on-primary: #ffffff;
-    --color-on-dark: #faf9f5;
-    --color-on-dark-soft: #a09d96;
-    --color-accent-teal: #5db8a6;
-    --color-accent-amber: #e8a55a;
+    --color-on-dark: #f8fafc;
+    --color-on-dark-soft: #94a3b8;
+    --color-accent-teal: #0ea5e9;
+    --color-accent-amber: #f59e0b;
   }
 
   .dark {
-    --color-canvas: #121110;
-    --color-surface-soft: #181715;
-    --color-surface-card: #1c1b18;
-    --color-surface-cream-strong: #252320;
-    --color-surface-dark: #181715;
-    --color-surface-dark-elevated: #22201d;
-    --color-surface-dark-soft: #1c1b18;
-    --color-hairline: #2e2b26;
-    --color-hairline-soft: #252320;
-    --color-ink: #faf9f5;
-    --color-body: #d4cfc7;
-    --color-body-strong: #faf9f5;
-    --color-muted: #a09d96;
-    --color-muted-soft: #7a7770;
-    --color-primary: #cc785c;
-    --color-primary-active: #e08a6d;
-    --color-on-dark: #faf9f5;
-    --color-on-dark-soft: #a09d96;
+    --color-canvas: #080808;
+    --color-surface-soft: #0f1013;
+    --color-surface-card: #121316;
+    --color-surface-cream-strong: #181a1f;
+    --color-surface-dark: #121316;
+    --color-surface-dark-elevated: #181a1f;
+    --color-surface-dark-soft: #0f1013;
+    --color-hairline: #1f2228;
+    --color-hairline-soft: #181a1f;
+    --color-ink: #f8fafc;
+    --color-body: #cbd5e1;
+    --color-body-strong: #f8fafc;
+    --color-muted: #94a3b8;
+    --color-muted-soft: #64748b;
+    --color-primary: #38bdf8;
+    --color-primary-active: #0ea5e9;
+    --color-on-dark: #f8fafc;
+    --color-on-dark-soft: #94a3b8;
   }
 
   html {
     scroll-behavior: auto; /* Handled smoothly by Lenis */
-    background-color: #faf9f5;
-    color: #141413;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #ffffff;
+    color: #09090b;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   html.dark {
-    background-color: #121110;
-    color: #faf9f5;
+    background-color: #080808;
+    color: #f8fafc;
   }
 
   body {
     overflow-x: hidden;
     min-height: 100dvh;
-    background-color: #faf9f5;
-    color: #141413;
+    background-color: #ffffff;
+    color: #09090b;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   .dark body {
-    background-color: #121110;
-    color: #faf9f5;
+    background-color: #080808;
+    color: #f8fafc;
   }
 
   ::selection {
-    background: rgba(204, 120, 92, 0.25);
-    color: #141413;
+    background: rgba(2, 132, 199, 0.2);
+    color: #09090b;
   }
 
   .dark ::selection {
-    background: rgba(204, 120, 92, 0.35);
-    color: #faf9f5;
+    background: rgba(56, 189, 248, 0.25);
+    color: #f8fafc;
   }
 }
 
-/* Serif Display Font for Headlines */
+/* Display Font for Headlines */
 .font-display {
-  font-family: 'Newsreader', 'Cormorant Garamond', 'Tiempos Headline', Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.025em;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.03em;
 }
 
 /* Code Font */

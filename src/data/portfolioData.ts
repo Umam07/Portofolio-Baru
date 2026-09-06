@@ -57,10 +57,10 @@ export const portfolioData = {
       { name: 'Instagram', url: 'https://instagram.com', icon: 'instagram', username: 'Instagram' },
     ],
     stats: [
-      { label: 'Core Focus', value: 'Frontend & UI/UX' },
-      { label: 'University', value: 'Universitas YARSI' },
-      { label: 'ERP Experience', value: 'C-Tech Indonesia' },
-      { label: 'Location', value: 'Jakarta, ID' },
+      { label: 'Featured Projects', value: '3+' },
+      { label: 'Lighthouse Quality', value: '100%' },
+      { label: 'Enterprise UAT', value: 'C-Tech ERP' },
+      { label: 'Academic Focus', value: 'Univ. YARSI' },
     ],
   },
 

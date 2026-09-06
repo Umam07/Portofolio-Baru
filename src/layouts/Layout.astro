@@ -15,7 +15,7 @@ const { title, description, showPreloader = true } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth bg-[#faf9f5] dark:bg-[#121110]">
+<html lang="en" class="scroll-smooth bg-white dark:bg-[#080808]">
   <head>
     <SEO title={title} description={description} />
     
@@ -35,22 +35,22 @@ const { title, description, showPreloader = true } = Astro.props;
       }
     </script>
 
-    <!-- Preconnect & Google Fonts (Newsreader serif + Inter humanist sans + JetBrains Mono) -->
+    <!-- Preconnect & Google Fonts (Plus Jakarta Sans + Inter + JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-[#faf9f5] dark:bg-[#121110] text-[#141413] dark:text-[#faf9f5] antialiased selection:bg-[#cc785c]/25 selection:text-[#141413] dark:selection:text-[#faf9f5] min-h-[100dvh] flex flex-col justify-between transition-colors duration-300">
+  <body class="bg-white dark:bg-[#080808] text-[#09090b] dark:text-[#f8fafc] antialiased selection:bg-[#0ea5e9]/20 selection:text-[#09090b] dark:selection:text-[#f8fafc] min-h-[100dvh] flex flex-col justify-between transition-colors duration-300">
     <!-- Smooth Editorial Preloader (Shown only once per session) -->
     <Preloader forceHide={!showPreloader} />
 
     <!-- Accessibility Skip to Main Content Link -->
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#cc785c] focus:text-white focus:rounded-md focus:font-mono focus:text-xs focus:shadow-lg"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#0284c7] dark:focus:bg-[#38bdf8] focus:text-white dark:focus:text-[#080808] focus:rounded-md focus:font-mono focus:text-xs focus:shadow-lg"
     >
       Skip to main content
     </a>
