@@ -10,23 +10,23 @@ const { project, index } = Astro.props;
 
 // Category colors for visual accentuation
 const categoryThemes: Record<string, { dot: string; badge: string; text: string }> = {
-  'Web Application': { dot: 'bg-[#cc785c]', badge: 'bg-[#cc785c]/10 text-[#cc785c]', text: 'text-[#cc785c]' },
-  'System Workflows': { dot: 'bg-[#e8a55a]', badge: 'bg-[#e8a55a]/10 text-[#e8a55a]', text: 'text-[#e8a55a]' },
-  'Mobile Application': { dot: 'bg-[#5db8a6]', badge: 'bg-[#5db8a6]/10 text-[#5db8a6]', text: 'text-[#5db8a6]' },
-  'Scripting & Automation': { dot: 'bg-[#7c88cd]', badge: 'bg-[#7c88cd]/10 text-[#7c88cd]', text: 'text-[#7c88cd]' },
+  'Web Application': { dot: 'bg-[#0ea5e9]', badge: 'bg-[#0ea5e9]/10 text-[#0ea5e9]', text: 'text-[#0ea5e9]' },
+  'System Workflows': { dot: 'bg-[#f59e0b]', badge: 'bg-[#f59e0b]/10 text-[#f59e0b]', text: 'text-[#f59e0b]' },
+  'Mobile Application': { dot: 'bg-[#10b981]', badge: 'bg-[#10b981]/10 text-[#10b981]', text: 'text-[#10b981]' },
+  'Scripting & Automation': { dot: 'bg-[#818cf8]', badge: 'bg-[#818cf8]/10 text-[#818cf8]', text: 'text-[#818cf8]' },
 };
 
-const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#cc785c]', badge: 'bg-[#cc785c]/10 text-[#cc785c]', text: 'text-[#cc785c]' };
+const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#0ea5e9]', badge: 'bg-[#0ea5e9]/10 text-[#0ea5e9]', text: 'text-[#0ea5e9]' };
 ---
 
-<article class="project-card group flex flex-col justify-between h-full p-6 sm:p-7 rounded-2xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] transition-all duration-300 hover:border-[#cc785c] dark:hover:border-[#cc785c] hover:shadow-lg dark:hover:shadow-black/30 overflow-hidden">
+<article class="project-card group flex flex-col justify-between h-full p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10 transition-all duration-300 hover:border-[#0284c7] dark:hover:border-[#38bdf8] hover:shadow-lg dark:hover:shadow-[0_8px_25px_rgba(0,0,0,0.5)] overflow-hidden">
   
   <div>
     <!-- Visual Preview Image Frame with Inner Bezel -->
     {project.image && (
-      <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-[#e6dfd8] dark:border-[#2e2b26] bg-[#181715] mb-5 group-hover:border-[#cc785c]/40 transition-colors shadow-xs">
+      <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-[#0e1013] mb-5 group-hover:border-[#0284c7]/40 dark:group-hover:border-[#38bdf8]/40 transition-colors shadow-xs">
         {project.caseStudyUrl ? (
-          <a href={project.caseStudyUrl} class="block w-full h-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]">
+          <a href={project.caseStudyUrl} class="block w-full h-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]">
             <img
               src={project.image}
               alt={`Visual showcase of ${project.title}`}
@@ -44,7 +44,7 @@ const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#cc785c]', 
         )}
         
         <!-- Category Badge Overlay on Image -->
-        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#181715]/80 backdrop-blur-md border border-white/10 text-white text-[10.5px] font-mono flex items-center gap-1.5 shadow-xs">
+        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#0e1013]/85 backdrop-blur-md border border-white/10 text-white text-xs font-mono flex items-center gap-1.5 shadow-xs">
           <span class={`w-1.5 h-1.5 rounded-full ${currentTheme.dot}`}></span>
           <span>{project.category}</span>
         </div>
@@ -54,18 +54,18 @@ const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#cc785c]', 
     )}
 
     <!-- Category & Timeline Meta Strip -->
-    <div class="flex items-center justify-between pb-3 mb-3 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
+    <div class="flex items-center justify-between pb-3 mb-3 border-b border-zinc-100 dark:border-white/5">
       <div class="flex items-center gap-2">
         <span class={`w-1.5 h-1.5 rounded-full ${currentTheme.dot}`}></span>
-        <span class="text-xs font-mono font-medium text-[#6c6a64] dark:text-[#a09d96] uppercase tracking-wider">{project.category}</span>
+        <span class="text-xs font-mono font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">{project.category}</span>
       </div>
-      <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">{project.year}</span>
+      <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">{project.year}</span>
     </div>
 
-    <!-- Editorial Serif Title -->
-    <h3 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight group-hover:text-[#cc785c] dark:group-hover:text-[#cc785c] transition-colors leading-snug">
+    <!-- Title (Plus Jakarta Sans) -->
+    <h3 class="font-display text-2xl text-zinc-950 dark:text-white font-semibold tracking-tight group-hover:text-[#0284c7] dark:group-hover:text-[#38bdf8] transition-colors leading-snug">
       {project.caseStudyUrl ? (
-        <a href={project.caseStudyUrl} class="hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#cc785c]">
+        <a href={project.caseStudyUrl} class="hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]">
           {project.title}
         </a>
       ) : (
@@ -74,29 +74,29 @@ const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#cc785c]', 
     </h3>
     
     <!-- Subtitle -->
-    <p class="mt-2.5 text-xs sm:text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
+    <p class="mt-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
       {project.subtitle}
     </p>
 
     <!-- Engineering Role Pill -->
-    <div class="mt-3.5 inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs text-[#3d3d3a] dark:text-[#d4cfc7]">
-      <span class="text-[#8e8b82] dark:text-[#7a7770] font-mono text-[11px]">Role:</span>
-      <span class="font-medium text-[#141413] dark:text-[#faf9f5]">{project.role}</span>
+    <div class="mt-3.5 inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-zinc-50 dark:bg-[#181a20] border border-zinc-200 dark:border-white/10 text-xs text-zinc-700 dark:text-zinc-300">
+      <span class="text-zinc-500 dark:text-zinc-400 font-mono text-xs">Role:</span>
+      <span class="font-medium text-zinc-950 dark:text-white">{project.role}</span>
     </div>
 
     <!-- Context & Outcome Box -->
-    <div class="mt-3.5 p-3 rounded-xl bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs text-[#252523] dark:text-[#d4cfc7] leading-relaxed">
-      <span class="font-semibold text-[#cc785c] mr-1 font-mono text-[11px] uppercase tracking-wider">Outcome:</span>
+    <div class="mt-3.5 p-3 rounded-xl bg-zinc-50 dark:bg-[#181a20] border border-zinc-200 dark:border-white/10 text-xs text-zinc-700 dark:text-zinc-300 leading-relaxed">
+      <span class="font-semibold text-[#0284c7] dark:text-[#38bdf8] mr-1 font-mono text-xs uppercase tracking-wider">Outcome:</span>
       {project.impact}
     </div>
 
     <!-- 3-Column Key Metrics -->
     {project.metrics && project.metrics.length > 0 && (
-      <div class="mt-4 grid grid-cols-3 gap-2 pt-3 border-t border-[#e6dfd8] dark:border-[#2e2b26]">
+      <div class="mt-4 grid grid-cols-3 gap-2 pt-3 border-t border-zinc-100 dark:border-white/5">
         {project.metrics.map((metric) => (
           <div class="flex flex-col">
-            <span class="font-display text-sm sm:text-base text-[#141413] dark:text-[#faf9f5] leading-tight font-medium truncate">{metric.value}</span>
-            <span class="text-[10px] text-[#6c6a64] dark:text-[#8e8b82] mt-0.5 font-mono truncate">{metric.label}</span>
+            <span class="font-display text-sm sm:text-base text-zinc-950 dark:text-white leading-tight font-semibold truncate">{metric.value}</span>
+            <span class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-mono truncate">{metric.label}</span>
           </div>
         ))}
       </div>
@@ -105,7 +105,7 @@ const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#cc785c]', 
     <!-- Tech Stack Monospace Badges -->
     <div class="mt-4 flex flex-wrap gap-1.5">
       {project.tags.map((tag) => (
-        <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#e8e0d2] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8]/80 dark:border-[#2e2b26] hover:border-[#cc785c]/60 transition-colors">
+        <span class="px-2 py-0.5 rounded text-xs font-mono bg-zinc-100 dark:bg-[#181a20] text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10 hover:border-[#0284c7]/60 dark:hover:border-[#38bdf8]/60 transition-colors">
           {tag}
         </span>
       ))}
@@ -113,12 +113,12 @@ const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#cc785c]', 
   </div>
 
   <!-- Bottom Action Links & Index Marker -->
-  <div class="mt-6 pt-4 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex items-center justify-between gap-3">
+  <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-white/5 flex items-center justify-between gap-3">
     <div class="flex flex-wrap items-center gap-2">
       {project.caseStudyUrl ? (
         <a
           href={project.caseStudyUrl}
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-[#0284c7] hover:bg-[#0369a1] dark:bg-[#38bdf8] dark:hover:bg-[#7dd3fc] text-white dark:text-[#080808] text-xs font-semibold transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
         >
           <span>Read Case Study</span>
           <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,7 +130,7 @@ const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#cc785c]', 
           href={project.links.live}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-[#0284c7] hover:bg-[#0369a1] dark:bg-[#38bdf8] dark:hover:bg-[#7dd3fc] text-white dark:text-[#080808] text-xs font-semibold transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
         >
           <span>Live Demo</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,7 +145,7 @@ const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#cc785c]', 
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`View ${project.title} on GitHub`}
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#faf9f5] dark:bg-[#252320] hover:bg-[#f5f0e8] dark:hover:bg-[#2e2b26] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-[#181a20] hover:bg-zinc-50 dark:hover:bg-[#22252c] text-zinc-900 dark:text-white border border-zinc-200 dark:border-white/10 text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
         >
           <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
@@ -160,13 +160,13 @@ const currentTheme = categoryThemes[project.category] || { dot: 'bg-[#cc785c]', 
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`View ${project.title} on Figma`}
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#faf9f5] dark:bg-[#252320] hover:bg-[#f5f0e8] dark:hover:bg-[#2e2b26] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-[#181a20] hover:bg-zinc-50 dark:hover:bg-[#22252c] text-zinc-900 dark:text-white border border-zinc-200 dark:border-white/10 text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
         >
           <span>Figma</span>
         </a>
       )}
     </div>
 
-    <span class="text-xs font-mono text-[#8e8b82] dark:text-[#7a7770]">0{index + 1}</span>
+    <span class="text-xs font-mono font-bold text-zinc-400 dark:text-zinc-500">0{index + 1}</span>
   </div>
 </article>

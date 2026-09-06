@@ -6,11 +6,11 @@ const { experience } = portfolioData;
 
 <section id="experience" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
   <!-- Section Header -->
-  <div class="pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
-    <h2 class="font-display text-3xl sm:text-4xl text-[#141413] dark:text-[#faf9f5] tracking-tight">
+  <div class="pb-8 border-b border-zinc-200 dark:border-white/10">
+    <h2 class="font-display text-3xl sm:text-4xl text-zinc-950 dark:text-white font-bold tracking-tight">
       Professional Experience
     </h2>
-    <p class="mt-2 text-sm sm:text-base text-[#6c6a64] dark:text-[#a09d96] max-w-[58ch]">
+    <p class="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-[58ch]">
       Demonstrating transferable experience in enterprise software workflow analysis, User Acceptance Testing (UAT), and frontend implementation.
     </p>
   </div>
@@ -18,46 +18,46 @@ const { experience } = portfolioData;
   <!-- Timeline Cards List -->
   <div class="mt-10 space-y-6">
     {experience.map((item) => (
-      <div class="experience-card group p-6 sm:p-8 rounded-xl bg-[#efe9de] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] transition-all duration-200 hover:border-[#cc785c] dark:hover:border-[#cc785c]">
-        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-4 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
+      <div class="experience-card group p-6 sm:p-8 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10 transition-all duration-200 hover:border-[#0284c7] dark:hover:border-[#38bdf8] shadow-xs dark:shadow-md">
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-4 border-b border-zinc-100 dark:border-white/5">
           <div>
             <div class="flex items-center gap-3">
-              <h3 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] group-hover:text-[#cc785c] dark:group-hover:text-[#cc785c] transition-colors">
+              <h3 class="font-display text-2xl sm:text-3xl text-zinc-950 dark:text-white font-bold tracking-tight group-hover:text-[#0284c7] dark:group-hover:text-[#38bdf8] transition-colors">
                 {item.role}
               </h3>
-              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-[#faf9f5] dark:bg-[#252320] text-[#3d3d3a] dark:text-[#d4cfc7] border border-[#e6dfd8] dark:border-[#2e2b26]">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-[#1a1d24] text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10 font-medium">
                 {item.type}
               </span>
             </div>
             
-            <p class="mt-1.5 text-sm font-medium text-[#3d3d3a] dark:text-[#d4cfc7]">
-              {item.company} <span class="text-[#8e8b82] dark:text-[#7a7770] font-normal">· {item.location}</span>
+            <p class="mt-1.5 text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+              {item.company} <span class="text-zinc-500 dark:text-zinc-400 font-normal">· {item.location}</span>
             </p>
           </div>
 
-          <span class="inline-block px-3 py-1 rounded bg-[#faf9f5] dark:bg-[#252320] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-mono text-[#6c6a64] dark:text-[#a09d96]">
+          <span class="inline-block px-3 py-1 rounded bg-zinc-50 dark:bg-[#181a20] border border-zinc-200 dark:border-white/10 text-xs font-mono text-zinc-600 dark:text-zinc-400 font-medium">
             {item.period}
           </span>
         </div>
 
-        <p class="mt-4 text-sm text-[#252523] dark:text-[#d4cfc7] leading-relaxed">
+        <p class="mt-4 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
           {item.description}
         </p>
 
-        <!-- Highlights (Semantic list without AI sparkle) -->
+        <!-- Highlights List -->
         <ul class="mt-4 space-y-2.5">
           {item.highlights.map((highlight) => (
-            <li class="flex items-start gap-2.5 text-xs sm:text-sm text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c] mt-2 shrink-0"></span>
+            <li class="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0284c7] dark:bg-[#38bdf8] mt-2 shrink-0"></span>
               <span>{highlight}</span>
             </li>
           ))}
         </ul>
 
         <!-- Skills pills -->
-        <div class="mt-6 pt-4 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex flex-wrap gap-1.5">
+        <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-white/5 flex flex-wrap gap-1.5">
           {item.skills.map((skill) => (
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-[#faf9f5] dark:bg-[#252320] text-[#6c6a64] dark:text-[#a09d96] border border-[#e6dfd8] dark:border-[#2e2b26]">
+            <span class="px-2.5 py-0.5 rounded text-xs font-mono bg-zinc-100 dark:bg-[#181a20] text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10">
               {skill}
             </span>
           ))}
