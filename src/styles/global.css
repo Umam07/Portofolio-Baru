@@ -117,28 +117,28 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Custom Scrollbar for Claude Aesthetic */
+/* Custom Scrollbar for Dual-Mode Aesthetic */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #faf9f5;
+  background: #f8fafc;
 }
 .dark ::-webkit-scrollbar-track {
-  background: #121110;
+  background: #080808;
 }
 ::-webkit-scrollbar-thumb {
-  background: #e6dfd8;
+  background: #cbd5e1;
   border-radius: 9999px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #2e2b26;
+  background: #27272a;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #cc785c;
+  background: #0284c7;
 }
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #cc785c;
+  background: #38bdf8;
 }
 
 /* Accessible Reduced Motion */

@@ -16,7 +16,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
     <div class="mb-6 sm:mb-8">
       <a
         href="/#projects"
-        class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-[#8e8b82] dark:text-[#a09d96] hover:text-[#cc785c] dark:hover:text-[#cc785c] transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c] rounded p-1"
+        class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded p-1"
       >
         <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
@@ -26,37 +26,37 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
     </div>
 
     <!-- 1. Compact Case Study Header -->
-    <header class="pb-8 border-b border-[#e6dfd8] dark:border-[#2e2b26]">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#efe9de] dark:bg-[#1c1b18] text-[#141413] dark:text-[#faf9f5] text-xs font-mono font-medium border border-[#e6dfd8] dark:border-[#2e2b26] mb-3">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></span>
+    <header class="pb-8 border-b border-zinc-200 dark:border-white/10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 text-xs font-mono font-medium border border-sky-200 dark:border-sky-800/50 mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
         <span>Case Study · {project.category}</span>
       </div>
 
-      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-[#141413] dark:text-[#faf9f5] tracking-tight leading-[1.12]">
+      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-zinc-950 dark:text-zinc-100 tracking-tight leading-[1.12] font-semibold">
         PentaDosen: Lecturer Research & Performance Management Platform
       </h1>
 
-      <p class="mt-3 text-base sm:text-lg text-[#3d3d3a] dark:text-[#a09d96] leading-relaxed max-w-[60ch]">
+      <p class="mt-3 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-[60ch]">
         A centralized web platform for university lecturers to manage research grants, peer-reviewed publications, intellectual property (HKI), and academic schedules.
       </p>
 
       <!-- Metadata Strip -->
-      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-mono">
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-[#121316] border border-zinc-200 dark:border-white/10 text-xs font-mono">
         <div>
-          <span class="text-[#8e8b82] dark:text-[#7a7770] block">ROLE</span>
-          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Frontend Developer</span>
+          <span class="text-zinc-500 dark:text-zinc-400 block">ROLE</span>
+          <span class="text-zinc-900 dark:text-zinc-100 font-semibold mt-0.5 block">Frontend Developer</span>
         </div>
         <div>
-          <span class="text-[#8e8b82] dark:text-[#7a7770] block">TIMELINE</span>
-          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">2025–2026</span>
+          <span class="text-zinc-500 dark:text-zinc-400 block">TIMELINE</span>
+          <span class="text-zinc-900 dark:text-zinc-100 font-semibold mt-0.5 block">2025–2026</span>
         </div>
         <div>
-          <span class="text-[#8e8b82] dark:text-[#7a7770] block">PRIMARY STACK</span>
-          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">React · TypeScript · Vite · Tailwind</span>
+          <span class="text-zinc-500 dark:text-zinc-400 block">PRIMARY STACK</span>
+          <span class="text-zinc-900 dark:text-zinc-100 font-semibold mt-0.5 block">React · TS · Vite · Tailwind</span>
         </div>
         <div>
-          <span class="text-[#8e8b82] dark:text-[#7a7770] block">CORE MODULES</span>
-          <span class="text-[#141413] dark:text-[#faf9f5] font-semibold mt-0.5 block">Research · HKI · Calendar</span>
+          <span class="text-zinc-500 dark:text-zinc-400 block">CORE MODULES</span>
+          <span class="text-zinc-900 dark:text-zinc-100 font-semibold mt-0.5 block">Research · HKI · Calendar</span>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
           href="https://pentadosen.yarsi.ac.id/"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] active:scale-95 text-white text-xs sm:text-sm font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#0284c7] hover:bg-[#0369a1] active:scale-95 text-white text-xs sm:text-sm font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
           <span>Visit Live Website</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +78,7 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
           href="https://github.com/Umam07"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs sm:text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white dark:bg-[#121316] hover:bg-zinc-50 dark:hover:bg-white/5 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-white/10 text-xs sm:text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
@@ -88,271 +88,283 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
       </div>
     </header>
 
-    <!-- 2. Hero Screenshot with Editorial Frame -->
-    <div class="my-8 rounded-2xl overflow-hidden border border-[#e6dfd8] dark:border-[#2e2b26] shadow-lg bg-[#181715] relative group">
+    <!-- 2. Hero Screenshot with Modern Frame -->
+    <div class="my-8 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-lg bg-zinc-950 relative group">
       <img
         src={project.image}
         alt="PentaDosen UI Dashboard Screenshot showing Lecturer Research Management"
         class="w-full h-auto object-cover"
         loading="eager"
       />
-      <!-- Subtle Floating Feature Callouts -->
+      <!-- Floating Feature Callouts -->
       <div class="absolute bottom-3 left-3 hidden sm:flex items-center gap-2">
-        <span class="px-2.5 py-1 rounded bg-[#181715]/85 backdrop-blur-md text-white text-[11px] font-mono border border-white/10">
+        <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 backdrop-blur-md text-white text-xs font-mono border border-white/10">
           ✦ Research Performance
         </span>
-        <span class="px-2.5 py-1 rounded bg-[#181715]/85 backdrop-blur-md text-white text-[11px] font-mono border border-white/10">
+        <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 backdrop-blur-md text-white text-xs font-mono border border-white/10">
           ✦ HKI & Publications
         </span>
-        <span class="px-2.5 py-1 rounded bg-[#181715]/85 backdrop-blur-md text-white text-[11px] font-mono border border-white/10">
+        <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 backdrop-blur-md text-white text-xs font-mono border border-white/10">
           ✦ Academic Calendar
         </span>
       </div>
     </div>
 
     <!-- Case Study Dynamic Visual Rhythm Body -->
-    <div class="space-y-10 text-[#3d3d3a] dark:text-[#d4cfc7] text-sm sm:text-base leading-relaxed">
+    <div class="space-y-10 text-zinc-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
       
-      <!-- 01 — Overview (Plain Editorial Layout) -->
+      <!-- 01 — Overview -->
       <section>
-        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
+        <div class="flex items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 mb-1 uppercase tracking-wider">
           <span>01</span>
           <span>·</span>
           <span>Overview</span>
         </div>
-        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-3">
+        <h2 class="font-display text-2xl sm:text-3xl text-zinc-950 dark:text-zinc-100 tracking-tight font-semibold mb-3">
           Executive Summary
         </h2>
         <p>
           PentaDosen is a research and academic performance management platform designed for university lecturers. It brings research, publications, HKI, and academic activities into a single workspace.
         </p>
-        <p class="mt-2.5 text-[#141413] dark:text-[#faf9f5] font-medium">
+        <p class="mt-2.5 text-zinc-900 dark:text-zinc-100 font-medium">
           My focus was translating complex academic workflows into a clear, responsive, and reusable frontend experience.
         </p>
       </section>
 
-      <!-- 02 — The Problem (Highlighted Beige Box) -->
-      <section class="p-6 sm:p-7 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
-        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
+      <!-- 02 — The Problem -->
+      <section class="p-6 sm:p-7 rounded-2xl bg-zinc-50 dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+        <div class="flex items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 mb-1 uppercase tracking-wider">
           <span>02</span>
           <span>·</span>
           <span>The Problem</span>
         </div>
-        <h2 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+        <h2 class="font-display text-2xl text-zinc-950 dark:text-zinc-100 tracking-tight font-semibold mb-4">
           Core Friction Points
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-          <div class="p-3.5 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-[#cc785c] font-mono text-xs font-bold block mb-1">01</span>
-            <strong class="text-[#141413] dark:text-[#faf9f5] block mb-1">Scattered Academic Documentation</strong>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">Research outputs, publications, and HKI records were distributed across different documents and workflows.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10">
+            <span class="text-sky-600 dark:text-sky-400 font-mono text-xs font-bold block mb-1">01</span>
+            <strong class="text-zinc-900 dark:text-zinc-100 block mb-1">Scattered Academic Documentation</strong>
+            <p class="text-zinc-500 dark:text-zinc-400">Research outputs, publications, and HKI records were distributed across different documents and workflows.</p>
           </div>
 
-          <div class="p-3.5 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-[#cc785c] font-mono text-xs font-bold block mb-1">02</span>
-            <strong class="text-[#141413] dark:text-[#faf9f5] block mb-1">Limited Status Visibility</strong>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">Users had limited visibility into verification and submission status.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10">
+            <span class="text-sky-600 dark:text-sky-400 font-mono text-xs font-bold block mb-1">02</span>
+            <strong class="text-zinc-900 dark:text-zinc-100 block mb-1">Limited Status Visibility</strong>
+            <p class="text-zinc-500 dark:text-zinc-400">Users had limited visibility into verification and submission status.</p>
           </div>
 
-          <div class="p-3.5 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-[#cc785c] font-mono text-xs font-bold block mb-1">03</span>
-            <strong class="text-[#141413] dark:text-[#faf9f5] block mb-1">Disconnected Schedules</strong>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">Academic deadlines and research milestones were difficult to track in one place.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10">
+            <span class="text-sky-600 dark:text-sky-400 font-mono text-xs font-bold block mb-1">03</span>
+            <strong class="text-zinc-900 dark:text-zinc-100 block mb-1">Disconnected Schedules</strong>
+            <p class="text-zinc-500 dark:text-zinc-400">Academic deadlines and research milestones were difficult to track in one place.</p>
           </div>
         </div>
       </section>
 
-      <!-- 03 — My Role & Scope (4 Compact Cards) -->
+      <!-- 03 — My Role & Scope -->
       <section>
-        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
+        <div class="flex items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 mb-1 uppercase tracking-wider">
           <span>03</span>
           <span>·</span>
           <span>My Role & Scope</span>
         </div>
-        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+        <h2 class="font-display text-2xl sm:text-3xl text-zinc-950 dark:text-zinc-100 tracking-tight font-semibold mb-4">
           Frontend Engineering & UI Craft
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-xs font-mono font-medium text-[#cc785c] block mb-1">UI / UX IMPLEMENTATION</span>
-            <p class="text-[#3d3d3a] dark:text-[#d4cfc7]">Translated Figma designs into responsive interfaces and reusable layouts.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <span class="text-xs font-mono font-medium text-sky-600 dark:text-sky-400 block mb-1">UI / UX IMPLEMENTATION</span>
+            <p class="text-zinc-600 dark:text-zinc-400">Translated Figma designs into responsive interfaces and reusable layouts.</p>
           </div>
 
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-xs font-mono font-medium text-[#5db8a6] block mb-1">FRONTEND ARCHITECTURE</span>
-            <p class="text-[#3d3d3a] dark:text-[#d4cfc7]">Built modular React components with TypeScript and Vite.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <span class="text-xs font-mono font-medium text-emerald-600 dark:text-emerald-400 block mb-1">FRONTEND ARCHITECTURE</span>
+            <p class="text-zinc-600 dark:text-zinc-400">Built modular React components with TypeScript and Vite.</p>
           </div>
 
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-xs font-mono font-medium text-[#e8a55a] block mb-1">REST API INTEGRATION</span>
-            <p class="text-[#3d3d3a] dark:text-[#d4cfc7]">Connected frontend workflows with REST endpoints for research and HKI data.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <span class="text-xs font-mono font-medium text-amber-600 dark:text-amber-400 block mb-1">REST API INTEGRATION</span>
+            <p class="text-zinc-600 dark:text-zinc-400">Connected frontend workflows with REST endpoints for research and HKI data.</p>
           </div>
 
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-xs font-mono font-medium text-[#5db872] block mb-1">FORM VALIDATION & UX</span>
-            <p class="text-[#3d3d3a] dark:text-[#d4cfc7]">Implemented validation, feedback states, loading states, and accessible interactions.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <span class="text-xs font-mono font-medium text-purple-600 dark:text-purple-400 block mb-1">FORM VALIDATION & UX</span>
+            <p class="text-zinc-600 dark:text-zinc-400">Implemented validation, feedback states, loading states, and accessible interactions.</p>
           </div>
         </div>
       </section>
 
-      <!-- 04 — Design & UX Process (Plain Section + 3 Numbered Principles) -->
+      <!-- 04 — Design & UX Process -->
       <section>
-        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
+        <div class="flex items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 mb-1 uppercase tracking-wider">
           <span>04</span>
           <span>·</span>
           <span>Design Approach</span>
         </div>
-        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+        <h2 class="font-display text-2xl sm:text-3xl text-zinc-950 dark:text-zinc-100 tracking-tight font-semibold mb-4">
           Three Interaction Principles
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-xs font-mono text-[#cc785c] font-bold block mb-1.5">01 · DISCLOSURE</span>
-            <strong class="text-[#141413] dark:text-[#faf9f5] block mb-1">Progressive Disclosure</strong>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">Show essential academic metrics first, while keeping detailed information accessible when needed.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <span class="text-xs font-mono text-sky-600 dark:text-sky-400 font-bold block mb-1.5">01 · DISCLOSURE</span>
+            <strong class="text-zinc-900 dark:text-zinc-100 block mb-1">Progressive Disclosure</strong>
+            <p class="text-zinc-500 dark:text-zinc-400">Show essential academic metrics first, while keeping detailed information accessible when needed.</p>
           </div>
 
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-xs font-mono text-[#cc785c] font-bold block mb-1.5">02 · SCANNABILITY</span>
-            <strong class="text-[#141413] dark:text-[#faf9f5] block mb-1">Scannable Status</strong>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">Use clear status indicators so lecturers can understand progress at a glance.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <span class="text-xs font-mono text-sky-600 dark:text-sky-400 font-bold block mb-1.5">02 · SCANNABILITY</span>
+            <strong class="text-zinc-900 dark:text-zinc-100 block mb-1">Scannable Status</strong>
+            <p class="text-zinc-500 dark:text-zinc-400">Use clear status indicators so lecturers can understand progress at a glance.</p>
           </div>
 
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-xs font-mono text-[#cc785c] font-bold block mb-1.5">03 · ADAPTABILITY</span>
-            <strong class="text-[#141413] dark:text-[#faf9f5] block mb-1">Responsive Data</strong>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">Design dense academic information to remain readable across desktop and mobile layouts.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <span class="text-xs font-mono text-sky-600 dark:text-sky-400 font-bold block mb-1.5">03 · ADAPTABILITY</span>
+            <strong class="text-zinc-900 dark:text-zinc-100 block mb-1">Responsive Data</strong>
+            <p class="text-zinc-500 dark:text-zinc-400">Design dense academic information to remain readable across desktop and mobile layouts.</p>
           </div>
         </div>
       </section>
 
-      <!-- 05 — Technical Implementation (Minimal Technical List) -->
+      <!-- 05 — Technical Implementation -->
       <section>
-        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
+        <div class="flex items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 mb-1 uppercase tracking-wider">
           <span>05</span>
           <span>·</span>
           <span>Architecture</span>
         </div>
-        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+        <h2 class="font-display text-2xl sm:text-3xl text-zinc-950 dark:text-zinc-100 tracking-tight font-semibold mb-4">
           How It Was Built
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
-          <div class="p-3.5 rounded-lg border-l-2 border-[#cc785c] bg-[#efe9de]/50 dark:bg-[#1c1b18] pl-4">
-            <strong class="text-[#141413] dark:text-[#faf9f5] block font-mono text-xs uppercase mb-0.5">Component System</strong>
-            <span class="text-[#6c6a64] dark:text-[#a09d96]">Reusable React components were used to keep dashboard, form, and data interfaces consistent.</span>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+              <strong class="text-zinc-900 dark:text-zinc-100 block font-mono text-xs uppercase">Component System</strong>
+            </div>
+            <span class="text-zinc-600 dark:text-zinc-400">Reusable React components were used to keep dashboard, form, and data interfaces consistent.</span>
           </div>
 
-          <div class="p-3.5 rounded-lg border-l-2 border-[#5db8a6] bg-[#efe9de]/50 dark:bg-[#1c1b18] pl-4">
-            <strong class="text-[#141413] dark:text-[#faf9f5] block font-mono text-xs uppercase mb-0.5">Styling System</strong>
-            <span class="text-[#6c6a64] dark:text-[#a09d96]">Tailwind CSS provided a consistent system for spacing, typography, and responsive styling.</span>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <strong class="text-zinc-900 dark:text-zinc-100 block font-mono text-xs uppercase">Styling System</strong>
+            </div>
+            <span class="text-zinc-600 dark:text-zinc-400">Tailwind CSS provided a consistent system for spacing, typography, and responsive styling.</span>
           </div>
 
-          <div class="p-3.5 rounded-lg border-l-2 border-[#e8a55a] bg-[#efe9de]/50 dark:bg-[#1c1b18] pl-4">
-            <strong class="text-[#141413] dark:text-[#faf9f5] block font-mono text-xs uppercase mb-0.5">Type Safety</strong>
-            <span class="text-[#6c6a64] dark:text-[#a09d96]">TypeScript interfaces provided consistent types for research, publication, and user data across the frontend.</span>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              <strong class="text-zinc-900 dark:text-zinc-100 block font-mono text-xs uppercase">Type Safety</strong>
+            </div>
+            <span class="text-zinc-600 dark:text-zinc-400">TypeScript interfaces provided consistent types for research, publication, and user data across the frontend.</span>
           </div>
 
-          <div class="p-3.5 rounded-lg border-l-2 border-[#5db872] bg-[#efe9de]/50 dark:bg-[#1c1b18] pl-4">
-            <strong class="text-[#141413] dark:text-[#faf9f5] block font-mono text-xs uppercase mb-0.5">API Layer</strong>
-            <span class="text-[#6c6a64] dark:text-[#a09d96]">REST endpoints were integrated through structured service logic with loading and error states.</span>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+              <strong class="text-zinc-900 dark:text-zinc-100 block font-mono text-xs uppercase">API Layer</strong>
+            </div>
+            <span class="text-zinc-600 dark:text-zinc-400">REST endpoints were integrated through structured service logic with loading and error states.</span>
           </div>
         </div>
       </section>
 
-      <!-- 06 — Key Features (4 Concise Feature Cards) -->
+      <!-- 06 — Key Features -->
       <section>
-        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
+        <div class="flex items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 mb-1 uppercase tracking-wider">
           <span>06</span>
           <span>·</span>
           <span>Core Capabilities</span>
         </div>
-        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+        <h2 class="font-display text-2xl sm:text-3xl text-zinc-950 dark:text-zinc-100 tracking-tight font-semibold mb-4">
           Key Features
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] mb-1">📊 Executive Research Overview</h3>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">Interactive summaries of active grants, publication totals, and research achievements.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <h3 class="font-semibold text-zinc-900 dark:text-zinc-100 mb-1">📊 Executive Research Overview</h3>
+            <p class="text-zinc-600 dark:text-zinc-400">Interactive summaries of active grants, publication totals, and research achievements.</p>
           </div>
 
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] mb-1">📑 Publication Tracker</h3>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">Categorized listings for indexed journals, conference proceedings, and book chapters.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <h3 class="font-semibold text-zinc-900 dark:text-zinc-100 mb-1">📑 Publication Tracker</h3>
+            <p class="text-zinc-600 dark:text-zinc-400">Categorized listings for indexed journals, conference proceedings, and book chapters.</p>
           </div>
 
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] mb-1">🛡️ HKI & Patent Management</h3>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">End-to-end status tracking for Copyrights, Patents, and Industrial Designs.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <h3 class="font-semibold text-zinc-900 dark:text-zinc-100 mb-1">🛡️ HKI & Patent Management</h3>
+            <p class="text-zinc-600 dark:text-zinc-400">End-to-end status tracking for Copyrights, Patents, and Industrial Designs.</p>
           </div>
 
-          <div class="p-4 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <h3 class="font-semibold text-[#141413] dark:text-[#faf9f5] mb-1">📅 Faculty Academic Calendar</h3>
-            <p class="text-[#6c6a64] dark:text-[#a09d96]">Integrated timeline for grant submission deadlines, defenses, and faculty workshops.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+            <h3 class="font-semibold text-zinc-900 dark:text-zinc-100 mb-1">📅 Faculty Academic Calendar</h3>
+            <p class="text-zinc-600 dark:text-zinc-400">Integrated timeline for grant submission deadlines, defenses, and faculty workshops.</p>
           </div>
         </div>
       </section>
 
-      <!-- 07 — Challenges & Solutions (Highlighted Beige Container) -->
-      <section class="p-6 sm:p-7 rounded-xl bg-[#efe9de] dark:bg-[#1c1b18] border border-[#e6dfd8] dark:border-[#2e2b26]">
-        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
+      <!-- 07 — Challenges & Solutions -->
+      <section class="p-6 sm:p-7 rounded-2xl bg-zinc-50 dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+        <div class="flex items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 mb-1 uppercase tracking-wider">
           <span>07</span>
           <span>·</span>
           <span>Problem Solving</span>
         </div>
-        <h2 class="font-display text-2xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+        <h2 class="font-display text-2xl text-zinc-950 dark:text-zinc-100 tracking-tight font-semibold mb-4">
           Challenges & Solutions
         </h2>
         <div class="space-y-3.5 text-xs sm:text-sm">
-          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-xs font-mono text-[#cc785c] font-bold block mb-1">CHALLENGE 01 · DENSE ACADEMIC DATA</span>
-            <p class="text-[#6c6a64] dark:text-[#a09d96] mb-1.5">Multi-column tables created layout overflow on small screens.</p>
-            <p class="text-[#141413] dark:text-[#faf9f5] font-medium"><strong class="text-[#5db872]">Solution:</strong> Designed adaptive card and table layouts that preserve important metadata while remaining readable on smaller screens.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10">
+            <span class="text-xs font-mono text-sky-600 dark:text-sky-400 font-bold block mb-1">CHALLENGE 01 · DENSE ACADEMIC DATA</span>
+            <p class="text-zinc-500 dark:text-zinc-400 mb-1.5">Multi-column tables created layout overflow on small screens.</p>
+            <p class="text-zinc-900 dark:text-zinc-100 font-medium"><strong class="text-emerald-600 dark:text-emerald-400">Solution:</strong> Designed adaptive card and table layouts that preserve important metadata while remaining readable on smaller screens.</p>
           </div>
 
-          <div class="p-4 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-            <span class="text-xs font-mono text-[#cc785c] font-bold block mb-1">CHALLENGE 02 · COMPLEX MULTI-STEP WORKFLOWS</span>
-            <p class="text-[#6c6a64] dark:text-[#a09d96] mb-1.5">HKI applications require multiple stages between lecturers and faculty reviewers.</p>
-            <p class="text-[#141413] dark:text-[#faf9f5] font-medium"><strong class="text-[#5db872]">Solution:</strong> Used reusable stepper and status patterns to make submission progress easier to understand.</p>
+          <div class="p-4 rounded-xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10">
+            <span class="text-xs font-mono text-sky-600 dark:text-sky-400 font-bold block mb-1">CHALLENGE 02 · COMPLEX MULTI-STEP WORKFLOWS</span>
+            <p class="text-zinc-500 dark:text-zinc-400 mb-1.5">HKI applications require multiple stages between lecturers and faculty reviewers.</p>
+            <p class="text-zinc-900 dark:text-zinc-100 font-medium"><strong class="text-emerald-600 dark:text-emerald-400">Solution:</strong> Used reusable stepper and status patterns to make submission progress easier to understand.</p>
           </div>
         </div>
       </section>
 
-      <!-- 08 — Outcome & What I Learned (Plain Editorial Closing) -->
+      <!-- 08 — Outcome & What I Learned -->
       <section class="pb-2">
-        <div class="flex items-center gap-2 text-xs font-mono text-[#cc785c] mb-1 uppercase tracking-wider">
+        <div class="flex items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 mb-1 uppercase tracking-wider">
           <span>08</span>
           <span>·</span>
           <span>Takeaways</span>
         </div>
-        <h2 class="font-display text-2xl sm:text-3xl text-[#141413] dark:text-[#faf9f5] tracking-tight mb-4">
+        <h2 class="font-display text-2xl sm:text-3xl text-zinc-950 dark:text-zinc-100 tracking-tight font-semibold mb-4">
           Outcome & What I Learned
         </h2>
         
-        <div class="p-4 sm:p-5 rounded-xl bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26] mb-4">
-          <span class="text-xs font-mono font-medium text-[#cc785c] block mb-1 uppercase">Outcome</span>
-          <p class="text-sm sm:text-base text-[#141413] dark:text-[#faf9f5] font-medium leading-relaxed">
+        <div class="p-4 sm:p-5 rounded-2xl bg-zinc-50 dark:bg-[#121316] border border-zinc-200 dark:border-white/10 mb-4">
+          <span class="text-xs font-mono font-medium text-sky-600 dark:text-sky-400 block mb-1 uppercase">Outcome</span>
+          <p class="text-sm sm:text-base text-zinc-900 dark:text-zinc-100 font-medium leading-relaxed">
             PentaDosen brings research, publication, HKI, and academic activity workflows into a unified interface designed for lecturers.
           </p>
         </div>
 
         <div>
-          <span class="text-xs font-mono font-medium text-[#8e8b82] dark:text-[#7a7770] block mb-2.5 uppercase tracking-wider">Key Learnings</span>
+          <span class="text-xs font-mono font-medium text-zinc-500 dark:text-zinc-400 block mb-2.5 uppercase tracking-wider">Key Learnings</span>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm font-mono">
-            <div class="flex items-start gap-2 p-3 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-              <span class="text-[#cc785c] mt-0.5">✦</span>
-              <span class="font-sans text-[#3d3d3a] dark:text-[#d4cfc7]">Designing interfaces for information-dense workflows.</span>
+            <div class="flex items-start gap-2 p-3 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+              <span class="text-sky-600 dark:text-sky-400 mt-0.5">✦</span>
+              <span class="font-sans text-zinc-700 dark:text-zinc-300">Designing interfaces for information-dense workflows.</span>
             </div>
-            <div class="flex items-start gap-2 p-3 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-              <span class="text-[#cc785c] mt-0.5">✦</span>
-              <span class="font-sans text-[#3d3d3a] dark:text-[#d4cfc7]">Building reusable React component patterns.</span>
+            <div class="flex items-start gap-2 p-3 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+              <span class="text-sky-600 dark:text-sky-400 mt-0.5">✦</span>
+              <span class="font-sans text-zinc-700 dark:text-zinc-300">Building reusable React component patterns.</span>
             </div>
-            <div class="flex items-start gap-2 p-3 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-              <span class="text-[#cc785c] mt-0.5">✦</span>
-              <span class="font-sans text-[#3d3d3a] dark:text-[#d4cfc7]">Integrating asynchronous REST API workflows.</span>
+            <div class="flex items-start gap-2 p-3 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+              <span class="text-sky-600 dark:text-sky-400 mt-0.5">✦</span>
+              <span class="font-sans text-zinc-700 dark:text-zinc-300">Integrating asynchronous REST API workflows.</span>
             </div>
-            <div class="flex items-start gap-2 p-3 rounded-lg bg-[#faf9f5] dark:bg-[#181715] border border-[#e6dfd8] dark:border-[#2e2b26]">
-              <span class="text-[#cc785c] mt-0.5">✦</span>
-              <span class="font-sans text-[#3d3d3a] dark:text-[#d4cfc7]">Translating complex academic requirements into simpler interactions.</span>
+            <div class="flex items-start gap-2 p-3 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
+              <span class="text-sky-600 dark:text-sky-400 mt-0.5">✦</span>
+              <span class="font-sans text-zinc-700 dark:text-zinc-300">Translating complex academic requirements into simpler interactions.</span>
             </div>
           </div>
         </div>
@@ -361,10 +373,10 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
     </div>
 
     <!-- Case Study Footer Action -->
-    <div class="mt-12 pt-8 border-t border-[#e6dfd8] dark:border-[#2e2b26] flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="mt-12 pt-8 border-t border-zinc-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
       <a
         href="/#projects"
-        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white dark:bg-[#121316] hover:bg-zinc-50 dark:hover:bg-white/5 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-white/10 text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
@@ -377,17 +389,17 @@ const project = portfolioData.projects.find((p) => p.id === 'pentadosen')!;
           href="https://pentadosen.yarsi.ac.id/"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#faf9f5] dark:bg-[#1c1b18] hover:bg-[#efe9de] dark:hover:bg-[#252320] text-[#141413] dark:text-[#faf9f5] border border-[#e6dfd8] dark:border-[#2e2b26] text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white dark:bg-[#121316] hover:bg-zinc-50 dark:hover:bg-white/5 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-white/10 text-xs font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
           <span>Visit Live Website</span>
-          <svg class="w-3.5 h-3.5 text-[#cc785c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
           </svg>
         </a>
 
         <a
           href="/#contact"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#cc785c] hover:bg-[#a9583e] text-white text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc785c]"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#0284c7] hover:bg-[#0369a1] text-white text-xs font-medium transition-all shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
           <span>Discuss a Project with Umam</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
