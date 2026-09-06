@@ -1,71 +1,62 @@
 ---
 import { portfolioData } from '../data/portfolioData';
+import { AboutVisualShowcase } from './ui/AboutVisualShowcase';
 
-const { about, personal } = portfolioData;
+const { personal } = portfolioData;
 ---
 
 <section id="about" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-  <!-- Section Header -->
-  <div class="pb-8 border-b border-zinc-200 dark:border-white/10">
-    <div class="mb-2">
-      <span class="text-xs font-mono font-medium text-sky-600 dark:text-sky-400 uppercase tracking-wider">
-        About Me
-      </span>
-    </div>
-    <h2 class="font-display text-3xl sm:text-4xl text-zinc-950 dark:text-white font-bold tracking-tight">
-      Discover the person behind the code.
-    </h2>
-    <p class="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-[58ch]">
-      Turning ideas into useful, intuitive, and secure digital solutions with a blend of engineering discipline and visual craft.
-    </p>
-  </div>
-
-  <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
     
-    <!-- Left Column: Authentic Personal Narrative (col-span-12 lg:col-span-6) -->
-    <div class="lg:col-span-6 space-y-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
-      <p>
-        Hi! I'm <strong class="text-zinc-950 dark:text-white">{personal.name}</strong>, a fresh graduate who genuinely enjoys turning ideas into useful, purposeful digital solutions.
-      </p>
-
-      <p>
-        My core interests center on <strong class="text-zinc-950 dark:text-white font-semibold">Software Development</strong>, <strong class="text-zinc-950 dark:text-white font-semibold">UI/UX Design</strong>, and <strong class="text-zinc-950 dark:text-white font-semibold">Cyber Security</strong>. I also enjoy graphic design and digital content creation, which equips me to build products that are functionally dependable, secure, and visually engaging.
-      </p>
-
-      <p>
-        I am always eager to learn new paradigms, explore emerging technologies, take on new challenges, and continue growing while creating digital products that are simple, accessible, enjoyable to use, and make a real impact.
-      </p>
-
-      <!-- Key Focus Highlight Strip -->
-      <div class="pt-4 grid grid-cols-2 gap-3 font-mono text-xs">
-        <div class="p-3.5 rounded-xl bg-zinc-50 dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
-          <span class="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block font-semibold">Primary Focus</span>
-          <span class="text-zinc-950 dark:text-white font-semibold mt-1 block">Software Dev & UI/UX</span>
-          <span class="text-xs text-zinc-600 dark:text-zinc-400 block mt-0.5">React · TypeScript · Figma</span>
-        </div>
-        <div class="p-3.5 rounded-xl bg-zinc-50 dark:bg-[#121316] border border-zinc-200 dark:border-white/10">
-          <span class="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block font-semibold">Security Mindset</span>
-          <span class="text-zinc-950 dark:text-white font-semibold mt-1 block">Cyber Security</span>
-          <span class="text-xs text-zinc-600 dark:text-zinc-400 block mt-0.5">Defensive & Secure Coding</span>
-        </div>
+    <!-- Left Column: Storytelling & Headline (lg:col-span-6) -->
+    <div class="lg:col-span-6 flex flex-col items-start">
+      
+      <!-- Pill Badge -->
+      <div class="inline-flex items-center px-3.5 py-1 rounded-full border border-zinc-300 dark:border-white/15 bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 text-xs font-mono font-medium tracking-wide uppercase mb-6 shadow-2xs">
+        About Me
       </div>
+
+      <!-- Editorial Headline matching screenshot -->
+      <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.08]">
+        Discover the person <br />
+        <span class="italic font-light text-zinc-400 dark:text-zinc-500">behind the code.</span>
+      </h2>
+
+      <!-- Personal Narrative matching reference cadence & style -->
+      <div class="mt-6 sm:mt-8 space-y-4 text-sm sm:text-base md:text-[17px] text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-xl">
+        <p>
+          Hi! I'm <strong class="text-zinc-950 dark:text-white font-semibold">{personal.name}</strong>, a fresh graduate in <strong class="text-zinc-950 dark:text-white font-semibold">Information Technology</strong> who genuinely enjoys turning ideas into useful digital solutions.
+        </p>
+
+        <p>
+          My interests include <strong class="text-zinc-950 dark:text-white font-semibold">Software Development</strong>, <strong class="text-zinc-950 dark:text-white font-semibold">UI/UX Design</strong>, and <strong class="text-zinc-950 dark:text-white font-semibold">Cyber Security</strong>. I also enjoy graphic design and digital content creation, which help me build products that are both functional and visually engaging.
+        </p>
+
+        <p>
+          I'm always eager to learn new things, explore new technologies, take on new challenges, and continue growing while creating digital products that are simple, functional, enjoyable to use, and make a real impact.
+        </p>
+      </div>
+
+      <!-- Quick Contact / Location Indicator -->
+      <div class="mt-6 flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-500 dark:text-zinc-400">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>Based in Jakarta, Indonesia (UTC+7)</span>
+        </div>
+        <span>·</span>
+        <a
+          href={`mailto:${personal.email}`}
+          class="text-[#0284c7] dark:text-[#38bdf8] hover:underline"
+        >
+          {personal.email}
+        </a>
+      </div>
+
     </div>
 
-    <!-- Right Column: 3 Core Pillars (col-span-12 lg:col-span-6) -->
-    <div class="lg:col-span-6 flex flex-col gap-4">
-      {about.values.map((val, idx) => (
-        <div class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10 hover:border-[#0284c7] dark:hover:border-[#38bdf8] shadow-xs dark:shadow-md transition-all group">
-          <div class="flex items-center justify-between pb-2 mb-2 border-b border-zinc-100 dark:border-white/5">
-            <h3 class="font-display text-lg text-zinc-950 dark:text-white font-semibold tracking-tight">
-              {val.title}
-            </h3>
-            <span class="text-xs font-mono font-bold text-[#0284c7] dark:text-[#38bdf8]">0{idx + 1}</span>
-          </div>
-          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            {val.description}
-          </p>
-        </div>
-      ))}
+    <!-- Right Column: GitHub Contributions Heatmap & Fanned Social Deck (lg:col-span-6) -->
+    <div class="lg:col-span-6 w-full flex justify-center">
+      <AboutVisualShowcase client:visible />
     </div>
 
   </div>
