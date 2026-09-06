@@ -11,32 +11,32 @@ const { personal } = portfolioData;
     <!-- Left Column: Editorial Headline & Actions (col-span-12 lg:col-span-6) -->
     <div class="lg:col-span-6 flex flex-col items-start">
       
-      <!-- Availability & Location Pill -->
+      <!-- Availability Pill -->
       <div class="hero-reveal mb-5 inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-[#121316] text-zinc-900 dark:text-zinc-200 text-xs font-mono font-medium border border-zinc-200 dark:border-white/10 shadow-2xs">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]"></span>
         </span>
-        <span>{personal.status}</span>
+        <span>Fresh Graduate · Open for Opportunities</span>
       </div>
 
-      <!-- Display Headline (Plus Jakarta Sans, bold, tight tracking, standard 48px display-lg ramp) -->
+      <!-- Display Headline with User's Name -->
       <h1 class="hero-reveal font-display text-4xl sm:text-5xl text-zinc-950 dark:text-white font-bold leading-[1.15] tracking-tight pb-1">
-        Crafting structured design systems & production-ready web interfaces.
+        Hi, I'm <span class="text-[#0284c7] dark:text-[#38bdf8]">Muhammad Syafi'ul Umam</span>.
       </h1>
 
-      <!-- Body Copy (Humanist sans, personal voice, grounded credibility) -->
+      <!-- Concise Portfolio Welcoming Copy -->
       <p class="hero-reveal mt-5 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-[48ch]">
-        Hi, I'm <strong class="font-semibold text-zinc-950 dark:text-white">{personal.name}</strong> — an IT student at Universitas YARSI. I translate Figma systems into accessible, high-performance web applications using React, TypeScript, and modern CSS architecture.
+        Welcome to my personal portfolio. I am a fresh graduate with a strong focus on <strong class="text-zinc-950 dark:text-white font-semibold">Software Development</strong>, <strong class="text-zinc-950 dark:text-white font-semibold">UI/UX Design</strong>, and <strong class="text-zinc-950 dark:text-white font-semibold">Cyber Security</strong>. Here, I document my journey in technology, share hands-on milestones, and showcase the digital products I've engineered along the way.
       </p>
 
-      <!-- Action Buttons with Distinct Hierarchy (Primary, Secondary, Text Link) -->
+      <!-- Action Buttons -->
       <div class="hero-reveal mt-8 flex flex-wrap items-center gap-3.5">
         <a
           href="#projects"
           class="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-[#0284c7] hover:bg-[#0369a1] dark:bg-[#38bdf8] dark:hover:bg-[#7dd3fc] text-white dark:text-[#080808] font-semibold text-sm transition-all shadow-xs dark:shadow-[0_0_20px_rgba(56,189,248,0.25)] active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284c7] dark:focus-visible:ring-[#38bdf8]"
         >
-          View Projects
+          Explore Works
         </a>
 
         <a
@@ -60,16 +60,6 @@ const { personal } = portfolioData;
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </a>
-      </div>
-
-      <!-- Metric Stats Banner (Authentic data, zero fabricated numbers) -->
-      <div class="hero-reveal mt-12 pt-8 border-t border-zinc-200 dark:border-white/10 w-full grid grid-cols-2 sm:grid-cols-4 gap-4">
-        {personal.stats.map((stat) => (
-          <div class="flex flex-col">
-            <span class="font-display text-xl sm:text-2xl text-zinc-950 dark:text-white font-bold tracking-tight">{stat.value}</span>
-            <span class="text-xs text-zinc-500 dark:text-zinc-400 font-medium mt-0.5">{stat.label}</span>
-          </div>
-        ))}
       </div>
     </div>
 
