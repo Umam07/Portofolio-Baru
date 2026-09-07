@@ -60,23 +60,23 @@ export const portfolioData = {
   },
 
   about: {
-    title: 'Discover the person behind the code.',
-    subtitle: 'Turning ideas into useful, secure, and engaging digital solutions.',
-    bio1: "Hi! I'm Muhammad Syafi'ul Umam, a fresh graduate passionate about turning ideas into purposeful digital solutions. My primary interests span Software Development, UI/UX Design, and Cyber Security.",
-    bio2: "I love crafting intuitive, responsive user experiences while keeping the underlying systems robust, efficient, and secure. My creative background in graphic design and visual storytelling complements my technical skills — enabling me to build products that are both deeply functional and visually delightful.",
-    bio3: "Always eager to learn new paradigms, explore emerging technologies, and tackle complex challenges, I aim to create digital products that are simple, reliable, enjoyable to use, and deliver genuine value.",
+    title: 'Bridging clean logic with intuitive craft.',
+    subtitle: 'Turning complex workflows into dependable, human-centered digital solutions.',
+    bio1: "I'm Muhammad Syafi'ul Umam, an Information Technology graduate from Universitas YARSI. I operate at the intersection of frontend engineering, enterprise workflows, and user interface craft.",
+    bio2: "Rather than treating frontend as mere presentation, I view it as the vital layer where systems become accessible. My experience spans building modular web applications with React, TypeScript, and Tailwind CSS, to analyzing enterprise ERP business processes and executing structured UAT.",
+    bio3: "I strive for digital solutions that are structurally sound, secure by design, and delightfully effortless to navigate.",
     values: [
       {
-        title: 'Software Development',
-        description: 'Building modern web applications and responsive interfaces with clean, type-safe code using React, TypeScript, and Tailwind CSS.',
+        title: 'Frontend Engineering',
+        description: 'Developing modular, accessible, and type-safe web applications using React, TypeScript, Vite, and modern Tailwind CSS.',
       },
       {
-        title: 'UI/UX & Visual Craft',
-        description: 'Designing intuitive user flows, accessible wireframes, and scalable design systems that make complex tasks feel effortless.',
+        title: 'ERP & System Workflows',
+        description: 'Analyzing enterprise business processes, mapping workflows, and executing User Acceptance Testing (UAT) with comprehensive technical documentation.',
       },
       {
-        title: 'Cyber Security Mindset',
-        description: 'Incorporating security-first principles, clean authentication patterns, data validation, and best practices from day one.',
+        title: 'UI/UX & Design Systems',
+        description: 'Crafting frictionless user journeys, consistent design tokens, and clean visual hierarchies in Figma that turn complexity into clarity.',
       },
     ],
   },

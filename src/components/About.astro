@@ -16,41 +16,27 @@ const { personal } = portfolioData;
         About Me
       </div>
 
-      <!-- Editorial Headline matching screenshot -->
+      <!-- Editorial Headline -->
       <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.08]">
-        Discover the person <br />
-        <span class="italic font-light text-zinc-400 dark:text-zinc-500">behind the code.</span>
+        Bridging clean logic <br />
+        <span class="italic font-light text-zinc-400 dark:text-zinc-500">with intuitive craft.</span>
       </h2>
 
-      <!-- Personal Narrative matching reference cadence & style -->
+      <!-- Personal Narrative grounded in actual background -->
       <div class="mt-6 sm:mt-8 space-y-4 text-sm sm:text-base md:text-[17px] text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-xl">
         <p>
-          Hi! I'm <strong class="text-zinc-950 dark:text-white font-semibold">{personal.name}</strong>, a fresh graduate in <strong class="text-zinc-950 dark:text-white font-semibold">Information Technology</strong> who genuinely enjoys turning ideas into useful digital solutions.
+          I'm <strong class="text-zinc-950 dark:text-white font-semibold">{personal.name}</strong>, an <strong class="text-zinc-950 dark:text-white font-semibold">Information Technology graduate</strong> from Universitas YARSI. I operate at the intersection of frontend engineering, enterprise workflows, and user interface craft.
         </p>
 
         <p>
-          My interests include <strong class="text-zinc-950 dark:text-white font-semibold">Software Development</strong>, <strong class="text-zinc-950 dark:text-white font-semibold">UI/UX Design</strong>, and <strong class="text-zinc-950 dark:text-white font-semibold">Cyber Security</strong>. I also enjoy graphic design and digital content creation, which help me build products that are both functional and visually engaging.
+          Rather than treating frontend as mere presentation, I view it as the vital layer where systems become accessible. My experience spans building modular web applications like <a href="/projects/pentadosen" class="text-sky-600 dark:text-sky-400 font-medium underline underline-offset-4 decoration-sky-500/30 hover:decoration-sky-500">PentaDosen</a> with React & TypeScript, to analyzing enterprise business blueprints and conducting UAT for <strong class="text-zinc-950 dark:text-white font-medium">Odoo ERP</strong> at C-Tech.
         </p>
 
         <p>
-          I'm always eager to learn new things, explore new technologies, take on new challenges, and continue growing while creating digital products that are simple, functional, enjoyable to use, and make a real impact.
+          I strive for digital solutions that are structurally sound, secure by design, and delightfully effortless to navigate.
         </p>
       </div>
 
-      <!-- Quick Contact / Location Indicator -->
-      <div class="mt-6 flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-500 dark:text-zinc-400">
-        <div class="flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <span>Based in Jakarta, Indonesia (UTC+7)</span>
-        </div>
-        <span>·</span>
-        <a
-          href={`mailto:${personal.email}`}
-          class="text-[#0284c7] dark:text-[#38bdf8] hover:underline"
-        >
-          {personal.email}
-        </a>
-      </div>
 
     </div>
 
