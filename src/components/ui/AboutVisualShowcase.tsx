@@ -68,51 +68,6 @@ const generateContributionData = (): { weeks: ContributionDay[][]; totalContribu
 
 const contributionData = generateContributionData();
 
-interface RepoItem {
-  name: string;
-  displayName: string;
-  description: string;
-  language: string;
-  languageColor: string;
-  tags: string[];
-  url: string;
-  stars?: number;
-  isInternal?: boolean;
-}
-
-const featuredRepos: RepoItem[] = [
-  {
-    name: "PentaDosen",
-    displayName: "Umam07/PentaDosen",
-    description: "Academic research, publication & lecturer performance management dashboard.",
-    language: "TypeScript",
-    languageColor: "bg-[#3178c6]",
-    tags: ["React", "Tailwind", "REST API"],
-    url: "/projects/pentadosen",
-    isInternal: true,
-  },
-  {
-    name: "SiRapi",
-    displayName: "Umam07/SiRapi",
-    description: "Intelligent directory sorting & conflict-free workspace file routing automation.",
-    language: "PowerShell",
-    languageColor: "bg-[#012456]",
-    tags: ["CLI", "Automation", "Workflow"],
-    url: "https://github.com/Umam07",
-    isInternal: false,
-  },
-  {
-    name: "InfoLansia",
-    displayName: "Umam07/InfoLansia",
-    description: "Community Posyandu mobile health tracking for elderly wellness indicators.",
-    language: "Dart",
-    languageColor: "bg-[#00b4ab]",
-    tags: ["Flutter", "Mobile", "HealthTech"],
-    url: "https://github.com/Umam07/InfoLansia",
-    isInternal: false,
-  },
-];
-
 export const AboutVisualShowcase: React.FC = () => {
   const [hoveredDay, setHoveredDay] = useState<{ day: ContributionDay; x: number; y: number } | null>(null);
   const [imgError, setImgError] = useState(false);
@@ -267,75 +222,19 @@ export const AboutVisualShowcase: React.FC = () => {
           </div>
         </div>
 
-      </div>
-
-      {/* 2. Featured Repositories Showcase (Replaces the 3 tilted copycat cards) */}
-      <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-6 bg-zinc-50/90 dark:bg-[#0c0e12]/90 border border-zinc-200 dark:border-white/10 shadow-xs">
-        <div className="flex items-center justify-between pb-3 mb-3 border-b border-zinc-200/80 dark:border-white/5">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-sky-500"></span>
-            <h4 className="text-xs sm:text-sm font-semibold text-zinc-950 dark:text-white font-mono tracking-tight uppercase">
-              Featured Repositories
-            </h4>
+        {/* Direct Channels Strip */}
+        <div className="mt-3.5 pt-3 border-t border-zinc-200/80 dark:border-white/5 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+          <div className="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 text-[11px]">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span>Jakarta, ID (UTC+7)</span>
           </div>
-          <span className="text-[11px] font-mono text-zinc-400">
-            3 Codebases
-          </span>
-        </div>
 
-        {/* Repos Grid */}
-        <div className="grid grid-cols-1 gap-2.5">
-          {featuredRepos.map((repo) => (
-            <a
-              key={repo.name}
-              href={repo.url}
-              target={repo.isInternal ? "_self" : "_blank"}
-              rel={repo.isInternal ? undefined : "noopener noreferrer"}
-              className="group p-3 sm:p-3.5 rounded-xl bg-white dark:bg-white/[0.02] border border-zinc-200/80 dark:border-white/5 hover:border-sky-500/50 dark:hover:border-sky-400/30 hover:bg-zinc-50/80 dark:hover:bg-white/[0.04] transition-all flex flex-col justify-between gap-2 shadow-2xs"
-            >
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2 min-w-0">
-                  <svg className="w-4 h-4 text-zinc-400 group-hover:text-sky-500 shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                  </svg>
-                  <span className="text-xs sm:text-sm font-mono font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors truncate">
-                    {repo.displayName}
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-white/5 text-zinc-500 dark:text-zinc-400 border border-zinc-200/60 dark:border-white/5 shrink-0">
-                  Public
-                </span>
-              </div>
-
-              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-snug line-clamp-2">
-                {repo.description}
-              </p>
-
-              <div className="flex items-center justify-between pt-1 text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
-                <div className="flex items-center gap-1.5">
-                  <span className={`w-2 h-2 rounded-full ${repo.languageColor}`} />
-                  <span>{repo.language}</span>
-                </div>
-                <div className="flex items-center gap-1 text-sky-600 dark:text-sky-400 group-hover:translate-x-0.5 transition-transform text-xs">
-                  <span>View</span>
-                  <span>→</span>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* Connected Channels Bottom Strip */}
-        <div className="mt-4 pt-3.5 border-t border-zinc-200/80 dark:border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-          <span className="text-zinc-500 dark:text-zinc-400 text-[11px]">
-            Direct Channels:
-          </span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <a
               href="https://github.com/Umam07"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2.5 py-1 rounded-lg bg-zinc-200/60 dark:bg-white/5 hover:bg-zinc-300 dark:hover:bg-white/10 text-zinc-700 dark:text-zinc-300 transition-colors text-[11px] font-medium"
+              className="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-white/5 hover:bg-zinc-200/70 dark:hover:bg-white/10 text-zinc-700 dark:text-zinc-300 transition-colors text-[11px] font-medium"
             >
               GitHub
             </a>
@@ -343,7 +242,7 @@ export const AboutVisualShowcase: React.FC = () => {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2.5 py-1 rounded-lg bg-zinc-200/60 dark:bg-white/5 hover:bg-zinc-300 dark:hover:bg-white/10 text-zinc-700 dark:text-zinc-300 transition-colors text-[11px] font-medium"
+              className="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-white/5 hover:bg-zinc-200/70 dark:hover:bg-white/10 text-zinc-700 dark:text-zinc-300 transition-colors text-[11px] font-medium"
             >
               LinkedIn
             </a>
@@ -351,7 +250,7 @@ export const AboutVisualShowcase: React.FC = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2.5 py-1 rounded-lg bg-zinc-200/60 dark:bg-white/5 hover:bg-zinc-300 dark:hover:bg-white/10 text-zinc-700 dark:text-zinc-300 transition-colors text-[11px] font-medium"
+              className="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-white/5 hover:bg-zinc-200/70 dark:hover:bg-white/10 text-zinc-700 dark:text-zinc-300 transition-colors text-[11px] font-medium"
             >
               Instagram
             </a>
@@ -359,7 +258,6 @@ export const AboutVisualShowcase: React.FC = () => {
         </div>
 
       </div>
-
     </div>
   );
 };
