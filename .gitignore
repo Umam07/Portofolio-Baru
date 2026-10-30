@@ -12,6 +12,7 @@ dist/
 .codegraph/
 skills-lock.json
 .gemini/
+.claude/
 
 # Environment variables
 .env

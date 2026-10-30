@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://syafiul.id/sitemap.xml
+Sitemap: https://www.syafiul.id/sitemap.xml

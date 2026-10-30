@@ -4,12 +4,12 @@ import { portfolioData } from '../data/portfolioData';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="py-8 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#080808] text-zinc-500 dark:text-zinc-400 border-t border-zinc-200 dark:border-white/10 transition-colors">
+<footer class="py-8 px-4 sm:px-6 lg:px-8 bg-white/70 text-[#2F4166] border-t border-[#B9D4F5] transition-colors backdrop-blur-sm">
   <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
     
     <!-- Left: Minimalist Copyright -->
     <div>
-      <span class="text-xs font-mono text-zinc-600 dark:text-zinc-400">
+      <span class="text-xs font-mono text-[#24365C]">
         © {currentYear} {portfolioData.personal.name}
       </span>
     </div>
@@ -18,17 +18,17 @@ const currentYear = new Date().getFullYear();
     <div class="flex items-center gap-4 text-xs font-mono">
       <a
         href={portfolioData.personal.resumeUrl}
-        download="Resume_Muhammad_Syafiul_Umam.pdf"
-        class="text-zinc-500 dark:text-zinc-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-sky-500 rounded px-1"
+        download="Muhammad Syafi'ul Umam_CV.pdf"
+        class="inline-flex min-h-11 items-center text-[#2F4166] hover:text-[#123A86] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1F5FD6] rounded px-1"
       >
         Resume (PDF)
       </a>
 
-      <span class="text-zinc-300 dark:text-zinc-700" aria-hidden="true">·</span>
+      <span class="text-[#B9D4F5]" aria-hidden="true">·</span>
 
       <a
         href="#hero"
-        class="inline-flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-sky-500 rounded px-1"
+        class="inline-flex min-h-11 items-center gap-1.5 text-[#2F4166] hover:text-[#0E1B3D] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1F5FD6] rounded px-1"
       >
         <span>Back to top</span>
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

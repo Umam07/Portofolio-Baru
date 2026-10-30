@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://portfolio.dev',
+  site: 'https://www.syafiul.id',
   integrations: [react()],
   vite: {
     // @ts-ignore - Vite type version mismatch between Astro and tailwindcss/vite

@@ -12,8 +12,14 @@ const {
   title = portfolioData.seo.title,
   description = portfolioData.seo.description,
   image = portfolioData.seo.ogImage,
-  canonicalURL = portfolioData.seo.url,
+  canonicalURL: canonicalOverride,
 } = Astro.props;
+
+// Canonical must always point at the page being rendered, never the homepage.
+const canonicalURL = canonicalOverride
+  ? new URL(canonicalOverride, Astro.site ?? portfolioData.seo.url)
+  : new URL(Astro.url.pathname, Astro.site ?? portfolioData.seo.url);
+const absoluteImage = new URL(image, canonicalURL).href;
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -22,7 +28,7 @@ const personSchema = {
   alternateName: ['Muhammad Syafi\'ul Umam', 'Syafi\'ul Umam', 'Syafiul Umam', 'Umam'],
   jobTitle: portfolioData.personal.role,
   description: portfolioData.personal.subtext,
-  url: canonicalURL,
+  url: canonicalURL.href,
   alumniOf: {
     '@type': 'EducationalOrganization',
     name: 'Universitas YARSI',
@@ -47,11 +53,10 @@ const personSchema = {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={canonicalURL.href} />
 <meta name="generator" content={Astro.generator} />
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#080808" />
-<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#EAF3FF" />
+<meta name="color-scheme" content="light" />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -63,19 +68,20 @@ const personSchema = {
 
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
+<meta property="og:url" content={canonicalURL.href} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={image} />
+<meta property="og:image" content={absoluteImage} />
+<meta property="og:image:alt" content={`${portfolioData.personal.name} — portfolio preview`} />
 <meta property="og:site_name" content={`${portfolioData.personal.name} — Portfolio`} />
-<meta property="og:locale" content="id_ID" />
+<meta property="og:locale" content="en_US" />
 
 <!-- Twitter / X -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:url" content={canonicalURL.href} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={image} />
+<meta property="twitter:image" content={absoluteImage} />
 
 <!-- Structured Data (JSON-LD) -->
 <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />

@@ -1,53 +1,33 @@
 ---
 version: 1.0.0
 name: Umam-design-engineering-system
-description: Dual-mode design system for Muhammad Syafi'ul Umam — Frontend Developer & UI/UX Designer. Combines Swiss Studio precision in Light Mode with Sleek Obsidian & Cyber Ice sophistication in Dark Mode. Built for lightning-fast performance, zero layout shift, and exceptional craft fidelity.
+description: Light sky-blue design system for Muhammad Syafi'ul Umam - Frontend Developer & UI/UX Designer. Uses the Zephyr sky palette as the only visual mode.
 
 colors:
-  # Light Mode (Swiss Studio / Linear DNA)
-  light:
-    canvas: "#ffffff"
-    surface-soft: "#f8fafc"
+  # Light Sky
+  fixed:
+    canvas: "#eaf3ff"
+    surface-soft: "#f2f7ff"
     surface-card: "#ffffff"
-    surface-elevated: "#f1f5f9"
-    hairline: "#e2e8f0"
-    hairline-soft: "#f1f5f9"
-    ink: "#09090b"
-    body: "#334155"
-    body-strong: "#0f172a"
-    muted: "#64748b"
-    muted-soft: "#94a3b8"
-    primary: "#0284c7"
-    primary-active: "#0369a1"
-    primary-glow: "rgba(2, 132, 199, 0.12)"
-    badge-bg: "#f1f5f9"
-    badge-border: "#e2e8f0"
-    badge-text: "#0f172a"
-
-  # Dark Mode (Sleek Obsidian & Cyber Ice)
-  dark:
-    canvas: "#080808"
-    surface-soft: "#0f1013"
-    surface-card: "#121316"
-    surface-elevated: "#181a1f"
-    hairline: "#1f2228"
-    hairline-soft: "#181a1f"
-    ink: "#f8fafc"
-    body: "#cbd5e1"
-    body-strong: "#f8fafc"
-    muted: "#94a3b8"
-    muted-soft: "#64748b"
-    primary: "#38bdf8"
-    primary-active: "#0ea5e9"
-    primary-glow: "rgba(56, 189, 248, 0.16)"
-    badge-bg: "#121316"
-    badge-border: "#22252c"
-    badge-text: "#f8fafc"
+    surface-elevated: "#dcebff"
+    hairline: "#b9d4f5"
+    hairline-soft: "#dcebff"
+    ink: "#0e1b3d"
+    body: "#24365c"
+    body-strong: "#0e1b3d"
+    muted: "#2f4166"
+    muted-soft: "#7d90b8"
+    primary: "#1f5fd6"
+    primary-active: "#123a86"
+    primary-glow: "rgba(31, 95, 214, 0.16)"
+    badge-bg: "#ffffff"
+    badge-border: "#b9d4f5"
+    badge-text: "#0e1b3d"
 
   # Universals & Accents
-  accent-cyan: "#38bdf8"
-  accent-indigo: "#818cf8"
-  accent-amber: "#f59e0b"
+  accent-azure: "#1f5fd6"
+  accent-hanada: "#6699e6"
+  accent-storm: "#80b3ff"
   success: "#10b981"
   error: "#ef4444"
 
@@ -126,49 +106,58 @@ radii:
   xl: 20px
   full: 9999px
 
+direction:
+  visual-language: "bright daylight sky with soft white clouds, white cards, and deep-navy ink for maximum readability"
+  dial: "ENERGY 2 / RHYTHM 2 / MOTION 2"
+  palette-reason: "The Zephyr stops #E6F2FF, #B3D9FF, #80B3FF, and #6699E6 flood the page with daylight while #0E1B3D ink and #1F5FD6 primary keep every text at WCAG AA contrast."
+
 components:
   # Navigation Bar
   navbar:
     height: 64px
-    bg-light: "rgba(255, 255, 255, 0.85)"
-    bg-dark: "rgba(8, 8, 8, 0.85)"
+    background: "rgba(255, 255, 255, 0.85)"
     blur: "12px"
-    border-light: "rgba(226, 232, 240, 0.8)"
-    border-dark: "rgba(255, 255, 255, 0.08)"
+    border: "rgba(255, 255, 255, 0.1)"
 
   # Hero Section
   hero:
     padding-top-desktop: 128px
     padding-bottom-desktop: 96px
+    atmosphere: "A lightweight Three.js shader gradient (AmbientGradient site-wide) driven by the Zephyr light-sky stops #6699e6, #80b3ff, #b3d9ff, #e6f2ff plus white cloud wisps, over a #eaf3ff page. Dark-navy ink keeps contrast. Single fullscreen quad, capped DPR 1.5, static when prefers-reduced-motion."
+
+  # Aozora gradient utility
+  aozora-gradient:
+    class: ".gradient-aozora"
+    stops: ["#e6f2ff misted sky", "#b3d9ff sky haze", "#80b3ff sky haze deep", "#6699e6 river indigo"]
+    angle: "135deg"
+    interpolation: "oklab, with an sRGB fallback declaration for older engines"
+    stops-position: "12.5% / 37.5% / 62.5% / 87.5% so each sky tone holds an equal band with soft outer caps"
+    grain: "::after tiled 256px noise PNG (base64), mix-blend-mode overlay at 0.02 opacity, declared in @layer components so it composes with utility classes"
+    usage: "Daylight surfaces (page background, hero, CTA bands). Body text stays dark navy on the bright field so contrast never drops."
 
   # Bento & Project Cards
   card:
-    bg-light: "#ffffff"
-    bg-dark: "#121316"
-    border-light: "#e2e8f0"
-    border-dark: "rgba(255, 255, 255, 0.08)"
-    border-hover-dark: "rgba(56, 189, 248, 0.3)"
-    shadow-light: "0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 16px rgba(0, 0, 0, 0.02)"
-    shadow-dark: "0 4px 20px rgba(0, 0, 0, 0.4)"
+    background: "#ffffff"
+    border: "#b9d4f5"
+    border-hover: "#1f5fd6"
+    shadow: "0 4px 20px rgba(31, 95, 214, 0.14)"
 
   # Primary Action Button
   button-primary:
-    bg-light: "#0284c7"
-    text-light: "#ffffff"
-    hover-light: "#0369a1"
-    bg-dark: "#38bdf8"
-    text-dark: "#080808"
-    hover-dark: "#7dd3fc"
+    background: "#1f5fd6"
+    text: "#ffffff"
+    hover: "#123a86"
     radius: 8px
 
 Do's and Don'ts:
   Do:
-    - Maintain ultra-crisp white surfaces in Light Mode and deep obsidian in Dark Mode.
+    - Maintain crisp white cards over the daylight sky canvas with deep-navy ink.
+    - Use text-body #24365C and text-muted #2F4166 for anything below 18px; the sky canvas is capped at 65% opacity so every word clears WCAG AA (4.5:1) on the deepest blue.
     - Use Plus Jakarta Sans / Inter for clear, modern typography with negative tracking.
     - Leverage Astro's static build output for sub-second page loads.
     - Use pure CSS hardware-accelerated transitions and subtle glows.
   Don't:
-    - Don't inject heavy Three.js canvas tunnels or full-screen SVG noise filters that degrade scroll performance.
+    - Don't inject heavy Three.js canvas tunnels or full-screen SVG noise filters that degrade scroll performance (exception: the single lightweight Aozora shader gradient described in hero.atmosphere, capped DPR 1.5 with reduced-motion static fallback).
     - Don't use font sizes below 12px (WCAG compliance).
     - Don't mix bookish serif headlines with dark tech cards.
 ---

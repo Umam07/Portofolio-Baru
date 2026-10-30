@@ -3,6 +3,8 @@ import SEO from '../components/SEO.astro';
 import Preloader from '../components/Preloader.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
+import { AmbientGradient } from '../components/ui/AmbientGradient';
 import '../styles/global.css';
 
 interface Props {
@@ -15,26 +17,17 @@ const { title, description, showPreloader = true } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth bg-white dark:bg-[#080808]">
+<html lang="en" class="scroll-smooth bg-[#EAF3FF]">
   <head>
     <SEO title={title} description={description} />
+    <ClientRouter />
+    <noscript>
+      <style>
+        #preloader { display: none !important; }
+        astro-island [style*="opacity:0"] { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
     
-    <!-- Theme Initializer (Default: Light Theme, with zero FOUT) -->
-    <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        return 'light'; // Default is light theme
-      })();
-
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
-
     <!-- Preconnect & Google Fonts (Plus Jakarta Sans + Inter + JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,14 +36,20 @@ const { title, description, showPreloader = true } = Astro.props;
       rel="stylesheet"
     />
   </head>
-  <body class="bg-white dark:bg-[#080808] text-[#09090b] dark:text-[#f8fafc] antialiased selection:bg-[#0ea5e9]/20 selection:text-[#09090b] dark:selection:text-[#f8fafc] min-h-[100dvh] flex flex-col justify-between transition-colors duration-300">
+  <body class="bg-[#EAF3FF] text-[#24365C] antialiased selection:bg-[#B3D9FF] selection:text-[#0E1B3D] min-h-[100dvh] flex flex-col justify-between">
+    <!-- Site-wide animated gradient (Three.js, Zephyr light sky) -->
+    <!-- Persist across View Transitions so the background never flashes -->
+    <div aria-hidden="true" transition:persist="site-bg" class="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#EAF3FF]">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.65),transparent_60%),radial-gradient(ellipse_at_85%_20%,rgba(179,217,255,0.35),transparent_60%),radial-gradient(ellipse_at_10%_85%,rgba(128,179,255,0.25),transparent_60%)]"></div>
+      <AmbientGradient client:idle />
+    </div>
     <!-- Smooth Editorial Preloader (Shown only once per session) -->
     <Preloader forceHide={!showPreloader} />
 
     <!-- Accessibility Skip to Main Content Link -->
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#0284c7] dark:focus:bg-[#38bdf8] focus:text-white dark:focus:text-[#080808] focus:rounded-md focus:font-mono focus:text-xs focus:shadow-lg"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#1F5FD6] focus:text-white focus:rounded-md focus:font-mono focus:text-xs focus:shadow-lg"
     >
       Skip to main content
     </a>
@@ -59,14 +58,17 @@ const { title, description, showPreloader = true } = Astro.props;
     <Navbar />
 
     <!-- Main Content Area -->
-    <main id="main-content" class="flex-grow">
+    <main id="main-content" class="relative z-10 flex-grow">
       <slot />
     </main>
 
-    <!-- Dark Footer -->
-    <Footer />
+    <!-- Footer -->
+    <div class="relative z-10">
+      <Footer />
+    </div>
 
     <!-- Client-side Script: Lenis Smooth Scroll + GSAP ScrollTrigger -->
+    <!-- Re-initialised on every View Transition via astro:page-load -->
     <script>
       import Lenis from 'lenis';
       import { gsap } from 'gsap';
@@ -74,9 +76,46 @@ const { title, description, showPreloader = true } = Astro.props;
 
       gsap.registerPlugin(ScrollTrigger);
 
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // Single RAF driver for the whole session — initSmooth only swaps
+      // which Lenis instance it pumps, so page swaps never stack tickers.
+      if (!(window as unknown as { __lenisTickerRegistered?: boolean }).__lenisTickerRegistered) {
+        (window as unknown as { __lenisTickerRegistered?: boolean }).__lenisTickerRegistered = true;
+        gsap.ticker.add((time: number) => {
+          (window as unknown as { __lenis?: Lenis }).__lenis?.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(500, 33);
+      }
 
-      if (!prefersReducedMotion) {
+      // The preloader is persisted across View Transitions and must stay
+      // hidden once seen — back-nav from a case study must never replay it.
+      function forceHidePreloader() {
+        try {
+          if (sessionStorage.getItem('visited_preloader') === 'true') {
+            document.getElementById('preloader')?.style.setProperty('display', 'none');
+          }
+        } catch {}
+      }
+
+      function teardownSmooth() {
+        // Kill triggers AND their tweens first — a tween killed mid-flight
+        // otherwise leaves `opacity: 0` inline and the section looks "hilang".
+        ScrollTrigger.getAll().forEach((t) => t.kill());
+        gsap.killTweensOf('.hero-reveal, .project-card, .bento-card, .experience-card');
+        gsap.set('.hero-reveal, .project-card, .bento-card, .experience-card', { clearProps: 'all' });
+        const prevLenis = (window as unknown as { __lenis?: Lenis }).__lenis;
+        try {
+          prevLenis?.destroy();
+        } catch {}
+        (window as unknown as { __lenis?: Lenis }).__lenis = undefined;
+      }
+
+      function initSmooth() {
+        forceHidePreloader();
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        teardownSmooth();
+        if (prefersReducedMotion) return;
+
         const lenis = new Lenis({
           duration: 1.1,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -84,37 +123,84 @@ const { title, description, showPreloader = true } = Astro.props;
           gestureOrientation: 'vertical',
           smoothWheel: true,
         });
+        (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
 
         lenis.on('scroll', ScrollTrigger.update);
 
-        gsap.ticker.add((time) => {
-          lenis.raf(time * 1000);
-        });
-
-        gsap.ticker.lagSmoothing(0);
+        // If we landed on a case-study page, start at the very top.
+        if (window.location.pathname.startsWith('/projects/')) {
+          window.scrollTo(0, 0);
+          lenis.scrollTo(0, { immediate: true });
+        }
 
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          if ((anchor as HTMLAnchorElement & { __smoothBound?: boolean }).__smoothBound) return;
+          (anchor as HTMLAnchorElement & { __smoothBound?: boolean }).__smoothBound = true;
           anchor.addEventListener('click', (e) => {
             const href = anchor.getAttribute('href');
             if (href && href !== '#') {
               const target = document.querySelector(href);
               if (target instanceof HTMLElement) {
                 e.preventDefault();
-                lenis.scrollTo(target, { offset: -70 });
+                (window as unknown as { __lenis?: Lenis }).__lenis?.scrollTo(target, { offset: -70 });
               }
             }
           });
         });
 
-        // GSAP Scroll Animations
-        gsap.from('.hero-reveal', {
-          opacity: 0,
-          y: 24,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: 'power2.out',
-          delay: 0.1,
-        });
+        // Deep-link restore (incl. back-nav to `/#projects`): re-assert the
+        // hash target once layout is settled and the preloader is gone,
+        // then refresh triggers so nothing stays stuck at opacity 0.
+        const restoreHashTarget = () => {
+          const hash = window.location.hash;
+          if (!hash || hash === '#') {
+            ScrollTrigger.refresh();
+            return;
+          }
+          const target = document.getElementById(hash.slice(1));
+          if (!(target instanceof HTMLElement)) {
+            ScrollTrigger.refresh();
+            return;
+          }
+          history.scrollRestoration = 'manual';
+          const jump = () => {
+            const el = document.getElementById(hash.slice(1));
+            if (el instanceof HTMLElement) {
+              lenis.scrollTo(el, { offset: -70, immediate: true });
+            }
+            requestAnimationFrame(() => ScrollTrigger.refresh());
+          };
+          const preloader = document.getElementById('preloader');
+          const preloaderHidden = () =>
+            !preloader || getComputedStyle(preloader).display === 'none';
+          const settle = () => requestAnimationFrame(() => requestAnimationFrame(jump));
+          if (preloaderHidden()) {
+            settle();
+          } else {
+            const started = Date.now();
+            const timer = window.setInterval(() => {
+              if (preloaderHidden() || Date.now() - started > 5000) {
+                window.clearInterval(timer);
+                settle();
+              }
+            }, 120);
+          }
+        };
+
+        // GSAP Scroll Animations (home page only — detail pages animate via Motion).
+        // Guarded per selector so a missing section never breaks the rest.
+        if (document.querySelector('.hero-reveal')) {
+          gsap.from('.hero-reveal', {
+            opacity: 0,
+            y: 24,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out',
+            delay: 0.1,
+            overwrite: 'auto',
+            clearProps: 'opacity,transform',
+          });
+        }
 
         gsap.utils.toArray<HTMLElement>('.project-card').forEach((card) => {
           gsap.from(card, {
@@ -127,6 +213,8 @@ const { title, description, showPreloader = true } = Astro.props;
             y: 28,
             duration: 0.7,
             ease: 'power2.out',
+            overwrite: 'auto',
+            clearProps: 'opacity,transform',
           });
         });
 
@@ -142,6 +230,8 @@ const { title, description, showPreloader = true } = Astro.props;
             duration: 0.6,
             delay: (i % 2) * 0.08,
             ease: 'power2.out',
+            overwrite: 'auto',
+            clearProps: 'opacity,transform',
           });
         });
 
@@ -156,9 +246,23 @@ const { title, description, showPreloader = true } = Astro.props;
             y: 20,
             duration: 0.6,
             ease: 'power2.out',
+            overwrite: 'auto',
+            clearProps: 'opacity,transform',
           });
         });
+
+        restoreHashTarget();
       }
+
+      initSmooth();
+      // Astro View Transitions: re-run after every client-side page swap.
+      document.addEventListener('astro:page-load', initSmooth);
+      document.addEventListener('astro:after-swap', () => {
+        if (window.location.pathname.startsWith('/projects/')) {
+          window.scrollTo(0, 0);
+        }
+        forceHidePreloader();
+      });
     </script>
   </body>
 </html>

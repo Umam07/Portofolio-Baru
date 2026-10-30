@@ -2,67 +2,80 @@
 import { portfolioData } from '../data/portfolioData';
 
 const { experience } = portfolioData;
+
+const splitHighlight = (highlight: string) => {
+  const separator = highlight.indexOf(':');
+  return separator === -1
+    ? { title: highlight, detail: '' }
+    : {
+        title: highlight.slice(0, separator),
+        detail: highlight.slice(separator + 1).trim(),
+      };
+};
 ---
 
-<section id="experience" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-  <!-- Section Header -->
-  <div class="pb-8 border-b border-zinc-200 dark:border-white/10">
-    <h2 class="font-display text-3xl sm:text-4xl text-zinc-950 dark:text-white font-bold tracking-tight">
-      Professional Experience
-    </h2>
-    <p class="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-[58ch]">
-      Demonstrating transferable experience in enterprise software workflow analysis, User Acceptance Testing (UAT), and frontend implementation.
+<section id="experience" class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+  <div class="mb-9 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+      <p class="mb-3 font-mono text-xs font-medium uppercase tracking-[0.18em] text-[#123A86]">
+        Experience
+      </p>
+      <h2 class="font-display text-3xl font-semibold leading-tight tracking-[-0.03em] text-[#0E1B3D] sm:text-4xl">
+        Work shaped by real workflows.
+      </h2>
+    </div>
+    <p class="max-w-xs text-sm leading-relaxed text-[#2F4166]">
+      A concise view of the systems, testing, and documentation I worked on.
     </p>
   </div>
 
-  <!-- Timeline Cards List -->
-  <div class="mt-10 space-y-6">
-    {experience.map((item) => (
-      <div class="experience-card group p-6 sm:p-8 rounded-xl bg-white dark:bg-[#121316] border border-zinc-200 dark:border-white/10 transition-all duration-200 hover:border-[#0284c7] dark:hover:border-[#38bdf8] shadow-xs dark:shadow-md">
-        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-4 border-b border-zinc-100 dark:border-white/5">
-          <div>
-            <div class="flex items-center gap-3">
-              <h3 class="font-display text-2xl sm:text-3xl text-zinc-950 dark:text-white font-bold tracking-tight group-hover:text-[#0284c7] dark:group-hover:text-[#38bdf8] transition-colors">
+  <div class="relative border-y border-[#B9D4F5]">
+    {experience.map((item, index) => (
+      <article class="grid gap-8 py-8 lg:grid-cols-[220px_1fr] lg:gap-12 lg:py-10">
+        <div class="flex gap-4 lg:block">
+          <span class="font-mono text-xs font-medium text-[#123A86]">0{index + 1}</span>
+          <div class="mt-0 lg:mt-5">
+            <p class="font-mono text-xs leading-relaxed text-[#2F4166]">
+              {item.period.replace(' — ', ' - ')}
+            </p>
+            <p class="mt-2 text-xs text-[#2F4166]">{item.type} · {item.location}</p>
+          </div>
+        </div>
+
+        <div class="min-w-0">
+          <div class="flex flex-col gap-2 border-b border-[#B9D4F5] pb-5 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+            <div>
+              <h3 class="font-display text-2xl font-semibold leading-tight tracking-[-0.025em] text-[#0E1B3D]">
                 {item.role}
               </h3>
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-[#1a1d24] text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10 font-medium">
-                {item.type}
-              </span>
+              <p class="mt-1 text-sm font-medium text-[#123A86]">{item.company}</p>
             </div>
-            
-            <p class="mt-1.5 text-sm font-semibold text-zinc-800 dark:text-zinc-200">
-              {item.company} <span class="text-zinc-500 dark:text-zinc-400 font-normal">· {item.location}</span>
-            </p>
+            <p class="max-w-md text-sm leading-relaxed text-[#24365C]">{item.description}</p>
           </div>
 
-          <span class="inline-block px-3 py-1 rounded bg-zinc-50 dark:bg-[#181a20] border border-zinc-200 dark:border-white/10 text-xs font-mono text-zinc-600 dark:text-zinc-400 font-medium">
-            {item.period}
-          </span>
+          <div class="mt-5 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+            {item.highlights.map((highlight, highlightIndex) => {
+              const content = splitHighlight(highlight);
+              return (
+                <div class="grid grid-cols-[24px_1fr] gap-3">
+                  <span class="pt-0.5 font-mono text-xs text-[#2F4166]">{String(highlightIndex + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h4 class="text-sm font-medium leading-snug text-[#0E1B3D]">{content.title}</h4>
+                    {content.detail && <p class="mt-1 text-xs leading-relaxed text-[#24365C]">{content.detail}</p>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#B9D4F5] pt-4">
+            <span class="font-mono text-xs uppercase tracking-[0.14em] text-[#2F4166]">Tools & methods</span>
+            <div class="flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-[#24365C]">
+              {item.skills.map((skill) => <span>{skill}</span>)}
+            </div>
+          </div>
         </div>
-
-        <p class="mt-4 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-          {item.description}
-        </p>
-
-        <!-- Highlights List -->
-        <ul class="mt-4 space-y-2.5">
-          {item.highlights.map((highlight) => (
-            <li class="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#0284c7] dark:bg-[#38bdf8] mt-2 shrink-0"></span>
-              <span>{highlight}</span>
-            </li>
-          ))}
-        </ul>
-
-        <!-- Skills pills -->
-        <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-white/5 flex flex-wrap gap-1.5">
-          {item.skills.map((skill) => (
-            <span class="px-2.5 py-0.5 rounded text-xs font-mono bg-zinc-100 dark:bg-[#181a20] text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10">
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
+      </article>
     ))}
   </div>
 </section>
