@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" rx="20" fill="#F2F7FF"/>
+  <rect x="24" y="24" width="752" height="452" rx="14" fill="#FFFFFF" stroke="#B9D4F5" stroke-width="2"/>
+  <rect x="40" y="40" width="720" height="420" rx="10" stroke="#DCEBFF" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- Top accent bar -->
+  <rect x="64" y="68" width="48" height="6" rx="3" fill="#123A86"/>
+  <text x="64" y="102" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" font-weight="600" letter-spacing="2" fill="#123A86">CERTIFICATE OF ACHIEVEMENT · DUMMY 02</text>
+
+  <!-- Title -->
+  <text x="64" y="164" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="700" fill="#0E1B3D">Web Application Security</text>
+  <text x="64" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#24365C">OWASP Top 10, Secure Coding &amp; Vulnerability Assessment</text>
+
+  <!-- Recipient -->
+  <text x="64" y="264" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5" fill="#2F4166">AWARDED TO</text>
+  <text x="64" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#0E1B3D">Muhammad Syafi'ul Umam</text>
+  <line x1="64" y1="316" x2="420" y2="316" stroke="#B9D4F5" stroke-width="1.5"/>
+
+  <!-- Footer metadata -->
+  <text x="64" y="388" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#2F4166">ISSUER: SECURITY LABS (DUMMY)</text>
+  <text x="64" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#2F4166">CREDENTIAL ID: CERT-APPSEC-2026-002</text>
+
+  <!-- Seal -->
+  <circle cx="676" cy="376" r="46" fill="#F2F7FF" stroke="#123A86" stroke-width="2"/>
+  <circle cx="676" cy="376" r="34" stroke="#B9D4F5" stroke-width="1.5"/>
+  <rect x="662" y="370" width="28" height="20" rx="4" fill="#1F5FD6" fill-opacity="0.14" stroke="#123A86" stroke-width="2"/>
+  <path d="M668 370v-5a8 8 0 0 1 16 0v5" stroke="#123A86" stroke-width="2" stroke-linecap="round"/>
+</svg>
