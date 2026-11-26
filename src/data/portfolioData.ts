@@ -36,6 +36,19 @@ export interface ExperienceItem {
   skills: string[];
 }
 
+export interface CertificateItem {
+  id: string;
+  title: string;
+  type: string;
+  issuer: string;
+  issued: string;
+  credentialId?: string;
+  verifyUrl?: string;
+  image: string;
+  summary: string;
+  testedSkills: string[];
+}
+
 export const portfolioData = {
   personal: {
     name: "Muhammad Syafi'ul Umam",
@@ -210,6 +223,29 @@ export const portfolioData = {
 
   experience: [
     {
+      period: 'Feb 2026 — Jul 2026',
+      role: 'Assistant Lecturer - Networking',
+      company: 'YARSI University',
+      location: 'Indonesia',
+      type: 'Part-time',
+      description: 'Mentored 40+ undergraduate students in foundational computer networking, database structures, and practical lab simulations using Cisco Packet Tracer.',
+      highlights: [
+        'Student Mentorship & Lab Guidance: Mentored and guided 40+ undergraduate students in mastering foundational computer networking concepts, database structures, and hands-on lab exercises.',
+        'Cisco Packet Tracer Simulations: Delivered interactive technical sessions and practical demonstrations utilizing Cisco Packet Tracer to simulate routing, switching, and network topologies.',
+        'One-on-One Troubleshooting: Provided one-on-one troubleshooting support during laboratory sessions, assisting students in resolving technical bottlenecks and improving overall concept comprehension.',
+        'Lab Assessment & Progress Tracking: Evaluated lab assignments and progress, ensuring students met course learning objectives and gained practical network engineering skills.',
+      ],
+      skills: [
+        'Computer Networking',
+        'Cisco Packet Tracer',
+        'Routing & Switching',
+        'Network Topologies',
+        'Database Structures',
+        'Troubleshooting',
+        'Lab Mentoring',
+      ],
+    },
+    {
       period: '11 Aug 2025 — 11 Feb 2026',
       role: 'Functional ERP Intern',
       company: 'C-Tech ERP Indonesia',
@@ -235,7 +271,55 @@ export const portfolioData = {
         'Odoo ERP',
       ],
     },
+    {
+      period: 'Jan 2024 — Jun 2024',
+      role: 'Assistant Lecturer - Object Oriented Programming',
+      company: 'YARSI University',
+      location: 'Indonesia',
+      type: 'Part-time',
+      description: 'Assisted lecturers in delivering Object-Oriented Programming coursework, live Java coding sessions, and assignment evaluations for 80+ undergraduate students.',
+      highlights: [
+        'Case-Based Materials & SOLID Principles: Developed case-based assignments and learning materials covering fundamental OOP concepts, including Classes, Objects, Methods, Encapsulation, Inheritance, Polymorphism, Abstraction, and SOLID Principles.',
+        'Live Coding & Practical Sessions: Delivered practical sessions and live coding demonstrations, teaching students Java programming, GUI development using Java Swing, Multithreading, and JDBC (MySQL) integration.',
+        'Assessment for 80+ Students: Assessed and evaluated assignments for 80+ students, providing constructive feedback and guidance on debugging, applying design principles, and developing modular, reusable applications.',
+        'Lecturer Collaboration: Collaborated with lecturers to align theoretical concepts with hands-on implementation, improving students\' understanding of OOP concepts and problem-solving skills.',
+      ],
+      skills: [
+        'Java',
+        'Object-Oriented Programming',
+        'SOLID Principles',
+        'Java Swing',
+        'Multithreading',
+        'JDBC (MySQL)',
+        'Debugging & Code Review',
+      ],
+    },
   ] as ExperienceItem[],
+
+  certificates: [
+    {
+      id: 'toeic-ets',
+      title: 'TOEIC Listening and Reading — Score 635',
+      type: 'Proficiency Certificate',
+      issuer: 'ETS (Educational Testing Service)',
+      issued: 'Jun 2025 – Jun 2027',
+      image: '/images/certificates/sertifikat-toeic.jpeg',
+      summary: 'Achieved a score of 635 on the TOEIC Listening and Reading assessment, validating English proficiency for international workplace communication (valid June 2025 – June 2027).',
+      testedSkills: ['Listening Comprehension', 'Reading Comprehension', 'Workplace English'],
+    },
+    {
+      id: 'cert-dummy-2',
+      title: 'Web Application Security (Dummy)',
+      type: 'Hands-on Training',
+      issuer: 'Security Labs',
+      issued: '2026',
+      credentialId: 'CERT-APPSEC-2026-002',
+      verifyUrl: 'https://example.com/verify/CERT-APPSEC-2026-002',
+      image: '/images/certificates/cert-dummy-2.svg',
+      summary: 'Placeholder certificate covering OWASP Top 10, secure coding practices, and basic vulnerability assessment.',
+      testedSkills: ['OWASP Top 10', 'AppSec', 'Input Validation', 'Vulnerability Assessment'],
+    },
+  ] as CertificateItem[],
 
   seo: {
     title: "Muhammad Syafi'ul Umam — Frontend Developer & UI/UX Designer",

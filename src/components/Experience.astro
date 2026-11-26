@@ -15,7 +15,7 @@ const splitHighlight = (highlight: string) => {
 ---
 
 <section id="experience" class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-  <div class="mb-9 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+  <div class="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
     <div>
       <p class="mb-3 font-mono text-xs font-medium uppercase tracking-[0.18em] text-[#123A86]">
         Experience
@@ -25,57 +25,76 @@ const splitHighlight = (highlight: string) => {
       </h2>
     </div>
     <p class="max-w-xs text-sm leading-relaxed text-[#2F4166]">
-      A concise view of the systems, testing, and documentation I worked on.
+      Chronological timeline of teaching, system analysis, and enterprise testing roles.
     </p>
   </div>
 
-  <div class="relative border-y border-[#B9D4F5]">
+  <ol class="relative space-y-8 border-l-2 border-[#B9D4F5] pl-6 sm:pl-9">
     {experience.map((item, index) => (
-      <article class="grid gap-8 py-8 lg:grid-cols-[220px_1fr] lg:gap-12 lg:py-10">
-        <div class="flex gap-4 lg:block">
-          <span class="font-mono text-xs font-medium text-[#123A86]">0{index + 1}</span>
-          <div class="mt-0 lg:mt-5">
-            <p class="font-mono text-xs leading-relaxed text-[#2F4166]">
-              {item.period.replace(' — ', ' - ')}
-            </p>
-            <p class="mt-2 text-xs text-[#2F4166]">{item.type} · {item.location}</p>
-          </div>
-        </div>
+      <li class="relative">
+        <span
+          aria-hidden="true"
+          class={`absolute -left-[33px] top-7 flex h-4 w-4 items-center justify-center rounded-full border-2 bg-white sm:-left-[45px] ${
+            index === 0 ? 'border-[#1F5FD6] ring-4 ring-[#1F5FD6]/15' : 'border-[#B9D4F5]'
+          }`}
+        >
+          <span class={`h-1.5 w-1.5 rounded-full ${index === 0 ? 'bg-[#1F5FD6]' : 'bg-[#123A86]/60'}`}></span>
+        </span>
 
-        <div class="min-w-0">
-          <div class="flex flex-col gap-2 border-b border-[#B9D4F5] pb-5 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+        <article class="rounded-2xl border border-[#B9D4F5] bg-white p-6 shadow-[0_4px_20px_rgba(31,95,214,0.06)] transition-shadow duration-300 hover:shadow-[0_12px_32px_rgba(31,95,214,0.12)] sm:p-7">
+          <div class="flex flex-col gap-3 border-b border-[#B9D4F5] pb-5 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <h3 class="font-display text-2xl font-semibold leading-tight tracking-[-0.025em] text-[#0E1B3D]">
+              <div class="flex flex-wrap items-center gap-2 font-mono text-xs text-[#2F4166]">
+                <span class="font-semibold text-[#123A86]">{String(index + 1).padStart(2, '0')}</span>
+                <span aria-hidden="true">·</span>
+                <span>{item.type}</span>
+                <span aria-hidden="true">·</span>
+                <span>{item.location}</span>
+              </div>
+              <h3 class="mt-2 font-display text-xl font-semibold leading-tight tracking-[-0.02em] text-[#0E1B3D] sm:text-2xl">
                 {item.role}
               </h3>
               <p class="mt-1 text-sm font-medium text-[#123A86]">{item.company}</p>
             </div>
-            <p class="max-w-md text-sm leading-relaxed text-[#24365C]">{item.description}</p>
+
+            <span class="inline-flex w-fit shrink-0 items-center rounded-full border border-[#B9D4F5] bg-[#F2F7FF] px-3 py-1 font-mono text-xs font-medium text-[#123A86]">
+              {item.period.replace(' — ', ' – ')}
+            </span>
           </div>
 
-          <div class="mt-5 grid gap-x-8 gap-y-4 sm:grid-cols-2">
-            {item.highlights.map((highlight, highlightIndex) => {
+          <p class="mt-4 text-sm leading-relaxed text-[#24365C]">
+            {item.description}
+          </p>
+
+          <ul class="mt-5 space-y-3">
+            {item.highlights.map((highlight) => {
               const content = splitHighlight(highlight);
               return (
-                <div class="grid grid-cols-[24px_1fr] gap-3">
-                  <span class="pt-0.5 font-mono text-xs text-[#2F4166]">{String(highlightIndex + 1).padStart(2, '0')}</span>
+                <li class="flex items-start gap-3 text-sm leading-relaxed">
+                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1F5FD6]" aria-hidden="true"></span>
                   <div>
-                    <h4 class="text-sm font-medium leading-snug text-[#0E1B3D]">{content.title}</h4>
-                    {content.detail && <p class="mt-1 text-xs leading-relaxed text-[#24365C]">{content.detail}</p>}
+                    <span class="font-semibold text-[#0E1B3D]">{content.title}</span>
+                    {content.detail && (
+                      <span class="text-[#24365C]"> — {content.detail}</span>
+                    )}
                   </div>
-                </div>
+                </li>
               );
             })}
-          </div>
+          </ul>
 
-          <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#B9D4F5] pt-4">
-            <span class="font-mono text-xs uppercase tracking-[0.14em] text-[#2F4166]">Tools & methods</span>
-            <div class="flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-[#24365C]">
-              {item.skills.map((skill) => <span>{skill}</span>)}
-            </div>
+          <div class="mt-6 flex flex-wrap items-center gap-2 border-t border-[#B9D4F5] pt-4">
+            <span class="mr-1 font-mono text-[11px] uppercase tracking-[0.14em] text-[#2F4166]">
+              Tools &amp; methods
+            </span>
+            {item.skills.map((skill) => (
+              <span class="rounded-full border border-[#B9D4F5] bg-[#F2F7FF] px-2.5 py-0.5 text-xs font-medium text-[#123A86]">
+                {skill}
+              </span>
+            ))}
           </div>
-        </div>
-      </article>
+        </article>
+      </li>
     ))}
-  </div>
+  </ol>
 </section>
