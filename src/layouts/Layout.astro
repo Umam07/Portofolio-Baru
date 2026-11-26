@@ -21,12 +21,7 @@ const { title, description, showPreloader = true } = Astro.props;
   <head>
     <SEO title={title} description={description} />
     <ClientRouter />
-    <noscript>
-      <style>
-        #preloader { display: none !important; }
-        astro-island [style*="opacity:0"] { opacity: 1 !important; transform: none !important; }
-      </style>
-    </noscript>
+
     
     <!-- Preconnect & Google Fonts (Plus Jakarta Sans + Inter + JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,6 +32,12 @@ const { title, description, showPreloader = true } = Astro.props;
     />
   </head>
   <body class="bg-[#EAF3FF] text-[#24365C] antialiased selection:bg-[#B3D9FF] selection:text-[#0E1B3D] min-h-[100dvh] flex flex-col justify-between">
+    <noscript>
+      <style>
+        #preloader { display: none !important; }
+        astro-island [style*="opacity:0"] { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
     <!-- Site-wide animated gradient (Three.js, Zephyr light sky) -->
     <!-- Persist across View Transitions so the background never flashes -->
     <div aria-hidden="true" transition:persist="site-bg" class="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#EAF3FF]">

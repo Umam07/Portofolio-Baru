@@ -113,6 +113,15 @@ const takeaways = [
           A centralized web platform empowering university lecturers to monitor research grants, publication milestones, intellectual property (HKI), and academic activity calendars in one seamless workflow.
         </p>
 
+        <!-- Tech Stack Tags -->
+        <div class="mt-5 flex flex-wrap gap-1.5">
+          {project.tags.map((tag) => (
+            <span class="rounded-md border border-[#B9D4F5] bg-white/80 px-2.5 py-1 font-mono text-xs text-[#24365C]">
+              {tag}
+            </span>
+          ))}
+        </div>
+
         <!-- Quick Info Metadata Grid -->
         <dl class="mt-8 grid grid-cols-2 gap-4 rounded-2xl border border-[#B9D4F5] bg-white p-5 sm:grid-cols-4 sm:p-6 shadow-[0_4px_20px_rgba(31,95,214,0.06)]">
           <div>
